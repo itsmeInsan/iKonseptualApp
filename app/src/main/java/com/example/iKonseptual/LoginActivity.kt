@@ -1,6 +1,5 @@
 package com.example.iKonseptual
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -51,18 +50,18 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun loginUser(user: Login) {
-        AuthClient.instance.login(user).enqueue(object : Callback<LoginResponse> {
-            override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+        AuthClient.instance.login(user).enqueue(object : Callback<Login> {
+            override fun onResponse(call: Call<Login>, response: Response<Login>) {
                 if (response.isSuccessful && response.body() != null) {
-                    val data = response.body()?.data
-                    if(data != null){
-                        val sharedPreferences = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
-                        val editor = sharedPreferences.edit()
-                        editor.putString("id", data.no.toString())
-                        editor.putString("email", data.email)
-                        editor.putString("role", data.role.toString())
-                        editor.apply()
-                    }
+//                    val data = response.body()?.data
+//                    if(data != null){
+//                        val sharedPreferences = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
+//                        val editor = sharedPreferences.edit()
+//                        editor.putString("id", data.no.toString())
+//                        editor.putString("email", data.email)
+//                        editor.putString("role", data.role.toString())
+//                        editor.apply()
+//                    }
                     Toast.makeText(this@LoginActivity, "Login berhasil", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this@LoginActivity, MainActivity::class.java)
                     startActivity(intent)
@@ -73,7 +72,7 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
 
-            override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+            override fun onFailure(call: Call<Login>, t: Throwable) {
                 t.printStackTrace()
                 Toast.makeText(this@LoginActivity, "Login gagal: ${t.message}", Toast.LENGTH_SHORT).show()
             }

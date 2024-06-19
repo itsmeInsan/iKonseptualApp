@@ -23,8 +23,8 @@ data class datauser(
     val sandi: String,
     val role: Int
 )
-data class Penyelidikan(val nama: String, val perkara: String, val date: Date, val tempat: String,val jaksa: String, val keperluan: String)
-data class Datapenyelidikan(
+data class PenyelidikanPenyidikan(val nama: String, val perkara: String, val date: Date, val tempat: String,val jaksa: String, val keperluan: String)
+data class DataPenyelidikanPenyidikan(
     val no: Int,
     val nama: String,
     val perkara: String,
@@ -33,31 +33,59 @@ data class Datapenyelidikan(
     val Jaksa: String,
     val keperluan: String
 )
+
+data class PerkaraPenting(val judul: String, val kasusposisi: String, val identitas:String, val pasal:String, val penahanan: String)
+data class DataPerkaraPenting(
+    val no: Int,
+    val judul: String,
+    val kasusposisi: String,
+    val identitas: String,
+    val pasal: String,
+    val penahanan: String
+)
 interface APIAuth {
     @POST("exec?action=register")
     fun register(@Body user: User): Call<User>
 
     @POST("exec?action=login")
-    fun login(@Body user: Login): Call<LoginResponse>
+    fun login(@Body user: Login): Call<Login>
 
     @POST("exec?action=updatePassword&id={id}")
     fun forgetPassword(@Path("id") id: Int, @Body user: ForgetPass): Call<ForgetPass>
 }
 
-interface APIPenyelidikan{
+interface APIPenyelidikanPenyidikan{
     @GET("exec")
-    fun getAll(): Call<List<Datapenyelidikan>>
+    fun getAll(): Call<List<DataPenyelidikanPenyidikan>>
 
     @GET("exec?id={id}")
-    fun getById(@Path("id") id: Int): Call<List<Datapenyelidikan>>
+    fun getById(@Path("id") id: Int): Call<List<DataPenyelidikanPenyidikan>>
 
     @POST("exec?action=insert")
-    fun post(@Body penyelidikan:Penyelidikan): Call<Penyelidikan>
+    fun post(@Body penyelidikan:PenyelidikanPenyidikan): Call<PenyelidikanPenyidikan>
 
     @POST("exec?action=update&id={id}")
-    fun update(@Path("id") id: Int,@Body penyelidikan: Penyelidikan): Call<Penyelidikan>
+    fun update(@Path("id") id: Int,@Body penyelidikan: PenyelidikanPenyidikan): Call<PenyelidikanPenyidikan>
 
     @POST("exec?action=delete&id={id}")
-    fun delete(@Path("id") id:Int, @Body penyelidikan: Penyelidikan): Call<Penyelidikan>
+    fun delete(@Path("id") id:Int, @Body penyelidikan: PenyelidikanPenyidikan): Call<PenyelidikanPenyidikan>
 
 }
+
+interface APIPerkaraPenting{
+    @GET("exec")
+    fun getAll(): Call<List<DataPerkaraPenting>>
+
+    @GET("exec?id={id}")
+    fun getById(@Path("id") id: Int): Call<List<DataPerkaraPenting>>
+
+    @POST("exec?action=insert")
+    fun post(@Body paketing:PerkaraPenting): Call<PerkaraPenting>
+
+    @POST("exec?action=update&id={id}")
+    fun update(@Path("id") id: Int,@Body paketing: PerkaraPenting): Call<PerkaraPenting>
+
+    @POST("exec?action=delete&id={id}")
+    fun delete(@Path("id") id:Int, @Body paketing: PerkaraPenting): Call<PerkaraPenting>
+}
+
