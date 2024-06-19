@@ -1,5 +1,6 @@
 package com.example.iKonseptual
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -25,10 +26,10 @@ class MainActivity : AppCompatActivity() {
 
         perkating = findViewById(R.id.CardView_Perkara_Penting)
         japem = findViewById(R.id.CardView_Jadwal_Pemeriksaan)
+        val sharedPreferences = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
+        val rolepref = sharedPreferences.getInt("role", -1)
 
-        val id = intent.getIntExtra("id",0).toString()
-
-        if (id == "1"){
+        if (rolepref == 1){
             val role = 1
             perkating.setOnClickListener{
                 val intent = Intent(
