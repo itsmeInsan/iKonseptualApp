@@ -48,7 +48,7 @@ interface APIAuth {
     fun register(@Body user: User): Call<User>
 
     @POST("exec?action=login")
-    fun login(@Body user: Login): Call<Login>
+    fun login(@Body user: Login): Call<LoginResponse>
 
     @POST("exec?action=updatePassword&id={id}")
     fun forgetPassword(@Path("id") id: Int, @Body user: ForgetPass): Call<ForgetPass>
