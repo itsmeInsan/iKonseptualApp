@@ -15,14 +15,27 @@ object AuthClient {
     }
 }
 
-object PenyelidikanClient{
+object PenyelidikanPenyidikanClient{
     private const val BASE_URL = "https://script.google.com/macros/s/AKfycbxTEhxzCkmp-o6QXBVV0nAsyzZA-L53KgE3RvoIT_YkwBo-B6OYyidNf3Ny2sN2PEnGjA/"
-    val instance: APIPenyelidikan by lazy {
+    val instance: APIPenyelidikanPenyidikan by lazy {
         val retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
-        retrofit.create(APIPenyelidikan::class.java)
+        retrofit.create(APIPenyelidikanPenyidikan::class.java)
     }
 }
+
+object PerkaraPentingClient{
+    private const val BASE_URL = " https://script.google.com/macros/s/AKfycbxy3mX1V7gQprYF5HCWhif4MR-fnuwzmxVTzG61dY-IRA-tWR2Tps-JhvmCjCXnbSb5gg/"
+    val instance: APIPerkaraPenting by lazy{
+        val retrofit = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        retrofit.create(APIPerkaraPenting::class.java)
+    }
+}
+
