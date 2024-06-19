@@ -66,6 +66,9 @@
             android:name="com.example.iKonseptual.ChangePassActivity"
             android:exported="false" />
         <activity
+            android:name="com.example.iKonseptual.SignupActivity"
+            android:exported="false" />
+        <activity
             android:name="com.example.iKonseptual.MainActivity"
             android:exported="false" />
         <activity
