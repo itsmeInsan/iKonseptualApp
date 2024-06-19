@@ -7,12 +7,11 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.iKonseptual.R
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class SignUpActivity : AppCompatActivity() {
+class SignupActivity : AppCompatActivity() {
     private lateinit var namaDepanEditText: EditText
     private lateinit var namaBelakangEditText: EditText
     private lateinit var emailEditText: EditText
@@ -55,19 +54,19 @@ class SignUpActivity : AppCompatActivity() {
             override fun onResponse(call: Call<User>, response: Response<User>) {
                 if (response.isSuccessful) {
                     Toast.makeText(
-                        this@SignUpActivity,
+                        this@SignupActivity,
                         "Registration Successful",
                         Toast.LENGTH_SHORT
                     ).show()
                     // Navigate to LoginActivity
-                    val intent = Intent(this@SignUpActivity, LoginActivity::class.java)
+                    val intent = Intent(this@SignupActivity, LoginActivity::class.java)
                     startActivity(intent)
                     finish()
                 } else {
                     val errorBody = response.errorBody()?.string() ?: "Unknown error"
                     Log.e("SignUpActivity", "Registration Failed: ${response.code()} - $errorBody")
                     Toast.makeText(
-                        this@SignUpActivity,
+                        this@SignupActivity,
                         "Registration Failed: ${response.code()} - $errorBody",
                         Toast.LENGTH_SHORT
                     ).show()
@@ -75,7 +74,7 @@ class SignUpActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<User>, t: Throwable) {
-                Toast.makeText(this@SignUpActivity, "Error: ${t.message}", Toast.LENGTH_SHORT)
+                Toast.makeText(this@SignupActivity, "Error: ${t.message}", Toast.LENGTH_SHORT)
                     .show()
                 Log.e("SignUpActivity", "Error: ${t.message}", t)
             }
