@@ -1,34 +1,49 @@
 package com.example.iKonseptual
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class LoginActivity : AppCompatActivity() {
-    private lateinit var emailEditText: EditText
-    private lateinit var passwordEditText: EditText
-    private lateinit var loginButton: Button
-    private lateinit var forgotPasswordTextView: Button
-    private lateinit var registerTextView: Button
+
+    lateinit var usernameInput : EditText
+    lateinit var passwordInput : EditText
+    lateinit var daftar : TextView
+    lateinit var lupa_sandi : TextView
+    lateinit var loginBtn : Button
+
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         setContentView(R.layout.activity_login)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
 
-        emailEditText = findViewById(R.id.editTextLoginEmail)
-        passwordEditText = findViewById(R.id.editTextLoginPassword)
-        loginButton = findViewById(R.id.button_login)
-        forgotPasswordTextView = findViewById(R.id.TextView_LupaSandi)
-        registerTextView = findViewById(R.id.TextView_DAFTAR)
+        usernameInput = findViewById(R.id.editTextLoginEmail)
+        passwordInput = findViewById(R.id.editTextLoginPassword)
+        daftar = findViewById(R.id.TextView_DAFTAR)
+        lupa_sandi = findViewById(R.id.TextView_LupaSandi)
+        loginBtn = findViewById(R.id.button_login)
 
-        loginButton.setOnClickListener {
-            val email = emailEditText.text.toString().trim()
-            val sandi = passwordEditText.text.toString().trim()
+        loginBtn.setOnClickListener{
+            val email = usernameInput.text.toString().trim()
+            val sandi = passwordInput.text.toString().trim()
 
             if (email.isEmpty() || sandi.isEmpty()) {
                 Toast.makeText(this, "Email dan Sandi harus diisi", Toast.LENGTH_SHORT).show()
@@ -37,42 +52,44 @@ class LoginActivity : AppCompatActivity() {
                 loginUser(loginUser)
             }
         }
-
-        forgotPasswordTextView.setOnClickListener {
-            val intent = Intent(this@LoginActivity, ChangePassActivity::class.java)
+        daftar.setOnClickListener{
+            val intent = Intent(
+                this,
+                SignupActivity::class.java
+            )
             startActivity(intent)
         }
-
-        registerTextView.setOnClickListener {
-            val intent = Intent(this@LoginActivity, SignUpActivity::class.java)
+        lupa_sandi.setOnClickListener{
+            val intent = Intent(
+                this,
+                ChangePassActivity::class.java
+            )
             startActivity(intent)
         }
     }
-
-    private fun loginUser(user: Login) {
-        AuthClient.instance.login(user).enqueue(object : Callback<Login> {
-            override fun onResponse(call: Call<Login>, response: Response<Login>) {
-                if (response.isSuccessful && response.body() != null) {
-//                    val data = response.body()?.data
-//                    if(data != null){
-//                        val sharedPreferences = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
-//                        val editor = sharedPreferences.edit()
-//                        editor.putString("id", data.no.toString())
-//                        editor.putString("email", data.email)
-//                        editor.putString("role", data.role.toString())
-//                        editor.apply()
-//                    }
+    private fun loginUser(user:Login){
+        AuthClient.instance.login(user).enqueue(object: Callback<LoginResponse>{
+            override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>){
+                if(response.isSuccessful && response.body()!= null){
+                    val data = response.body()?.data
+                    if(data != null){
+                        val sharedPreferences = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
+                        val editor = sharedPreferences.edit()
+                        editor.putString("id", data.no.toString())
+                        editor.putString("email", data.email)
+                        editor.putString("role", data.role.toString())
+                        editor.apply()
+                    }
                     Toast.makeText(this@LoginActivity, "Login berhasil", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this@LoginActivity, MainActivity::class.java)
                     startActivity(intent)
                     finish()
-                } else {
+                } else{
                     val errorBody = response.errorBody()?.string() ?: "Unknown error"
                     Toast.makeText(this@LoginActivity, "Login gagal: ${response.code()} - $errorBody}", Toast.LENGTH_SHORT).show()
                 }
             }
-
-            override fun onFailure(call: Call<Login>, t: Throwable) {
+            override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                 t.printStackTrace()
                 Toast.makeText(this@LoginActivity, "Login gagal: ${t.message}", Toast.LENGTH_SHORT).show()
             }
