@@ -1,90 +1,85 @@
-package com.example.iKonseptual
+package com.example.hahh
 
-import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-
+import com.example.iKonseptual.ChangePassActivity
+import com.example.iKonseptual.MainActivity
+import com.example.iKonseptual.R
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class LoginActivity : AppCompatActivity() {
-
-    lateinit var usernameInput : EditText
-    lateinit var passwordInput : EditText
-    lateinit var daftar : TextView
-    lateinit var lupa_sandi : TextView
-    lateinit var loginBtn : Button
-    lateinit var user : TextView
-    lateinit var admin : TextView
-
-    @SuppressLint("MissingInflatedId")
+    private lateinit var emailEditText: EditText
+    private lateinit var passwordEditText: EditText
+    private lateinit var loginButton: Button
+    private lateinit var forgotPasswordTextView: Button
+    private lateinit var registerTextView: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_login)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+
+        emailEditText = findViewById(R.id.editTextLoginEmail)
+        passwordEditText = findViewById(R.id.editTextLoginPassword)
+        loginButton = findViewById(R.id.button_login)
+        forgotPasswordTextView = findViewById(R.id.TextView_LupaSandi)
+        registerTextView = findViewById(R.id.TextView_DAFTAR)
+
+        loginButton.setOnClickListener {
+            val email = emailEditText.text.toString().trim()
+            val sandi = passwordEditText.text.toString().trim()
+
+            if (email.isEmpty() || sandi.isEmpty()) {
+                Toast.makeText(this, "Email dan Sandi harus diisi", Toast.LENGTH_SHORT).show()
+            } else {
+                val loginUser = Login(email = email, sandi = sandi)
+                loginUser(loginUser)
+            }
         }
 
-        usernameInput = findViewById(R.id.editTextLoginEmail)
-        passwordInput = findViewById(R.id.editTextLoginPassword)
-        daftar = findViewById(R.id.TextView_DAFTAR)
-        lupa_sandi = findViewById(R.id.TextView_LupaSandi)
-        loginBtn = findViewById(R.id.button_login)
-        user = findViewById(R.id.user)
-        admin = findViewById(R.id.admin)
-
-        user.setOnClickListener{
-            val role = 1
-            val intent = Intent(
-                this,
-                MainActivity::class.java
-            ).apply { putExtra("id",role) }
+        forgotPasswordTextView.setOnClickListener {
+            val intent = Intent(this@LoginActivity, ChangePassActivity::class.java)
             startActivity(intent)
         }
 
-        admin.setOnClickListener{
-            val role = 0
-            val intent = Intent(
-                this,
-                MainActivity::class.java
-            ).apply { putExtra("id",role) }
-            startActivity(intent)
-        }
-
-        loginBtn.setOnClickListener{
-            val username = usernameInput.text.toString()
-            val password = passwordInput.text.toString()
-            Log.i("Test Credential","Username : $username and Password: $password")
-            val intent = Intent(
-                this,
-                MainActivity::class.java
-            )
-            startActivity(intent)
-        }
-
-        daftar.setOnClickListener{
-            val intent = Intent(
-                this,
-                signupActivity::class.java
-            )
-            startActivity(intent)
-        }
-        lupa_sandi.setOnClickListener{
-            val intent = Intent(
-                this,
-                ChangePassActivity::class.java
-            )
+        registerTextView.setOnClickListener {
+            val intent = Intent(this@LoginActivity, SignUpActivity::class.java)
             startActivity(intent)
         }
     }
-}
 
+    private fun loginUser(user: Login) {
+        AuthClient.instance.login(user).enqueue(object : Callback<LoginResponse> {
+            override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+                if (response.isSuccessful && response.body() != null) {
+                    val data = response.body()?.data
+                    if(data != null){
+                        val sharedPreferences = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
+                        val editor = sharedPreferences.edit()
+                        editor.putString("id", data.no.toString())
+                        editor.putString("email", data.email)
+                        editor.putString("role", data.role.toString())
+                        editor.apply()
+                    }
+                    Toast.makeText(this@LoginActivity, "Login berhasil", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                } else {
+                    val errorBody = response.errorBody()?.string() ?: "Unknown error"
+                    Toast.makeText(this@LoginActivity, "Login gagal: ${response.code()} - $errorBody}", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+                t.printStackTrace()
+                Toast.makeText(this@LoginActivity, "Login gagal: ${t.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+}

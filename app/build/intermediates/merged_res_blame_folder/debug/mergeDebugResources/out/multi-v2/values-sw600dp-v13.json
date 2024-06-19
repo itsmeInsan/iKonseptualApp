@@ -4,7 +4,7 @@
             "outputFile": "com.example.iKonseptual.app-mergeDebugResources-30:/values-sw600dp-v13/values-sw600dp-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\fqbay\\.gradle\\caches\\transforms-4\\851ce5b234e219a77876daf5fb7a741e\\transformed\\material-1.10.0\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+                    "source": "C:\\Users\\fqbay\\.gradle\\caches\\transforms-4\\c28d32b79e2f31051c6039dc1822a544\\transformed\\material-1.10.0\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,10,11,12,13,14",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\fqbay\\.gradle\\caches\\transforms-4\\e5e53c0e9f737f44b74569200f6657f2\\transformed\\appcompat-1.6.1\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+                    "source": "C:\\Users\\fqbay\\.gradle\\caches\\transforms-4\\bbdf5e92efa7e3257fb034c154ad408d\\transformed\\appcompat-1.6.1\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",

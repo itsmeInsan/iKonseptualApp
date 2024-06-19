@@ -42,6 +42,7 @@ id TextView_Perkara_Penting
 id admin
 id button_login
 id button_signup
+id date
 id editTextEmailNew
 id editTextLoginEmail
 id editTextLoginPassword
@@ -64,11 +65,14 @@ id imageView_delete_jadwal
 id imageView_delete_pekating
 id imageView_edit_jadwal
 id imageView_edit_pekating
+id jaksa
 id label_create
 id label_detail
 id label_edit
 id label_jadwal
 id main
+id nama
+id recyclerView
 id tambah_jadwal
 id textView
 id text_title_jadwal
@@ -88,6 +92,7 @@ layout activity_rincian
 layout activity_signup
 layout activity_udpp
 layout activity_ujpp
+layout card_jadwal
 mipmap ic_launcher
 mipmap ic_launcher_round
 mipmap pidsus

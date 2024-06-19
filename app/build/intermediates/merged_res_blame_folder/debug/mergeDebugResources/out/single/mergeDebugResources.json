@@ -60,6 +60,10 @@
         "source": "com.example.iKonseptual.app-main-34:/drawable/ic_launcher_foreground.xml"
     },
     {
+        "merged": "com.example.iKonseptual.app-debug-32:/layout_card_jadwal.xml.flat",
+        "source": "com.example.iKonseptual.app-main-34:/layout/card_jadwal.xml"
+    },
+    {
         "merged": "com.example.iKonseptual.app-debug-32:/mipmap-xxxhdpi_ic_launcher.webp.flat",
         "source": "com.example.iKonseptual.app-main-34:/mipmap-xxxhdpi/ic_launcher.webp"
     },

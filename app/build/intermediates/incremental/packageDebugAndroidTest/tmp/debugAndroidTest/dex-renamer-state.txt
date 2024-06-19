@@ -1,4 +1,4 @@
-#Wed Jun 19 17:41:50 WIB 2024
+#Wed Jun 19 21:32:31 WIB 2024
 base.0=C\:\\Users\\fqbay\\ikonseptualApp\\i-Konseptual\\app\\build\\intermediates\\dex\\debugAndroidTest\\mergeExtDexDebugAndroidTest\\classes.dex
 base.1=C\:\\Users\\fqbay\\ikonseptualApp\\i-Konseptual\\app\\build\\intermediates\\dex\\debugAndroidTest\\mergeProjectDexDebugAndroidTest\\0\\classes.dex
 base.2=C\:\\Users\\fqbay\\ikonseptualApp\\i-Konseptual\\app\\build\\intermediates\\dex\\debugAndroidTest\\mergeProjectDexDebugAndroidTest\\10\\classes.dex

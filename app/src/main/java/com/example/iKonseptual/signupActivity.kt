@@ -1,20 +1,84 @@
-package com.example.iKonseptual
+package com.example.hahh
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.util.Log
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.example.iKonseptual.R
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-class signupActivity : AppCompatActivity() {
+class SignUpActivity : AppCompatActivity() {
+    private lateinit var namaDepanEditText: EditText
+    private lateinit var namaBelakangEditText: EditText
+    private lateinit var emailEditText: EditText
+    private lateinit var passwordEditText: EditText
+    private lateinit var signUpButton: Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_signup)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+        namaDepanEditText = findViewById(R.id.editTextNamaDepan)
+        namaBelakangEditText = findViewById(R.id.editTextNamaBelakang)
+        emailEditText = findViewById(R.id.editTextEmailNew)
+        passwordEditText = findViewById(R.id.editTextPassword)
+        signUpButton = findViewById(R.id.button_signup)
+
+        signUpButton.setOnClickListener {
+            val namaDepan = namaDepanEditText.text.toString().trim()
+            val namaBelakang = namaBelakangEditText.text.toString().trim()
+            val email = emailEditText.text.toString().trim()
+            val sandi = passwordEditText.text.toString().trim()
+            val role = 1
+            if (namaDepan.isEmpty() || namaBelakang.isEmpty() || email.isEmpty() || sandi.isEmpty()) {
+                Toast.makeText(this, "Harap diisi semuanya", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            } else {
+                val newUser = User(
+                    namaDepan = namaDepan,
+                    namaBelakang = namaBelakang,
+                    email = email,
+                    sandi = sandi,
+                    role = role
+                )
+                registerUser(newUser)
+            }
         }
+    }
+
+    private fun registerUser(user: User) {
+        AuthClient.instance.register(user).enqueue(object : Callback<User> {
+            override fun onResponse(call: Call<User>, response: Response<User>) {
+                if (response.isSuccessful) {
+                    Toast.makeText(
+                        this@SignUpActivity,
+                        "Registration Successful",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    // Navigate to LoginActivity
+                    val intent = Intent(this@SignUpActivity, LoginActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                } else {
+                    val errorBody = response.errorBody()?.string() ?: "Unknown error"
+                    Log.e("SignUpActivity", "Registration Failed: ${response.code()} - $errorBody")
+                    Toast.makeText(
+                        this@SignUpActivity,
+                        "Registration Failed: ${response.code()} - $errorBody",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+
+            override fun onFailure(call: Call<User>, t: Throwable) {
+                Toast.makeText(this@SignUpActivity, "Error: ${t.message}", Toast.LENGTH_SHORT)
+                    .show()
+                Log.e("SignUpActivity", "Error: ${t.message}", t)
+            }
+        })
     }
 }
