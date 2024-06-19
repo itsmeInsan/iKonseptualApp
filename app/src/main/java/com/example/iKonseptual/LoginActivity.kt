@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -17,7 +18,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class LoginActivity : AppCompatActivity() {
-
+    private var TAG = "LoginActivity"
     lateinit var usernameInput : EditText
     lateinit var passwordInput : EditText
     lateinit var daftar : TextView
@@ -75,11 +76,15 @@ class LoginActivity : AppCompatActivity() {
                     if(data != null){
                         val sharedPreferences = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
                         val editor = sharedPreferences.edit()
-                        editor.putString("id", data.no.toString())
-                        editor.putString("email", data.email)
-                        editor.putString("role", data.role.toString())
+                         val id = editor.putInt("id", data.no)
+                        val email = editor.putString("email", data.email)
+                        val role = editor.putInt("role", data.role)
                         editor.apply()
+                        Log.d(TAG, "id: $id")
+                        Log.d(TAG, "email: $email")
+                        Log.d(TAG, "role: $role")
                     }
+                    Log.d(TAG,"data: $data")
                     Toast.makeText(this@LoginActivity, "Login berhasil", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this@LoginActivity, MainActivity::class.java)
                     startActivity(intent)
