@@ -15,8 +15,6 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.hahh.Datapenyelidikan
-import com.example.hahh.PenyelidikanClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

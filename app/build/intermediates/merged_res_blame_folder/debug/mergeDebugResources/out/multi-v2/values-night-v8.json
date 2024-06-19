@@ -4,6 +4,23 @@
             "outputFile": "com.example.iKonseptual.app-mergeDebugResources-30:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
+                    "source": "C:\\Users\\fqbay\\.gradle\\caches\\transforms-4\\8e45479b1226273e8f353d4a91e017ef\\transformed\\appcompat-1.6.1\\res\\values-night-v8\\values-night-v8.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,125,209,293,389,491,593,687",
+                        "endColumns": "69,83,83,95,101,101,93,88",
+                        "endOffsets": "120,204,288,384,486,588,682,771"
+                    },
+                    "to": {
+                        "startLines": "6,7,8,9,10,11,12,38",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "167,237,321,405,501,603,705,3560",
+                        "endColumns": "69,83,83,95,101,101,93,88",
+                        "endOffsets": "232,316,400,496,598,700,794,3644"
+                    }
+                },
+                {
                     "source": "C:\\Users\\fqbay\\ikonseptualApp\\i-Konseptual\\app\\src\\main\\res\\values-night\\themes.xml",
                     "from": {
                         "startLines": "2",
@@ -23,24 +40,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\fqbay\\.gradle\\caches\\transforms-4\\bbdf5e92efa7e3257fb034c154ad408d\\transformed\\appcompat-1.6.1\\res\\values-night-v8\\values-night-v8.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,125,209,293,389,491,593,687",
-                        "endColumns": "69,83,83,95,101,101,93,88",
-                        "endOffsets": "120,204,288,384,486,588,682,771"
-                    },
-                    "to": {
-                        "startLines": "6,7,8,9,10,11,12,38",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "167,237,321,405,501,603,705,3560",
-                        "endColumns": "69,83,83,95,101,101,93,88",
-                        "endOffsets": "232,316,400,496,598,700,794,3644"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\fqbay\\.gradle\\caches\\transforms-4\\c28d32b79e2f31051c6039dc1822a544\\transformed\\material-1.10.0\\res\\values-night-v8\\values-night-v8.xml",
+                    "source": "C:\\Users\\fqbay\\.gradle\\caches\\transforms-4\\1bbd3d9e12ae6691b9e2c3f0474baa4e\\transformed\\material-1.10.0\\res\\values-night-v8\\values-night-v8.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
