@@ -5,7 +5,6 @@ import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
-import java.util.Date
 
 data class User(val namaDepan: String, val namaBelakang: String, val email: String, val sandi: String, val role: Int)
 data class Login(val email: String, val sandi: String)
@@ -23,15 +22,20 @@ data class datauser(
     val sandi: String,
     val role: Int
 )
-data class PenyelidikanPenyidikan(val nama: String, val perkara: String, val date: Date, val tempat: String,val jaksa: String, val keperluan: String)
+data class PenyelidikanPenyidikan(val Nama: String, val Perkara: String, val Waktu_Pelaksanaan: String, val Tempat_Pelaksanaan: String,val Jaksa_yang_melaksanakan: String, val Keperluan: String)
 data class DataPenyelidikanPenyidikan(
     val no: Int,
-    val nama: String,
-    val perkara: String,
-    val date:Date,
-    val tempat: String,
-    val Jaksa: String,
-    val keperluan: String
+    val Nama: String,
+    val Perkara: String,
+    val Waktu_Pelaksanaan: String,
+    val Tempat_Pelaksanaan: String,
+    val Jaksa_yang_melaksanakan: String,
+    val Keperluan: String
+)
+data class PenyelidikanPenyidikanResponse(
+    val success: Boolean,
+    val message: String,
+    val data: DataPenyelidikanPenyidikan
 )
 
 data class PerkaraPenting(val judul: String, val kasusposisi: String, val identitas:String, val pasal:String, val penahanan: String)
@@ -56,10 +60,10 @@ interface APIAuth {
 
 interface APIPenyelidikanPenyidikan{
     @GET("exec")
-    fun getAll(): Call<List<DataPenyelidikanPenyidikan>>
+    fun getAll(): Call<PenyelidikanPenyidikanResponse>
 
     @GET("exec?id={id}")
-    fun getById(@Path("id") id: Int): Call<List<DataPenyelidikanPenyidikan>>
+    fun getById(@Path("id") id: Int): Call<DataPenyelidikanPenyidikan>
 
     @POST("exec?action=insert")
     fun post(@Body penyelidikan:PenyelidikanPenyidikan): Call<PenyelidikanPenyidikan>
