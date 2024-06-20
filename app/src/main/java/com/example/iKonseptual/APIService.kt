@@ -33,9 +33,7 @@ data class DataPenyelidikanPenyidikan(
     val Keperluan: String
 )
 data class PenyelidikanPenyidikanResponse(
-    val success: Boolean,
-    val message: String,
-    val data: DataPenyelidikanPenyidikan
+    val data: List<DataPenyelidikanPenyidikan>
 )
 
 data class PerkaraPenting(val judul: String, val kasusposisi: String, val identitas:String, val pasal:String, val penahanan: String)
@@ -69,10 +67,10 @@ interface APIPenyelidikanPenyidikan{
     fun post(@Body penyelidikan:PenyelidikanPenyidikan): Call<PenyelidikanPenyidikan>
 
     @POST("exec?action=update&id={id}")
-    fun update(@Path("id") id: Int,@Body penyelidikan: PenyelidikanPenyidikan): Call<PenyelidikanPenyidikan>
+    fun update(@Path("id") id: Int,@Body penyelidikan: PenyelidikanPenyidikan): Call<PenyelidikanPenyidikanResponse>
 
     @POST("exec?action=delete&id={id}")
-    fun delete(@Path("id") id:Int, @Body penyelidikan: PenyelidikanPenyidikan): Call<PenyelidikanPenyidikan>
+    fun delete(@Path("id") id:Int): Call<PenyelidikanPenyidikanResponse>
 
 }
 
