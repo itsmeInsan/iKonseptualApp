@@ -76,7 +76,7 @@ class LoginActivity : AppCompatActivity() {
                     if(data != null){
                         val sharedPreferences = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
                         val editor = sharedPreferences.edit()
-                         val id = editor.putInt("id", data.no)
+                        val id = editor.putInt("id", data.no)
                         val email = editor.putString("email", data.email)
                         val role = editor.putInt("role", data.role)
                         editor.apply()
