@@ -1,5 +1,6 @@
 package com.example.iKonseptual
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -49,7 +50,9 @@ class JadwalActivity : AppCompatActivity() {
         val labelCreate = intent.getStringExtra("title_c")
         val labelEdit = intent.getStringExtra("title_e")
 
-        if (id == "1") {
+        val sharedPreferences = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
+        val rolepref = sharedPreferences.getInt("role", -1)
+        if (rolepref == 1) {
             icon.visibility = View.GONE
             val role = 1
             rincian.setOnClickListener {
@@ -58,6 +61,7 @@ class JadwalActivity : AppCompatActivity() {
                     RincianActivity::class.java
                 ).apply { putExtra("title_d", labelDetail); putExtra("id", role) }
                 startActivity(intent)
+                finish()
             }
         } else {
             icon.visibility = View.VISIBLE
@@ -67,6 +71,7 @@ class JadwalActivity : AppCompatActivity() {
                     CrtjadwalActivity::class.java
                 ).apply { putExtra("title_c", labelCreate) }
                 startActivity(intent)
+                finish()
             }
             rincian.setOnClickListener {
                 val intent = Intent(
@@ -77,6 +82,7 @@ class JadwalActivity : AppCompatActivity() {
                     putExtra("title_e", labelEdit)
                 }
                 startActivity(intent)
+                finish()
             }
         }
         datajadwal()
@@ -90,10 +96,18 @@ class JadwalActivity : AppCompatActivity() {
             ) {
                 if (response.isSuccessful) {
                     val data = response.body()?.data
-                    nama.text = data?.Nama ?: "N/A"
-                    jaksa.text = data?.Jaksa_yang_melaksanakan ?: "N/A"
-                    date.text = data?.Waktu_Pelaksanaan ?: "N/A"
-                    Toast.makeText(this@JadwalActivity, "Success get data", Toast.LENGTH_SHORT).show()
+                    if (data != null && data.isNotEmpty()) {
+                        val firstItem = data[0]
+                        nama.text = firstItem.Nama
+                        jaksa.text = firstItem.Jaksa_yang_melaksanakan
+                        date.text = firstItem.Waktu_Pelaksanaan
+                        Toast.makeText(this@JadwalActivity, "Sukses ambil data", Toast.LENGTH_SHORT).show()
+                    } else {
+                        nama.text = "N/A"
+                        jaksa.text = "N/A"
+                        date.text = "N/A"
+                        Toast.makeText(this@JadwalActivity, "Data tidak tersedia", Toast.LENGTH_SHORT).show()
+                    }
                 } else {
                     val errorBody = response.errorBody()?.string() ?: "Unknown error"
                     Toast.makeText(this@JadwalActivity, "Failed get data: ${response.code()} - $errorBody", Toast.LENGTH_SHORT).show()
