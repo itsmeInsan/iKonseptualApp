@@ -1,6 +1,5 @@
 package com.example.iKonseptual
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -28,7 +27,6 @@ class RincianActivity : AppCompatActivity() {
     lateinit var jaksa: TextView
     lateinit var keperluan: TextView
 
-    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
