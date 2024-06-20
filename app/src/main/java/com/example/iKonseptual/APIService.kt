@@ -8,7 +8,7 @@ import retrofit2.http.Path
 
 data class User(val namaDepan: String, val namaBelakang: String, val email: String, val sandi: String, val role: Int)
 data class Login(val email: String, val sandi: String)
-data class ForgetPass(val newPass: String, val confirmPass: String)
+data class ForgetPass(val sandi: String)
 data class LoginResponse(
     val success: Boolean,
     val message: String,
@@ -36,14 +36,17 @@ data class PenyelidikanPenyidikanResponse(
     val data: List<DataPenyelidikanPenyidikan>
 )
 
-data class PerkaraPenting(val judul: String, val kasusposisi: String, val identitas:String, val pasal:String, val penahanan: String)
+data class PerkaraPenting(val Judul_Perkara: String, val Kasus_Posisi: String, val Identitas_tersangka:String, val Pasal:String, val Penahanan: String)
 data class DataPerkaraPenting(
     val no: Int,
-    val judul: String,
-    val kasusposisi: String,
-    val identitas: String,
-    val pasal: String,
-    val penahanan: String
+    val Judul_Perkara: String,
+    val Kasus_Posisi: String,
+    val Identitas_tersangka: String,
+    val Pasal: String,
+    val Penahanan: String
+)
+data class PerkaraPentingResponse(
+    val data: List<DataPerkaraPenting>
 )
 interface APIAuth {
     @POST("exec?action=register")
@@ -76,10 +79,10 @@ interface APIPenyelidikanPenyidikan{
 
 interface APIPerkaraPenting{
     @GET("exec")
-    fun getAll(): Call<List<DataPerkaraPenting>>
+    fun getAll(): Call<PerkaraPentingResponse>
 
     @GET("exec?id={id}")
-    fun getById(@Path("id") id: Int): Call<List<DataPerkaraPenting>>
+    fun getById(@Path("id") id: Int): Call<PerkaraPentingResponse>
 
     @POST("exec?action=insert")
     fun post(@Body paketing:PerkaraPenting): Call<PerkaraPenting>
