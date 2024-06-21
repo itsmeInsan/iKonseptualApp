@@ -78,7 +78,7 @@ class EdtjadwalActivity : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
         val iduser = sharedPreferences.getInt("id", -1)
 
-        PenyelidikanPenyidikanClient.instance.getById(id = iduser).enqueue(object : Callback<DataPenyelidikanPenyidikan> {
+        PenyelidikanPenyidikanClient.penyelidikanInstance.getById(id = iduser).enqueue(object : Callback<DataPenyelidikanPenyidikan> {
             override fun onResponse(
                 call: Call<DataPenyelidikanPenyidikan>,
                 response: Response<DataPenyelidikanPenyidikan>
@@ -109,7 +109,7 @@ class EdtjadwalActivity : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
         val iduser = sharedPreferences.getInt("id", -1)
 
-        PenyelidikanPenyidikanClient.instance.update(id = iduser, jadwal).enqueue(object : Callback<PenyelidikanPenyidikanResponse> {
+        PenyelidikanPenyidikanClient.penyelidikanInstance.update(id = iduser, jadwal).enqueue(object : Callback<PenyelidikanPenyidikanResponse> {
             override fun onResponse(
                 call: Call<PenyelidikanPenyidikanResponse>,
                 response: Response<PenyelidikanPenyidikanResponse>
