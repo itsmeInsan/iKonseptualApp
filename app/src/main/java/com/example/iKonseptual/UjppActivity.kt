@@ -1,31 +1,31 @@
 package com.example.iKonseptual
 
-import android.content.Intent
+import android.annotation.SuppressLint
 import android.os.Bundle
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.cardview.widget.CardView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class UjppActivity : AppCompatActivity() {
 
-    private lateinit var det: CardView
-    private lateinit var judul: TextView
+    private lateinit var recyclerView: RecyclerView
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_ujpp)
 
         // Initialize Views
-        det = findViewById(R.id.CardView_det)
-        judul = findViewById(R.id.judulPerkaraTextView)
+       recyclerView = findViewById(R.id.recyclerView)
+       recyclerView.layoutManager = LinearLayoutManager(this)
 
         // Handle Window Insets
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -34,11 +34,6 @@ class UjppActivity : AppCompatActivity() {
             insets
         }
 
-        // Set CardView Click Listener
-        det.setOnClickListener {
-            val intent = Intent(this, UdppActivity::class.java)
-            startActivity(intent)
-        }
 
         // Fetch Data
         getAllDataPerkara()
@@ -53,11 +48,9 @@ class UjppActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     val data = response.body()?.data
                     if (data != null && data.isNotEmpty()) {
-                        val firstItem = data[0]
-                        judul.text = firstItem.Judul_Perkara
+                        recyclerView.adapter = PerkaraPentingAdapter(data)
                         Toast.makeText(this@UjppActivity, "Sukses ambil data", Toast.LENGTH_SHORT).show()
                     } else {
-                        judul.text = "N/A"
                         Toast.makeText(this@UjppActivity, "Data tidak tersedia", Toast.LENGTH_SHORT).show()
                     }
                 } else {
