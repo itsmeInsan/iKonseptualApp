@@ -1,6 +1,5 @@
 package com.example.iKonseptual
 
-import android.content.Context
 import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
@@ -32,31 +31,38 @@ class UdppActivity : AppCompatActivity() {
         penahananTextView = findViewById(R.id.penahananTextView)
         pasalTextView = findViewById(R.id.pasalTextView)
         kasusPosisiTextView = findViewById(R.id.kasusPosisiTextView)
-        val sharedPreferences = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
-        val id = sharedPreferences.getInt("id", -1)
+        val id = 2
         dataPerkaraPenting(id)
     }
     private fun dataPerkaraPenting(id:Int){
-        PerkaraPentingClient.instance.getById(id).enqueue(object : Callback<DataPerkaraPenting>{
+        PerkaraPentingClient.instance.getById(id).enqueue(object : Callback<PerkaraPentingResponse>{
             override fun onResponse(
-                call: Call<DataPerkaraPenting>,
-                response: Response<DataPerkaraPenting>
+                call: Call<PerkaraPentingResponse>,
+                response: Response<PerkaraPentingResponse>
             ) {
                 if(response.isSuccessful){
-                    response.body()?.let {
-                        DataPerkaraPenting ->
-                        judulPerkaraTextView.text = DataPerkaraPenting.Judul_Perkara
-                        identitasTersangkaTextView.text = DataPerkaraPenting.Identitas_tersangka
-                        penahananTextView.text = DataPerkaraPenting.Penahanan
-                        pasalTextView.text = DataPerkaraPenting.Pasal
-                        kasusPosisiTextView.text = DataPerkaraPenting.Kasus_Posisi
-                    }
+                    val data = response.body()?.data
+                    if(data != null && data.isNotEmpty()){
+                        val fristItem = data[0]
+                        judulPerkaraTextView.text = fristItem.Judul_Perkara
+                        identitasTersangkaTextView.text = fristItem.Identitas_tersangka
+                        penahananTextView.text = fristItem.Penahanan
+                        pasalTextView.text = fristItem.Pasal
+                        kasusPosisiTextView.text = fristItem.Kasus_Posisi
                     Toast.makeText(this@UdppActivity,"Sukses ambil data",Toast.LENGTH_SHORT).show()
+                    }else{
+                        judulPerkaraTextView.text = "N/A"
+                        identitasTersangkaTextView.text = "N/A"
+                        penahananTextView.text = "N/A"
+                        pasalTextView.text = "N/A"
+                        kasusPosisiTextView.text = "N/A"
+                        Toast.makeText(this@UdppActivity, "Data tidak tersedia", Toast.LENGTH_SHORT).show()
+                    }
                 } else{
                     Toast.makeText(this@UdppActivity,"Data tidak tersedia", Toast.LENGTH_SHORT).show()
                 }
             }
-            override fun onFailure(call: Call<DataPerkaraPenting>, t: Throwable) {
+            override fun onFailure(call: Call<PerkaraPentingResponse>, t: Throwable) {
                 t.printStackTrace()
                 Toast.makeText(this@UdppActivity, "Failed get data: ${t.message}", Toast.LENGTH_SHORT).show()
             }
