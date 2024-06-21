@@ -12,7 +12,7 @@ data class ForgetPass(val sandi: String)
 data class LoginResponse(
     val success: Boolean,
     val message: String,
-    val data: datauser
+    val data: datauser?
 )
 data class datauser(
     val no: Int,
@@ -33,6 +33,8 @@ data class DataPenyelidikanPenyidikan(
     val Keperluan: String
 )
 data class PenyelidikanPenyidikanResponse(
+    val success: Boolean,
+    val message: String,
     val data: List<DataPenyelidikanPenyidikan>
 )
 
@@ -59,22 +61,38 @@ interface APIAuth {
     fun forgetPassword(@Path("id") id: Int, @Body user: ForgetPass): Call<ForgetPass>
 }
 
-interface APIPenyelidikanPenyidikan{
-    @GET("exec")
+interface APIPenyelidikan{
+    @GET("exec?action=getAllPenyelidikan")
     fun getAll(): Call<PenyelidikanPenyidikanResponse>
 
-    @GET("exec?id={id}")
+    @GET("exec?action=getByIdPenyelidikan&id={id}")
     fun getById(@Path("id") id: Int): Call<DataPenyelidikanPenyidikan>
 
-    @POST("exec?action=insert")
+    @POST("exec?action=postPenyelidikan")
     fun post(@Body penyelidikan:PenyelidikanPenyidikan): Call<PenyelidikanPenyidikan>
 
-    @POST("exec?action=update&id={id}")
+    @POST("exec?action=updatePenyelidikan&id={id}")
     fun update(@Path("id") id: Int,@Body penyelidikan: PenyelidikanPenyidikan): Call<PenyelidikanPenyidikanResponse>
 
-    @POST("exec?action=delete&id={id}")
+    @POST("exec?action=deletePenyelidikan&id={id}")
     fun delete(@Path("id") id:Int): Call<PenyelidikanPenyidikanResponse>
+}
 
+interface APIPenyidikan{
+    @GET("exec?action=getAllPenyidikan")
+    fun getAll(): Call<PenyelidikanPenyidikanResponse>
+
+    @GET("exec?action=getByIdPenyidikan&id={id}")
+    fun getById(@Path("id") id: Int): Call<DataPenyelidikanPenyidikan>
+
+    @POST("exec?action=postPenyidikan")
+    fun post(@Body penyidikan:PenyelidikanPenyidikan): Call<PenyelidikanPenyidikan>
+
+    @POST("exec?action=updatePenyidikan&id={id}")
+    fun update(@Path("id") id: Int,@Body penyelidikan: PenyelidikanPenyidikan): Call<PenyelidikanPenyidikanResponse>
+
+    @POST("exec?action=deletePenyidikan&id={id}")
+    fun delete(@Path("id") id:Int): Call<PenyelidikanPenyidikanResponse>
 }
 
 interface APIPerkaraPenting{
@@ -82,7 +100,7 @@ interface APIPerkaraPenting{
     fun getAll(): Call<PerkaraPentingResponse>
 
     @GET("exec?id={id}")
-    fun getById(@Path("id") id: Int): Call<PerkaraPentingResponse>
+    fun getById(@Path("id") id: Int): Call<DataPerkaraPenting>
 
     @POST("exec?action=insert")
     fun post(@Body paketing:PerkaraPenting): Call<PerkaraPenting>
