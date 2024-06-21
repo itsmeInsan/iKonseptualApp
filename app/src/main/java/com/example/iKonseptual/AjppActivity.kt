@@ -4,13 +4,13 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.cardview.widget.CardView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -18,8 +18,7 @@ import retrofit2.Response
 class AjppActivity : AppCompatActivity() {
 
     lateinit var add_pp : ImageView
-    lateinit var to_detail_pp : CardView
-    lateinit var judul : TextView
+    private lateinit var recyclerView: RecyclerView
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,21 +30,14 @@ class AjppActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        recyclerView = findViewById(R.id.recyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(this)
 
         add_pp = findViewById(R.id.imageView_add_pekating)
-        to_detail_pp = findViewById(R.id.CardView_toadpp)
-        judul = findViewById(R.id.judulPerkara)
         add_pp.setOnClickListener{
             val intent = Intent(
                 this,
                 AcppActivity::class.java
-            )
-            startActivity(intent)
-        }
-        to_detail_pp.setOnClickListener{
-            val intent = Intent(
-                this,
-                AdppActivity::class.java
             )
             startActivity(intent)
         }
@@ -60,11 +52,9 @@ class AjppActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     val data = response.body()?.data
                     if (data != null && data.isNotEmpty()) {
-                        val firstItem = data[0]
-                        judul.text = firstItem.Judul_Perkara
+                        recyclerView.adapter = PerkaraPentingAdapter(data)
                         Toast.makeText(this@AjppActivity, "Sukses ambil data", Toast.LENGTH_SHORT).show()
                     } else {
-                        judul.text = "N/A"
                         Toast.makeText(this@AjppActivity, "Data tidak tersedia", Toast.LENGTH_SHORT).show()
                     }
                 } else {
