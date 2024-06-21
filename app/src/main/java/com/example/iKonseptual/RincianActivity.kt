@@ -81,7 +81,7 @@ class RincianActivity : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
         val iduser = sharedPreferences.getInt("id", -1)
 
-        PenyelidikanPenyidikanClient.instance.delete(iduser).enqueue(object: Callback<PenyelidikanPenyidikanResponse> {
+        PenyelidikanPenyidikanClient.penyelidikanInstance.delete(iduser).enqueue(object: Callback<PenyelidikanPenyidikanResponse> {
             override fun onResponse(call: Call<PenyelidikanPenyidikanResponse>, response: Response<PenyelidikanPenyidikanResponse>) {
                 if (response.isSuccessful) {
                     Toast.makeText(this@RincianActivity, "Sukses hapus data", Toast.LENGTH_SHORT).show()
@@ -103,7 +103,7 @@ class RincianActivity : AppCompatActivity() {
     private fun getDataById(){
         val sharedPreferences = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
         val iduser = sharedPreferences.getInt("id", 0)
-        PenyelidikanPenyidikanClient.instance.getById(iduser).enqueue(object: Callback<DataPenyelidikanPenyidikan>{
+        PenyelidikanPenyidikanClient.penyelidikanInstance.getById(iduser).enqueue(object: Callback<DataPenyelidikanPenyidikan>{
             override fun onResponse(
                 call: Call<DataPenyelidikanPenyidikan>,
                 response: Response<DataPenyelidikanPenyidikan>
