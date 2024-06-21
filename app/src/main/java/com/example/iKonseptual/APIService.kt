@@ -48,6 +48,8 @@ data class DataPerkaraPenting(
     val Penahanan: String
 )
 data class PerkaraPentingResponse(
+    val success: Boolean,
+    val message: String,
     val data: List<DataPerkaraPenting>
 )
 interface APIAuth {
@@ -100,7 +102,7 @@ interface APIPerkaraPenting{
     fun getAll(): Call<PerkaraPentingResponse>
 
     @GET("exec?id={id}")
-    fun getById(@Path("id") id: Int): Call<DataPerkaraPenting>
+    fun getById(@Path("id") id: Int): Call<PerkaraPentingResponse>
 
     @POST("exec?action=insert")
     fun post(@Body paketing:PerkaraPenting): Call<PerkaraPenting>
