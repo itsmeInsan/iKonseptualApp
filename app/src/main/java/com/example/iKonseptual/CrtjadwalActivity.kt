@@ -15,7 +15,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class CrtjadwalActivity : AppCompatActivity() {
-    lateinit var label: TextView
+    private lateinit var label: TextView
     private lateinit var inputNama: EditText
     private lateinit var inputPerkara: EditText
     private lateinit var inputWaktu: EditText
