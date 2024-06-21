@@ -15,15 +15,21 @@ object AuthClient {
     }
 }
 
-object PenyelidikanPenyidikanClient{
+object PenyelidikanPenyidikanClient {
     private const val BASE_URL = "https://script.google.com/macros/s/AKfycbxTEhxzCkmp-o6QXBVV0nAsyzZA-L53KgE3RvoIT_YkwBo-B6OYyidNf3Ny2sN2PEnGjA/"
-    val instance: APIPenyelidikanPenyidikan by lazy {
-        val retrofit = Retrofit.Builder()
+    private val retrofit: Retrofit by lazy {
+        Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
+    }
 
-        retrofit.create(APIPenyelidikanPenyidikan::class.java)
+    val penyelidikanInstance: APIPenyelidikan by lazy {
+        retrofit.create(APIPenyelidikan::class.java)
+    }
+
+    val penyidikanInstance: APIPenyidikan by lazy {
+        retrofit.create(APIPenyidikan::class.java)
     }
 }
 
