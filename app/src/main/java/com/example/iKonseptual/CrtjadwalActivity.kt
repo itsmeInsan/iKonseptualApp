@@ -62,13 +62,13 @@ class CrtjadwalActivity : AppCompatActivity() {
                     Jaksa_yang_melaksanakan = jaksa,
                     Keperluan = keperluan
                 )
-                postPenyelidikanPenyidikan(postJadwal)
+                postjadwal(postJadwal)
             }
         }
     }
 
-    private fun postPenyelidikanPenyidikan(jadwal: PenyelidikanPenyidikan) {
-        PenyelidikanPenyidikanClient.instance.post(jadwal).enqueue(object : Callback<PenyelidikanPenyidikan> {
+    private fun postjadwal(jadwal: PenyelidikanPenyidikan) {
+        PenyelidikanPenyidikanClient.penyidikanInstance.post(jadwal).enqueue(object : Callback<PenyelidikanPenyidikan> {
             override fun onResponse(
                 call: Call<PenyelidikanPenyidikan>,
                 response: Response<PenyelidikanPenyidikan>
@@ -89,4 +89,5 @@ class CrtjadwalActivity : AppCompatActivity() {
             }
         })
     }
+
 }
