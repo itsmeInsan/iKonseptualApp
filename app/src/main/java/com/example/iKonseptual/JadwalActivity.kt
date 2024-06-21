@@ -54,12 +54,11 @@ class JadwalActivity : AppCompatActivity() {
         val rolepref = sharedPreferences.getInt("role", -1)
         if (rolepref == 1) {
             icon.visibility = View.GONE
-            val role = 1
             rincian.setOnClickListener {
                 val intent = Intent(
                     this,
                     RincianActivity::class.java
-                ).apply { putExtra("title_d", labelDetail); putExtra("id", role) }
+                ).apply { putExtra("title_d", labelDetail); putExtra("id", rolepref) }
                 startActivity(intent)
                 finish()
             }
@@ -85,39 +84,77 @@ class JadwalActivity : AppCompatActivity() {
                 finish()
             }
         }
-        datajadwal()
+        dataJadwal()
     }
 
-    private fun datajadwal() {
-        PenyelidikanPenyidikanClient.instance.getAll().enqueue(object : Callback<PenyelidikanPenyidikanResponse> {
+    private fun dataJadwal() {
+        // Call both penyelidikan and penyidikan APIs and update UI
+        fetchPenyelidikanData()
+        fetchPenyidikanData()
+    }
+
+    private fun fetchPenyelidikanData() {
+        PenyelidikanPenyidikanClient.penyelidikanInstance.getAll().enqueue(object : Callback<PenyelidikanPenyidikanResponse> {
             override fun onResponse(
                 call: Call<PenyelidikanPenyidikanResponse>,
                 response: Response<PenyelidikanPenyidikanResponse>
             ) {
-                if (response.isSuccessful) {
-                    val data = response.body()?.data
-                    if (data != null && data.isNotEmpty()) {
-                        val firstItem = data[0]
-                        nama.text = firstItem.Nama
-                        jaksa.text = firstItem.Jaksa_yang_melaksanakan
-                        date.text = firstItem.Waktu_Pelaksanaan
-                        Toast.makeText(this@JadwalActivity, "Sukses ambil data", Toast.LENGTH_SHORT).show()
-                    } else {
-                        nama.text = "N/A"
-                        jaksa.text = "N/A"
-                        date.text = "N/A"
-                        Toast.makeText(this@JadwalActivity, "Data tidak tersedia", Toast.LENGTH_SHORT).show()
-                    }
-                } else {
-                    val errorBody = response.errorBody()?.string() ?: "Unknown error"
-                    Toast.makeText(this@JadwalActivity, "Failed get data: ${response.code()} - $errorBody", Toast.LENGTH_SHORT).show()
-                }
+                handleResponse(response)
             }
 
             override fun onFailure(call: Call<PenyelidikanPenyidikanResponse>, t: Throwable) {
-                t.printStackTrace()
-                Toast.makeText(this@JadwalActivity, "Failed get data: ${t.message}", Toast.LENGTH_SHORT).show()
+                showError(t.message)
             }
         })
+    }
+
+    private fun fetchPenyidikanData() {
+        PenyelidikanPenyidikanClient.penyidikanInstance.getAll().enqueue(object : Callback<PenyelidikanPenyidikanResponse> {
+            override fun onResponse(
+                call: Call<PenyelidikanPenyidikanResponse>,
+                response: Response<PenyelidikanPenyidikanResponse>
+            ) {
+                handleResponse(response)
+            }
+
+            override fun onFailure(call: Call<PenyelidikanPenyidikanResponse>, t: Throwable) {
+                showError(t.message)
+            }
+        })
+    }
+
+    private fun handleResponse(response: Response<PenyelidikanPenyidikanResponse>) {
+        if (response.isSuccessful && response.body() != null) {
+            val penyelidikanResponse = response.body()
+            penyelidikanResponse?.let {
+                if (it.success) {
+                    val data = it.data.firstOrNull() // Assuming you want the first item in the list
+                    if (data != null) {
+                        nama.text = data.Nama
+                        jaksa.text = data.Jaksa_yang_melaksanakan
+                        date.text = data.Waktu_Pelaksanaan
+                        Toast.makeText(this@JadwalActivity, "Sukses ambil data", Toast.LENGTH_SHORT).show()
+                    } else {
+                        showDataUnavailable()
+                    }
+                } else {
+                    showDataUnavailable()
+                }
+            }
+        } else {
+            val errorBody = response.errorBody()?.string() ?: "Unknown error"
+            showError("Failed get data: ${response.code()} - $errorBody")
+        }
+    }
+
+    private fun showDataUnavailable() {
+        nama.text = "N/A"
+        jaksa.text = "N/A"
+        date.text = "N/A"
+        Toast.makeText(this@JadwalActivity, "Data tidak tersedia", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun showError(message: String?) {
+        Toast.makeText(this@JadwalActivity, "Failed get data: $message", Toast.LENGTH_SHORT).show()
     }
 }
