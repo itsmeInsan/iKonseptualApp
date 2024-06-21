@@ -1,6 +1,5 @@
 package com.example.iKonseptual
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -25,7 +24,6 @@ class LoginActivity : AppCompatActivity() {
     lateinit var lupa_sandi : TextView
     lateinit var loginBtn : Button
 
-    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -68,32 +66,38 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
-    private fun loginUser(user:Login){
-        AuthClient.instance.login(user).enqueue(object: Callback<LoginResponse>{
-            override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>){
-                if(response.isSuccessful && response.body()!= null){
-                    val data = response.body()?.data
-                    if(data != null){
-                        val sharedPreferences = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
-                        val editor = sharedPreferences.edit()
-                        val id = editor.putInt("id", data.no)
-                        val email = editor.putString("email", data.email)
-                        val role = editor.putInt("role", data.role)
-                        editor.apply()
-                        Log.d(TAG, "id: $id")
-                        Log.d(TAG, "email: $email")
-                        Log.d(TAG, "role: $role")
+    private fun loginUser(user: Login) {
+        AuthClient.instance.login(user).enqueue(object : Callback<LoginResponse> {
+            override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+                if (response.isSuccessful && response.body() != null) {
+                    val loginResponse = response.body()!!
+                    if (loginResponse.success) {
+                        val data = loginResponse.data
+                        if (data != null) {
+                            val sharedPreferences = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
+                            val editor = sharedPreferences.edit()
+                            editor.putInt("id", data.no)
+                            editor.putString("email", data.email)
+                            editor.putInt("role", data.role)
+                            editor.apply()
+                            Log.d(TAG, "id: ${data.no}")
+                            Log.d(TAG, "email: ${data.email}")
+                            Log.d(TAG, "role: ${data.role}")
+                        }
+                        Log.d(TAG, "data: $data")
+                        Toast.makeText(this@LoginActivity, "Login berhasil", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    } else {
+                        Toast.makeText(this@LoginActivity, "Login gagal: ${loginResponse.message}", Toast.LENGTH_SHORT).show()
                     }
-                    Log.d(TAG,"data: $data")
-                    Toast.makeText(this@LoginActivity, "Login berhasil", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this@LoginActivity, MainActivity::class.java)
-                    startActivity(intent)
-                    finish()
-                } else{
+                } else {
                     val errorBody = response.errorBody()?.string() ?: "Unknown error"
-                    Toast.makeText(this@LoginActivity, "Login gagal: ${response.code()} - $errorBody}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@LoginActivity, "Login gagal: ${response.code()} - $errorBody", Toast.LENGTH_SHORT).show()
                 }
             }
+
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                 t.printStackTrace()
                 Toast.makeText(this@LoginActivity, "Login gagal: ${t.message}", Toast.LENGTH_SHORT).show()
