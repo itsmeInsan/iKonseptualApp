@@ -42,6 +42,7 @@ id button_login
 id button_post_jadwal
 id button_signup
 id buttonedtJadwal
+id card_Perkara_Penting
 id date_textView
 id editJaksa
 id editKeperluan
@@ -62,6 +63,7 @@ id editText_Pasal
 id editText_Penahanan
 id editText_Tersangka
 id editWaktu
+id idPerkara
 id identitasTersangkaTextView
 id imageView
 id imageView2
@@ -109,7 +111,7 @@ layout activity_ajpp
 layout activity_change_pass
 layout activity_crtjadwal
 layout activity_edtjadwal
-layout activity_jadwal
+layout activity_jadwal_penyelidikan
 layout activity_login
 layout activity_main
 layout activity_main2

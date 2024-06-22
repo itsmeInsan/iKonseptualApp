@@ -3189,6 +3189,7 @@ id buttonedtJadwal
 id cache_measures
 id callMeasure
 id cancel_button
+id card_Perkara_Penting
 id carryVelocity
 id center
 id centerCrop
@@ -3321,6 +3322,7 @@ id honorRequest
 id horizontal_only
 id icon
 id icon_group
+id idPerkara
 id identitasTersangkaTextView
 id ifRoom
 id ignore
@@ -3762,7 +3764,7 @@ layout activity_ajpp
 layout activity_change_pass
 layout activity_crtjadwal
 layout activity_edtjadwal
-layout activity_jadwal
+layout activity_jadwal_penyelidikan
 layout activity_login
 layout activity_main
 layout activity_main2

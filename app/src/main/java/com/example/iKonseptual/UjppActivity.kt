@@ -14,7 +14,6 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class UjppActivity : AppCompatActivity() {
-
     private lateinit var recyclerView: RecyclerView
 
     @SuppressLint("MissingInflatedId")
@@ -33,8 +32,6 @@ class UjppActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
-
         // Fetch Data
         getAllDataPerkara()
     }
@@ -48,7 +45,7 @@ class UjppActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     val data = response.body()?.data
                     if (data != null && data.isNotEmpty()) {
-                        recyclerView.adapter = PerkaraPentingAdapter(data)
+                        recyclerView.adapter = PerkaraPentingAdapterUser(this@UjppActivity,data)
                         Toast.makeText(this@UjppActivity, "Sukses ambil data", Toast.LENGTH_SHORT).show()
                     } else {
                         Toast.makeText(this@UjppActivity, "Data tidak tersedia", Toast.LENGTH_SHORT).show()

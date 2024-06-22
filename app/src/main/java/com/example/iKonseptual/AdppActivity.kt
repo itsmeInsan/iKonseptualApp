@@ -4,14 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class AdppActivity : AppCompatActivity() {
 
@@ -38,8 +34,19 @@ class AdppActivity : AppCompatActivity() {
         textPenahanan = findViewById(R.id.text_Penahanan)
         textPasal = findViewById(R.id.text_Pasal)
         textkasus = findViewById(R.id.text_Kasus_Posisi)
-        val id = 2
-        paketing(id)
+        btnDelete = findViewById(R.id.imageView_delete_pekating)
+        val intent = intent
+        val judulPerkara = intent.getStringExtra("Judul_Perkara")
+        val identitasTersangka = intent.getStringExtra("Identitas_tersangka")
+        val penahanan = intent.getStringExtra("Penahanan")
+        val pasal = intent.getStringExtra("Pasal")
+        val kasusPosisi = intent.getStringExtra("Kasus_Posisi")
+
+        textJudul.text = judulPerkara ?: "N/A"
+        textTersangka.text = identitasTersangka ?: "N/A"
+        textPenahanan.text = penahanan ?: "N/A"
+        textPasal.text = pasal ?: "N/A"
+        textkasus.text = kasusPosisi ?: "N/A"
 
         edit_pp.setOnClickListener{
             val intent = Intent(
@@ -47,41 +54,8 @@ class AdppActivity : AppCompatActivity() {
                 AeppActivity::class.java
             )
             startActivity(intent)
+            finish()
         }
     }
-    private fun paketing(id:Int){
-        PerkaraPentingClient.instance.getById(id).enqueue(object: Callback<PerkaraPentingResponse>{
-            override fun onResponse(
-                call: Call<PerkaraPentingResponse>,
-                response: Response<PerkaraPentingResponse>
-            ) {
-                if(response.isSuccessful){
-                    val data = response.body()?.data
-                    if(data != null && data.isNotEmpty()){
-                        val fristItem = data[0]
-                        textJudul.text = fristItem.Judul_Perkara
-                        textTersangka.text = fristItem.Identitas_tersangka
-                        textPenahanan.text = fristItem.Penahanan
-                        textPasal.text = fristItem.Pasal
-                        textkasus.text = fristItem.Kasus_Posisi
-                        Toast.makeText(this@AdppActivity, "Sukses ambil data", Toast.LENGTH_SHORT).show()
-                    } else{
-                        textJudul.text = "N/A"
-                        textTersangka.text = "N/A"
-                        textPenahanan.text = "N/A"
-                        textPasal.text = "N/A"
-                        textkasus.text = "N/A"
-                        Toast.makeText(this@AdppActivity, "Data tidak tersedia", Toast.LENGTH_SHORT).show()
-                    }
-                } else {
-                    val errorBody = response.errorBody()?.string() ?: "Galat"
-                    Toast.makeText(this@AdppActivity, "Gagal ambil data: ${response.code()} - $errorBody", Toast.LENGTH_SHORT).show()
-                }
-            }
-            override fun onFailure(call: Call<PerkaraPentingResponse>, t: Throwable) {
-                t.printStackTrace()
-                Toast.makeText(this@AdppActivity, "Failed get data: ${t.message}", Toast.LENGTH_SHORT).show()
-            }
-        })
-    }
+
 }

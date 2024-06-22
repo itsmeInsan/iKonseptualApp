@@ -47,7 +47,7 @@ class RincianActivity : AppCompatActivity() {
 
         label_d.text = intent.getStringExtra("title_d")
 
-        val id = intent.getIntExtra("id",0).toString()
+//        val id = intent.getIntExtra("id",0).toString()
 
         icon_del = findViewById(R.id.imageView_delete_jadwal)
         icon_edt = findViewById(R.id.imageView_edit_jadwal)

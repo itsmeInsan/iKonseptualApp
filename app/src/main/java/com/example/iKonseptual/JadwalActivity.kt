@@ -43,9 +43,9 @@ class JadwalActivity : AppCompatActivity() {
 
         label.text = intent.getStringExtra("title")
 
-        val labelDetail = intent.getStringExtra("title_d")
-        val labelCreate = intent.getStringExtra("title_c")
-        val labelEdit = intent.getStringExtra("title_e")
+//        val labelDetail = intent.getStringExtra("title_d")
+//        val labelCreate = intent.getStringExtra("title_c")
+//        val labelEdit = intent.getStringExtra("title_e")
 
 //        val sharedPreferences = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
 //        val rolepref = sharedPreferences.getInt("role", -1)
@@ -121,7 +121,7 @@ class JadwalActivity : AppCompatActivity() {
             val penyelidikanResponse = response.body()?.data
            if(!penyelidikanResponse.isNullOrEmpty()){
                recyclerView.adapter = PenyelidikanPenyidikanAdapter(penyelidikanResponse)
-               val totalitem = penyelidikanResponse.count()
+//               val totalitem = penyelidikanResponse.count()
                val sharedPreferences = getSharedPreferences("item", Context.MODE_PRIVATE)
                val editor = sharedPreferences.edit()
                penyelidikanResponse.forEachIndexed { index, item ->
