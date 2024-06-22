@@ -2,9 +2,7 @@ package com.example.iKonseptual
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -13,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -22,15 +22,12 @@ class JadwalActivity : AppCompatActivity() {
     lateinit var rincian: CardView
     lateinit var label: TextView
     lateinit var icon: ImageView
-    lateinit var nama: TextView
-    lateinit var jaksa: TextView
-    lateinit var date: TextView
-
+    lateinit var recyclerView: RecyclerView
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_jadwal)
+        setContentView(R.layout.activity_jadwal_penyelidikan)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -39,11 +36,10 @@ class JadwalActivity : AppCompatActivity() {
 
         label = findViewById(R.id.label_jadwal)
         icon = findViewById(R.id.tambah_jadwal)
-        nama = findViewById(R.id.name_textView)
-        jaksa = findViewById(R.id.jaksa_textView)
-        date = findViewById(R.id.date_textView)
+        recyclerView = findViewById(R.id.recyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(this)
 
-        val id = intent.getIntExtra("id", 0).toString()
+//        val id = intent.getIntExtra("id", 0).toString()
 
         label.text = intent.getStringExtra("title")
 
@@ -51,47 +47,43 @@ class JadwalActivity : AppCompatActivity() {
         val labelCreate = intent.getStringExtra("title_c")
         val labelEdit = intent.getStringExtra("title_e")
 
-        val sharedPreferences = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
-        val rolepref = sharedPreferences.getInt("role", -1)
-        if (rolepref == 1) {
-            icon.visibility = View.GONE
-            rincian.setOnClickListener {
-                val intent = Intent(
-                    this,
-                    RincianActivity::class.java
-                ).apply { putExtra("title_d", labelDetail); putExtra("id", rolepref) }
-                startActivity(intent)
-                finish()
-            }
-        } else {
-            icon.visibility = View.VISIBLE
-            icon.setOnClickListener {
-                val intent = Intent(
-                    this,
-                    CrtjadwalActivity::class.java
-                ).apply { putExtra("title_c", labelCreate) }
-                startActivity(intent)
-                finish()
-            }
-            rincian.setOnClickListener {
-                val intent = Intent(
-                    this,
-                    RincianActivity::class.java
-                ).apply {
-                    putExtra("title_d", labelDetail)
-                    putExtra("title_e", labelEdit)
-                }
-                startActivity(intent)
-                finish()
-            }
+//        val sharedPreferences = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
+//        val rolepref = sharedPreferences.getInt("role", -1)
+//        if (rolepref == 1) {
+//            icon.visibility = View.GONE
+//            rincian.setOnClickListener {
+//                val intent = Intent(
+//                    this,
+//                    RincianActivity::class.java
+//                ).apply { putExtra("title_d", labelDetail); putExtra("id", rolepref) }
+//                startActivity(intent)
+//                finish()
+//            }
+//        } else {
+//            icon.visibility = View.VISIBLE
+//            icon.setOnClickListener {
+//                val intent = Intent(
+//                    this,
+//                    CrtjadwalActivity::class.java
+//                ).apply { putExtra("title_c", labelCreate) }
+//                startActivity(intent)
+//                finish()
+//            }
+//        }
+        if(label.text == "Jadwal Penyidikan"){
+            fetchPenyidikanData()
+        } else if(label.text == "Jadwal Penyelidikan"){
+            fetchPenyelidikanData()
         }
-        dataJadwal()
     }
 
     private fun dataJadwal() {
         // Call both penyelidikan and penyidikan APIs and update UI
-        fetchPenyelidikanData()
-        fetchPenyidikanData()
+        if(label.text == "Jadwal Penyidikan"){
+            fetchPenyidikanData()
+        } else if(label.text == "Jadwal Penyelidikan"){
+            fetchPenyelidikanData()
+        }
     }
 
     private fun fetchPenyelidikanData() {
@@ -125,34 +117,25 @@ class JadwalActivity : AppCompatActivity() {
     }
 
     private fun handleResponse(response: Response<PenyelidikanPenyidikanResponse>) {
-        if (response.isSuccessful && response.body() != null) {
-            val penyelidikanResponse = response.body()
-            penyelidikanResponse?.let {
-                if (it.success) {
-                    val data = it.data.firstOrNull() // Assuming you want the first item in the list
-                    if (data != null) {
-                        nama.text = data.Nama
-                        jaksa.text = data.Jaksa_yang_melaksanakan
-                        date.text = data.Waktu_Pelaksanaan
-                        Toast.makeText(this@JadwalActivity, "Sukses ambil data", Toast.LENGTH_SHORT).show()
-                    } else {
-                        showDataUnavailable()
-                    }
-                } else {
-                    showDataUnavailable()
-                }
-            }
+        if (response.isSuccessful) {
+            val penyelidikanResponse = response.body()?.data
+           if(!penyelidikanResponse.isNullOrEmpty()){
+               recyclerView.adapter = PenyelidikanPenyidikanAdapter(penyelidikanResponse)
+               val totalitem = penyelidikanResponse.count()
+               val sharedPreferences = getSharedPreferences("item", Context.MODE_PRIVATE)
+               val editor = sharedPreferences.edit()
+               penyelidikanResponse.forEachIndexed { index, item ->
+                   editor.putInt("item_id_$index", item.no)
+               }
+               editor.apply()
+               Toast.makeText(this@JadwalActivity,"Sukses ambil data",Toast.LENGTH_SHORT).show()
+           } else{
+               Toast.makeText(this@JadwalActivity, "Data tidak tersedia", Toast.LENGTH_SHORT).show()
+           }
         } else {
             val errorBody = response.errorBody()?.string() ?: "Unknown error"
             showError("Failed get data: ${response.code()} - $errorBody")
         }
-    }
-
-    private fun showDataUnavailable() {
-        nama.text = "N/A"
-        jaksa.text = "N/A"
-        date.text = "N/A"
-        Toast.makeText(this@JadwalActivity, "Data tidak tersedia", Toast.LENGTH_SHORT).show()
     }
 
     private fun showError(message: String?) {
