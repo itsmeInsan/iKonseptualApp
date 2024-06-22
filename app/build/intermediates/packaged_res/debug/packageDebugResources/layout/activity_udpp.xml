@@ -49,6 +49,7 @@
                     android:textSize="14sp"
                     android:textStyle="bold" />
                 <TextView
+                    android:id="@+id/judulPerkaraTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="1dp"
@@ -72,6 +73,7 @@
                     android:textSize="14sp"
                     android:textStyle="bold" />
                 <TextView
+                    android:id="@+id/identitasTersangkaTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
@@ -95,6 +97,7 @@
                     android:textSize="14sp"
                     android:textStyle="bold" />
                 <TextView
+                    android:id="@+id/penahananTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="1dp"
@@ -118,6 +121,7 @@
                     android:textSize="14sp"
                     android:textStyle="bold" />
                 <TextView
+                    android:id="@+id/pasalTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="1dp"
@@ -140,6 +144,7 @@
                     android:textSize="14sp"
                     android:textStyle="bold" />
                 <TextView
+                    android:id="@+id/kasusPosisiTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="1dp"

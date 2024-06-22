@@ -9,6 +9,8 @@
         android:targetSdkVersion="34" />
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
 
     <permission
         android:name="com.example.iKonseptual.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
@@ -71,6 +73,12 @@
         <activity
             android:name="com.example.iKonseptual.MainActivity"
             android:exported="false" />
+
+        <receiver
+            android:name="com.example.iKonseptual.Notification"
+            android:exported="true"
+            android:permission="ExportedReceiver" />
+
         <activity
             android:name="com.example.iKonseptual.LoginActivity"
             android:exported="true" >
