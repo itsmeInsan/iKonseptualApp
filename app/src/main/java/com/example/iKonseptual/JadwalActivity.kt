@@ -1,5 +1,6 @@
 package com.example.iKonseptual
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -25,6 +26,7 @@ class JadwalActivity : AppCompatActivity() {
     lateinit var jaksa: TextView
     lateinit var date: TextView
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -35,7 +37,6 @@ class JadwalActivity : AppCompatActivity() {
             insets
         }
 
-        rincian = findViewById(R.id.CardView_torincian)
         label = findViewById(R.id.label_jadwal)
         icon = findViewById(R.id.tambah_jadwal)
         nama = findViewById(R.id.name_textView)
