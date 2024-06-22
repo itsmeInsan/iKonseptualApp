@@ -36,6 +36,7 @@ class AdppActivity : AppCompatActivity() {
         textkasus = findViewById(R.id.text_Kasus_Posisi)
         btnDelete = findViewById(R.id.imageView_delete_pekating)
         val intent = intent
+        val id = intent.getStringExtra("Id_Perkara")
         val judulPerkara = intent.getStringExtra("Judul_Perkara")
         val identitasTersangka = intent.getStringExtra("Identitas_tersangka")
         val penahanan = intent.getStringExtra("Penahanan")
@@ -49,11 +50,15 @@ class AdppActivity : AppCompatActivity() {
         textkasus.text = kasusPosisi ?: "N/A"
 
         edit_pp.setOnClickListener{
-            val intent = Intent(
-                this,
-                AeppActivity::class.java
-            )
-            startActivity(intent)
+             val nextSession = Intent(this@AdppActivity, AeppActivity::class.java).apply{
+                 putExtra("id",id)
+                 putExtra("judul",judulPerkara)
+                 putExtra("tersangka",identitasTersangka)
+                 putExtra("penahanan",penahanan)
+                 putExtra("pasal", pasal)
+                 putExtra("kasusPosisi", kasusPosisi)
+             }
+            startActivity(nextSession)
             finish()
         }
     }

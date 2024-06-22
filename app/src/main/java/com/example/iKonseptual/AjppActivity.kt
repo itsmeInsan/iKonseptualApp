@@ -53,7 +53,6 @@ class AjppActivity : AppCompatActivity() {
                     val data = response.body()?.data
                     if (data != null && data.isNotEmpty()) {
                         recyclerView.adapter = PerkaraPentingAdapterUser(this@AjppActivity,data)
-
                         Toast.makeText(this@AjppActivity, "Sukses ambil data", Toast.LENGTH_SHORT).show()
                     } else {
                         Toast.makeText(this@AjppActivity, "Data tidak tersedia", Toast.LENGTH_SHORT).show()

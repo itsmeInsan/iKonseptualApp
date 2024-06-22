@@ -3321,7 +3321,6 @@ int id honorRequest 0x7f0a00f6
 int id horizontal_only 0x7f0a00f7
 int id icon 0x7f0a00f8
 int id icon_group 0x7f0a00f9
-int id idPerkara 0x7f0a00fa
 int id identitasTersangkaTextView 0x7f0a00fb
 int id ifRoom 0x7f0a00fc
 int id ignore 0x7f0a00fd

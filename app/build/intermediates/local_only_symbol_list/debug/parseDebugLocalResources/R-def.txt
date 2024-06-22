@@ -63,7 +63,6 @@ id editText_Pasal
 id editText_Penahanan
 id editText_Tersangka
 id editWaktu
-id idPerkara
 id identitasTersangkaTextView
 id imageView
 id imageView2

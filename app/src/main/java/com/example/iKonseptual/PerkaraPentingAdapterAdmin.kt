@@ -17,7 +17,6 @@ class PerkaraPentingAdapterAdmin(
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val judulPerkaraTextView: TextView = itemView.findViewById(R.id.judulPerkaraTextView)
-        val id: TextView = itemView.findViewById(R.id.idPerkara)
         val card: CardView = itemView.findViewById(R.id.card_Perkara_Penting)
     }
 
@@ -29,7 +28,6 @@ class PerkaraPentingAdapterAdmin(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val dataPerkara = dataList[position]
         holder.judulPerkaraTextView.text = dataPerkara.Judul_Perkara
-        holder.id.text = dataPerkara.no.toString()
         holder.card.setOnClickListener {
             onClickListener?.onClick(position, dataPerkara)
             val intent = Intent(context, AdppActivity::class.java).apply {
