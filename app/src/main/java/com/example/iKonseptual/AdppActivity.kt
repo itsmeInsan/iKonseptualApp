@@ -57,7 +57,7 @@ class AdppActivity : AppCompatActivity() {
 
 
         edit_pp.setOnClickListener {
-            val nextSession = Intent(this@AdppActivity, AeppActivity::class.java).apply {
+            val nextSession = Intent(this, AeppActivity::class.java).apply {
                 putExtra("id", id)
                 putExtra("judul", judulPerkara)
                 putExtra("tersangka", identitasTersangka)

@@ -1,6 +1,5 @@
 package com.example.iKonseptual
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -26,52 +25,79 @@ class MainActivity2 : AppCompatActivity() {
 
         penyidikan = findViewById(R.id.CardView_PENYIDIKAN)
         penyelidikan = findViewById(R.id.CardView_PENYELIDIKAN)
-        val sharedPreferences = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
-        val rolepref = sharedPreferences.getInt("role", -1)
 
-        setupCardViewClickListeners(rolepref)
-    }
+        val id = intent.getIntExtra("id", 0).toString()
 
-    private fun setupCardViewClickListeners(role: Int) {
-        val roleSpecificExtras: Intent.() -> Unit = {
-            if (role == 1) putExtra("id", role)
+        if (id == "1") {
+            val role = 1
+            penyidikan.setOnClickListener {
+                val labelJadwal = "Jadwal Penyidikan"
+                val labelDetail = "Detail Jadwal Penyidikan"
+                val labelCreate = "Buat Jadwal Penyidikan"
+                val labelEdit = "Ubah Jadwal Penyidikan"
+                val intent = Intent(
+                    this,
+                    JadwalActivity::class.java
+                ).apply {
+                    putExtra("title", labelJadwal);
+                    putExtra("title_d", labelDetail);
+                    putExtra("title_c", labelCreate);
+                    putExtra("title_e", labelEdit);
+                    putExtra("id", role)
+                }
+                startActivity(intent)
+            }
+            penyelidikan.setOnClickListener {
+                val labelJadwal = "Jadwal Penyelidikan"
+                val labelDetail = "Detail Jadwal Penyelidikan"
+                val labelCreate = "Buat Jadwal Penyelidikan"
+                val labelEdit = "Ubah Jadwal Penyelidikan"
+                val intent = Intent(
+                    this,
+                    JadwalActivity::class.java
+                ).apply {
+                    putExtra("title", labelJadwal);
+                    putExtra("title_d", labelDetail);
+                    putExtra("title_c", labelCreate);
+                    putExtra("title_e", labelEdit);
+                    putExtra("id", role)
+                }
+                startActivity(intent)
+            }
+        } else {
+            penyidikan.setOnClickListener {
+                val labelJadwal = "Jadwal Penyidikan"
+                val labelDetail = "Detail Jadwal Penyidikan"
+                val labelCreate = "Buat Jadwal Penyidikan"
+                val labelEdit = "Ubah Jadwal Penyidikan"
+                val intent = Intent(
+                    this,
+                    JadwalActivity::class.java
+                ).apply {
+                    putExtra("title", labelJadwal);
+                    putExtra("title_d", labelDetail);
+                    putExtra("title_c", labelCreate);
+                    putExtra("title_e", labelEdit)
+                }
+                startActivity(intent)
+            }
+
+            penyelidikan.setOnClickListener {
+                val labelJadwal = "Jadwal Penyelidikan"
+                val labelDetail = "Detail Jadwal Penyelidikan"
+                val labelCreate = "Buat Jadwal Penyelidikan"
+                val labelEdit = "Ubah Jadwal Penyelidikan"
+                val intent = Intent(
+                    this,
+                    JadwalActivity::class.java
+                ).apply {
+                    putExtra("title", labelJadwal);
+                    putExtra("title_d", labelDetail);
+                    putExtra("title_c", labelCreate);
+                    putExtra("title_e", labelEdit)
+                }
+                startActivity(intent)
+            }
         }
-
-        penyidikan.setOnClickListener {
-            startJadwalActivity(
-                "Jadwal Penyidikan",
-                "Detail Jadwal Penyidikan",
-                "Buat Jadwal Penyidikan",
-                "Ubah Jadwal Penyidikan",
-                roleSpecificExtras
-            )
-        }
-
-        penyelidikan.setOnClickListener {
-            startJadwalActivity(
-                "Jadwal Penyelidikan",
-                "Detail Jadwal Penyelidikan",
-                "Buat Jadwal Penyelidikan",
-                "Ubah Jadwal Penyelidikan",
-                roleSpecificExtras
-            )
-        }
-    }
-
-    private fun startJadwalActivity(
-        labelJadwal: String,
-        labelDetail: String,
-        labelCreate: String,
-        labelEdit: String,
-        extras: Intent.() -> Unit
-    ) {
-        val intent = Intent(this, JadwalActivity::class.java).apply {
-            putExtra("title", labelJadwal)
-            putExtra("title_d", labelDetail)
-            putExtra("title_c", labelCreate)
-            putExtra("title_e", labelEdit)
-            extras()
-        }
-        startActivity(intent)
     }
 }

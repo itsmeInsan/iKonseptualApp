@@ -4,7 +4,7 @@
             "outputFile": "com.example.iKonseptual.app-mergeDebugResources-29:/values-ldltr-v21/values-ldltr-v21.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\fqbay\\.gradle\\caches\\transforms-4\\8e45479b1226273e8f353d4a91e017ef\\transformed\\appcompat-1.6.1\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
+                    "source": "/Users/amd/.gradle/caches/transforms-4/8e45479b1226273e8f353d4a91e017ef/transformed/appcompat-1.6.1/res/values-ldltr-v21/values-ldltr-v21.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

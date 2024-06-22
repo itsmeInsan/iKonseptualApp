@@ -13,6 +13,7 @@ class UdppActivity : AppCompatActivity() {
     lateinit var penahananTextView: TextView
     lateinit var pasalTextView: TextView
     lateinit var kasusPosisiTextView: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()

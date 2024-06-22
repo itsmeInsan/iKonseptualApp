@@ -3231,6 +3231,7 @@ id decelerate
 id decelerateAndComplete
 id decor_content_parent
 id default_activity_button
+id delete_pekating
 id deltaRelative
 id dependency_ordering
 id design_bottom_sheet
@@ -3279,7 +3280,6 @@ id editText_Pasal
 id editText_Penahanan
 id editText_Tersangka
 id editWaktu
-id edit_button
 id edit_pekating
 id edit_query
 id elastic
@@ -3765,7 +3765,7 @@ layout activity_ajpp
 layout activity_change_pass
 layout activity_crtjadwal
 layout activity_edtjadwal
-layout activity_jadwal_penyelidikan
+layout activity_jadwal
 layout activity_login
 layout activity_main
 layout activity_main2

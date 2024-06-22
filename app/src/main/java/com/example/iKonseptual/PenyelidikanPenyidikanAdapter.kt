@@ -1,19 +1,25 @@
 package com.example.iKonseptual
 
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 
 class PenyelidikanPenyidikanAdapter(
+    private val context: Context,
     private val dataList: List<DataPenyelidikanPenyidikan>,
-    private  var onClickListener: OnClickListener? = null) : RecyclerView.Adapter<PenyelidikanPenyidikanAdapter.ViewHolder>() {
+    private var onClickListener: OnClickListener? = null
+) : RecyclerView.Adapter<PenyelidikanPenyidikanAdapter.ViewHolder>() {
+
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val namaTextView: TextView = itemView.findViewById(R.id.name_textView)
         val jaksaTextView: TextView = itemView.findViewById(R.id.jaksa_textView)
         val dateTextView: TextView = itemView.findViewById(R.id.date_textView)
-        // Add other views here if necessary
+        val card: CardView = itemView.findViewById(R.id.CardView_torincian)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -27,8 +33,18 @@ class PenyelidikanPenyidikanAdapter(
         holder.jaksaTextView.text = dataPenyelidikanPenyidikan.Jaksa_yang_melaksanakan
         holder.dateTextView.text = dataPenyelidikanPenyidikan.Waktu_Pelaksanaan
         // Bind other views here if necessary
-        holder.itemView.setOnClickListener{
+        holder.card.setOnClickListener {
             onClickListener?.onClick(position, dataPenyelidikanPenyidikan)
+            val intent = Intent(context, RincianActivity::class.java).apply {
+                putExtra("Nama", dataPenyelidikanPenyidikan.Nama)
+                putExtra("Perkara", dataPenyelidikanPenyidikan.Perkara)
+                putExtra("Id_Perkara", dataPenyelidikanPenyidikan.no)
+                putExtra("Waktu_Pelaksanaan", dataPenyelidikanPenyidikan.Waktu_Pelaksanaan)
+                putExtra("Tempat", dataPenyelidikanPenyidikan.Tempat_Pelaksanaan)
+                putExtra("Jaksa_yang_melaksanakan", dataPenyelidikanPenyidikan.Jaksa_yang_melaksanakan)
+                putExtra("Keperluan", dataPenyelidikanPenyidikan.Keperluan)
+            }
+            context.startActivity(intent)
         }
     }
 
