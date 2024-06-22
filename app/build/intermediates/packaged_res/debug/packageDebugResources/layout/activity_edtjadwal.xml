@@ -30,7 +30,7 @@
                 android:textStyle="bold" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button_signup"
+                android:id="@+id/buttonedtJadwal"
                 android:layout_width="100dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="12dp"
@@ -67,7 +67,7 @@
                     android:textSize="14sp"
                     android:textStyle="bold" />
                 <EditText
-                    android:id="@+id/editText_Judul"
+                    android:id="@+id/editNama"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="1dp"
@@ -91,7 +91,7 @@
                     android:textSize="14sp"
                     android:textStyle="bold" />
                 <EditText
-                    android:id="@+id/editText_Tersangka"
+                    android:id="@+id/editPerkara"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="1dp"
@@ -115,7 +115,7 @@
                     android:textSize="14sp"
                     android:textStyle="bold" />
                 <EditText
-                    android:id="@+id/editText_Penahanan"
+                    android:id="@+id/editWaktu"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="1dp"
@@ -139,7 +139,7 @@
                     android:textSize="14sp"
                     android:textStyle="bold" />
                 <EditText
-                    android:id="@+id/editText_Pasal"
+                    android:id="@+id/editTempat"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="1dp"
@@ -163,7 +163,7 @@
                     android:textSize="14sp"
                     android:textStyle="bold" />
                 <EditText
-                    android:id="@+id/editText_s"
+                    android:id="@+id/editJaksa"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="1dp"
@@ -187,7 +187,7 @@
                     android:textSize="14sp"
                     android:textStyle="bold" />
                 <EditText
-                    android:id="@+id/editText_Kasus_Posisi"
+                    android:id="@+id/editKeperluan"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="1dp"
@@ -202,7 +202,6 @@
             </LinearLayout>
 
         </androidx.core.widget.NestedScrollView>
-
 
     </LinearLayout>
 
