@@ -101,9 +101,9 @@ class RincianActivity : AppCompatActivity() {
     }
 
     private fun getDataById(){
-        val sharedPreferences = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
-        val iduser = sharedPreferences.getInt("id", 0)
-        PenyelidikanPenyidikanClient.penyelidikanInstance.getById(iduser).enqueue(object: Callback<DataPenyelidikanPenyidikan>{
+        val sharedPreferences = getSharedPreferences("item", Context.MODE_PRIVATE)
+        val iditem = sharedPreferences.getInt("id", 1)
+        PenyelidikanPenyidikanClient.penyelidikanInstance.getById(iditem).enqueue(object: Callback<DataPenyelidikanPenyidikan>{
             override fun onResponse(
                 call: Call<DataPenyelidikanPenyidikan>,
                 response: Response<DataPenyelidikanPenyidikan>
