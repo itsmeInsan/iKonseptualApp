@@ -48,12 +48,12 @@
         "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\drawable\\penyidikan.png"
     },
     {
-        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\xml_backup_rules.xml.flat",
-        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\xml\\backup_rules.xml"
-    },
-    {
         "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\layout_activity_rincian.xml.flat",
         "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\layout\\activity_rincian.xml"
+    },
+    {
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\xml\\backup_rules.xml"
     },
     {
         "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\mipmap-xhdpi_ic_launcher_round.webp.flat",

@@ -63,15 +63,15 @@ id editText_Pasal
 id editText_Penahanan
 id editText_Tersangka
 id editWaktu
+id edit_button
+id edit_pekating
 id identitasTersangkaTextView
 id imageView
 id imageView2
 id imageView4
 id imageView_add_pekating
 id imageView_delete_jadwal
-id imageView_delete_pekating
 id imageView_edit_jadwal
-id imageView_edit_pekating
 id inputJaksa
 id inputKeperluan
 id inputNama
@@ -89,6 +89,7 @@ id label_edit
 id label_jadwal
 id main
 id name_textView
+id nestedScrollView
 id pasalTextView
 id penahananTextView
 id perkara_textView
@@ -102,6 +103,7 @@ id text_Pasal
 id text_Penahanan
 id text_Tersangka
 id text_title_jadwal
+id top_layout
 id waktu_textView
 layout activity_acpp
 layout activity_adpp

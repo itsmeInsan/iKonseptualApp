@@ -3279,6 +3279,8 @@ id editText_Pasal
 id editText_Penahanan
 id editText_Tersangka
 id editWaktu
+id edit_button
+id edit_pekating
 id edit_query
 id elastic
 id embed
@@ -3332,9 +3334,7 @@ id imageView2
 id imageView4
 id imageView_add_pekating
 id imageView_delete_jadwal
-id imageView_delete_pekating
 id imageView_edit_jadwal
-id imageView_edit_pekating
 id immediateStop
 id included
 id indeterminate
@@ -3439,6 +3439,7 @@ id navigation_bar_item_labels_group
 id navigation_bar_item_large_label_view
 id navigation_bar_item_small_label_view
 id navigation_header_container
+id nestedScrollView
 id never
 id neverCompleteToEnd
 id neverCompleteToStart
@@ -3609,6 +3610,7 @@ id title_template
 id toggle
 id top
 id topPanel
+id top_layout
 id touch_outside
 id transitionToEnd
 id transitionToStart
