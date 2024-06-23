@@ -42,7 +42,6 @@ class CrtjadwalActivity : AppCompatActivity() {
         inputKeperluan = findViewById(R.id.inputKeperluan)
         btnPost = findViewById(R.id.button_post_jadwal)
         label.text = intent.getStringExtra("title_c")
-
         btnPost.setOnClickListener {
             val nama = inputNama.text.toString().trim()
             val perkara = inputPerkara.text.toString().trim()
@@ -62,20 +61,26 @@ class CrtjadwalActivity : AppCompatActivity() {
                     Jaksa_yang_melaksanakan = jaksa,
                     Keperluan = keperluan
                 )
-                postjadwal(postJadwal)
+                if(label.text == "Buat Jadwal Penyelidikan"){
+                    val action = "postPenyelidikan"
+                    postjadwal(action,postJadwal)
+                } else if(label.text == "Buat Jadwal Penyidikan"){
+                    val action = "postPenyidikan"
+                    postjadwal(action,postJadwal)
+                }
             }
         }
     }
 
-    private fun postjadwal(jadwal: PenyelidikanPenyidikan) {
-        PenyelidikanPenyidikanClient.penyidikanInstance.post(jadwal).enqueue(object : Callback<PenyelidikanPenyidikan> {
+    private fun postjadwal(action:String, jadwal: PenyelidikanPenyidikan) {
+        PenyelidikanPenyidikanClient.penyelidikanInstance.post(action,jadwal).enqueue(object : Callback<PenyelidikanPenyidikan> {
             override fun onResponse(
                 call: Call<PenyelidikanPenyidikan>,
                 response: Response<PenyelidikanPenyidikan>
             ) {
                 if (response.isSuccessful && response.body() != null) {
                     Toast.makeText(this@CrtjadwalActivity, "Sukses kirim data", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this@CrtjadwalActivity, JadwalActivity::class.java)
+                    val intent = Intent(this@CrtjadwalActivity, MainActivity2::class.java)
                     startActivity(intent)
                     finish()
                 } else {

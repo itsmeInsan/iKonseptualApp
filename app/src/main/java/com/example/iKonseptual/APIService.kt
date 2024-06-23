@@ -58,6 +58,15 @@ data class PerkaraPentingResponse(
     val message: String,
     val data: List<DataPerkaraPenting>
 )
+data class CountDays(
+    val Keterangan: String,
+    val Value: Int
+)
+data class CountResponse(
+    val success: Boolean,
+    val message: String,
+    val data: List<CountDays>
+)
 interface APIAuth {
     @POST("exec?action=register")
     fun register(@Body user: User): Call<User>
@@ -80,8 +89,10 @@ interface APIPenyelidikan{
     @GET("exec?action=getByIdPenyelidikan&id={id}")
     fun getById(@Path("id") id: Int): Call<DataPenyelidikanPenyidikan>
 
-    @POST("exec?action=postPenyelidikan")
-    fun post(@Body penyelidikan:PenyelidikanPenyidikan): Call<PenyelidikanPenyidikan>
+    @POST("exec")
+    fun post(
+        @Query("action") action: String,
+        @Body penyelidikan:PenyelidikanPenyidikan): Call<PenyelidikanPenyidikan>
 
     @POST("exec")
     fun update(@Query("action") action: String,
@@ -101,8 +112,10 @@ interface APIPenyidikan{
     @GET("exec?action=getByIdPenyidikan&id={id}")
     fun getById(@Path("id") id: Int): Call<DataPenyelidikanPenyidikan>
 
-    @POST("exec?action=postPenyidikan")
-    fun post(@Body penyidikan:PenyelidikanPenyidikan): Call<PenyelidikanPenyidikan>
+    @POST("exec")
+    fun post(
+        @Query("action") action: String,
+        @Body penyidikan:PenyelidikanPenyidikan): Call<PenyelidikanPenyidikan>
 
     @POST("exec")
     fun update(@Query("action") action: String,
@@ -112,9 +125,13 @@ interface APIPenyidikan{
     @POST("exec")
     fun delete(@Query("action") action: String,
                @Query("id") id: Int,
-               @Body penyidikan: PenyelidikanPenyidikan): Call<PenyelidikanPenyidikanResponse>
+               @Body penyelidikan: PenyelidikanPenyidikan): Call<PenyelidikanPenyidikanResponse>
 }
-
+interface APICount{
+    @GET("exec")
+    fun getCountData(
+        @Query("action") action: String): Call<CountResponse>
+}
 interface APIPerkaraPenting{
     @GET("exec")
     fun getAll(): Call<PerkaraPentingResponse>

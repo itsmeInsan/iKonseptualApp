@@ -1,270 +1,274 @@
 [
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/mipmap-anydpi-v26_pidsus_round.xml.flat",
-        "source": "com.example.iKonseptual.app-main-33:/mipmap-anydpi-v26/pidsus_round.xml"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\mipmap-anydpi_ic_launcher.xml.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\mipmap-anydpi\\ic_launcher.xml"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/mipmap-xxhdpi_pidsus_foreground.webp.flat",
-        "source": "com.example.iKonseptual.app-main-33:/mipmap-xxhdpi/pidsus_foreground.webp"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\mipmap-xxhdpi_pidsus.webp.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\mipmap-xxhdpi\\pidsus.webp"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/layout_activity_acpp.xml.flat",
-        "source": "com.example.iKonseptual.app-main-33:/layout/activity_acpp.xml"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\mipmap-anydpi-v26_pidsus_round.xml.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\mipmap-anydpi-v26\\pidsus_round.xml"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/mipmap-xhdpi_pidsus.webp.flat",
-        "source": "com.example.iKonseptual.app-main-33:/mipmap-xhdpi/pidsus.webp"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\mipmap-mdpi_pidsus.webp.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\mipmap-mdpi\\pidsus.webp"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/drawable_penyelidikan.png.flat",
-        "source": "com.example.iKonseptual.app-main-33:/drawable/penyelidikan.png"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\drawable_delete.png.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\drawable\\delete.png"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "com.example.iKonseptual.app-main-33:/mipmap-hdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\layout_activity_change_pass.xml.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\layout\\activity_change_pass.xml"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/layout_activity_ajpp.xml.flat",
-        "source": "com.example.iKonseptual.app-main-33:/layout/activity_ajpp.xml"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\mipmap-hdpi_pidsus.webp.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\mipmap-hdpi\\pidsus.webp"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/layout_item_jadwal.xml.flat",
-        "source": "com.example.iKonseptual.app-main-33:/layout/item_jadwal.xml"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\mipmap-hdpi_pidsus_round.webp.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\mipmap-hdpi\\pidsus_round.webp"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/font_lexend_deca.xml.flat",
-        "source": "com.example.iKonseptual.app-main-33:/font/lexend_deca.xml"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\mipmap-mdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/mipmap-xhdpi_pidsus_round.webp.flat",
-        "source": "com.example.iKonseptual.app-main-33:/mipmap-xhdpi/pidsus_round.webp"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\mipmap-xhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/layout_activity_change_pass.xml.flat",
-        "source": "com.example.iKonseptual.app-main-33:/layout/activity_change_pass.xml"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\layout_item_perkara_penting.xml.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\layout\\item_perkara_penting.xml"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "com.example.iKonseptual.app-main-33:/mipmap-xxhdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\drawable_penyidikan.png.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\drawable\\penyidikan.png"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/drawable_edit.png.flat",
-        "source": "com.example.iKonseptual.app-main-33:/drawable/edit.png"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\layout_activity_rincian.xml.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\layout\\activity_rincian.xml"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/mipmap-mdpi_pidsus_foreground.webp.flat",
-        "source": "com.example.iKonseptual.app-main-33:/mipmap-mdpi/pidsus_foreground.webp"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\xml\\backup_rules.xml"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/mipmap-xxhdpi_pidsus.webp.flat",
-        "source": "com.example.iKonseptual.app-main-33:/mipmap-xxhdpi/pidsus.webp"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\mipmap-xhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/mipmap-xxxhdpi_pidsus_round.webp.flat",
-        "source": "com.example.iKonseptual.app-main-33:/mipmap-xxxhdpi/pidsus_round.webp"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\mipmap-xhdpi_pidsus_round.webp.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\mipmap-xhdpi\\pidsus_round.webp"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/mipmap-hdpi_pidsus_round.webp.flat",
-        "source": "com.example.iKonseptual.app-main-33:/mipmap-hdpi/pidsus_round.webp"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\drawable\\ic_launcher_foreground.xml"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/layout_activity_adpp.xml.flat",
-        "source": "com.example.iKonseptual.app-main-33:/layout/activity_adpp.xml"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\layout_activity_acpp.xml.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\layout\\activity_acpp.xml"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/mipmap-hdpi_pidsus_foreground.webp.flat",
-        "source": "com.example.iKonseptual.app-main-33:/mipmap-hdpi/pidsus_foreground.webp"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\mipmap-anydpi-v26_pidsus.xml.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\mipmap-anydpi-v26\\pidsus.xml"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/layout_activity_edtjadwal.xml.flat",
-        "source": "com.example.iKonseptual.app-main-33:/layout/activity_edtjadwal.xml"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\layout_activity_adpp.xml.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\layout\\activity_adpp.xml"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/layout_activity_aepp.xml.flat",
-        "source": "com.example.iKonseptual.app-main-33:/layout/activity_aepp.xml"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\layout_activity_crtjadwal.xml.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\layout\\activity_crtjadwal.xml"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.iKonseptual.app-main-33:/mipmap-xxhdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\layout_activity_aepp.xml.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\layout\\activity_aepp.xml"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/drawable_schedule_8920752.png.flat",
-        "source": "com.example.iKonseptual.app-main-33:/drawable/schedule_8920752.png"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\layout_activity_signup.xml.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\layout\\activity_signup.xml"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/mipmap-anydpi_ic_launcher.xml.flat",
-        "source": "com.example.iKonseptual.app-main-33:/mipmap-anydpi/ic_launcher.xml"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\drawable_edit.png.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\drawable\\edit.png"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/font_inter.ttf.flat",
-        "source": "com.example.iKonseptual.app-main-33:/font/inter.ttf"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\mipmap-mdpi_pidsus_foreground.webp.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\mipmap-mdpi\\pidsus_foreground.webp"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/layout_activity_rincian.xml.flat",
-        "source": "com.example.iKonseptual.app-main-33:/layout/activity_rincian.xml"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\drawable_login_box.xml.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\drawable\\login_box.xml"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "com.example.iKonseptual.app-main-33:/mipmap-xxxhdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\drawable_card.xml.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\drawable\\card.xml"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/mipmap-mdpi_pidsus.webp.flat",
-        "source": "com.example.iKonseptual.app-main-33:/mipmap-mdpi/pidsus.webp"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\drawable_schedule_8920752.png.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\drawable\\schedule_8920752.png"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/font_inter_medium.xml.flat",
-        "source": "com.example.iKonseptual.app-main-33:/font/inter_medium.xml"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\mipmap-mdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/layout_item_perkara_penting.xml.flat",
-        "source": "com.example.iKonseptual.app-main-33:/layout/item_perkara_penting.xml"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\drawable_keyword_228882.png.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\drawable\\keyword_228882.png"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/layout_activity_crtjadwal.xml.flat",
-        "source": "com.example.iKonseptual.app-main-33:/layout/activity_crtjadwal.xml"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\layout_activity_jadwal.xml.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\layout\\activity_jadwal.xml"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.iKonseptual.app-main-33:/mipmap-xhdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\layout_activity_ajpp.xml.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\layout\\activity_ajpp.xml"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/layout_activity_ujpp.xml.flat",
-        "source": "com.example.iKonseptual.app-main-33:/layout/activity_ujpp.xml"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\drawable_more.png.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\drawable\\more.png"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.iKonseptual.app-main-33:/mipmap-mdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\mipmap-hdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/drawable_login_box.xml.flat",
-        "source": "com.example.iKonseptual.app-main-33:/drawable/login_box.xml"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\mipmap-xxhdpi_pidsus_round.webp.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\mipmap-xxhdpi\\pidsus_round.webp"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/drawable_logo_background.xml.flat",
-        "source": "com.example.iKonseptual.app-main-33:/drawable/logo_background.xml"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\layout\\activity_main.xml"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/drawable_ic_launcher_background.xml.flat",
-        "source": "com.example.iKonseptual.app-main-33:/drawable/ic_launcher_background.xml"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\font_inter_medium.xml.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\font\\inter_medium.xml"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.iKonseptual.app-main-33:/mipmap-hdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\mipmap-xxhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/mipmap-anydpi-v26_pidsus.xml.flat",
-        "source": "com.example.iKonseptual.app-main-33:/mipmap-anydpi-v26/pidsus.xml"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\layout_activity_login.xml.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\layout\\activity_login.xml"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/layout_activity_login.xml.flat",
-        "source": "com.example.iKonseptual.app-main-33:/layout/activity_login.xml"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\mipmap-xhdpi_pidsus_foreground.webp.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\mipmap-xhdpi\\pidsus_foreground.webp"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/drawable_penyidikan.png.flat",
-        "source": "com.example.iKonseptual.app-main-33:/drawable/penyidikan.png"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\mipmap-xxxhdpi_pidsus_round.webp.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\mipmap-xxxhdpi\\pidsus_round.webp"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/mipmap-xhdpi_pidsus_foreground.webp.flat",
-        "source": "com.example.iKonseptual.app-main-33:/mipmap-xhdpi/pidsus_foreground.webp"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\drawable_bookmark.png.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\drawable\\bookmark.png"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/drawable_keyword_228882.png.flat",
-        "source": "com.example.iKonseptual.app-main-33:/drawable/keyword_228882.png"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\layout_activity_edtjadwal.xml.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\layout\\activity_edtjadwal.xml"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/mipmap-xxhdpi_pidsus_round.webp.flat",
-        "source": "com.example.iKonseptual.app-main-33:/mipmap-xxhdpi/pidsus_round.webp"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\font_lexend_deca.xml.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\font\\lexend_deca.xml"
+    },
+    {
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\layout_activity_udpp.xml.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\layout\\activity_udpp.xml"
+    },
+    {
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\drawable_choice_box.xml.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\drawable\\choice_box.xml"
     },
     {
         "merged": "com.example.iKonseptual.app-debug-31:/layout_activity_jadwal.xml.flat",
         "source": "com.example.iKonseptual.app-main-33:/layout/activity_jadwal.xml"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/mipmap-anydpi_ic_launcher_round.xml.flat",
-        "source": "com.example.iKonseptual.app-main-33:/mipmap-anydpi/ic_launcher_round.xml"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\font_inter_semibold.ttf.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\font\\inter_semibold.ttf"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/layout_activity_main2.xml.flat",
-        "source": "com.example.iKonseptual.app-main-33:/layout/activity_main2.xml"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\layout_activity_main2.xml.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\layout\\activity_main2.xml"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/mipmap-mdpi_pidsus_round.webp.flat",
-        "source": "com.example.iKonseptual.app-main-33:/mipmap-mdpi/pidsus_round.webp"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\drawable\\ic_launcher_background.xml"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/layout_activity_udpp.xml.flat",
-        "source": "com.example.iKonseptual.app-main-33:/layout/activity_udpp.xml"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\mipmap-xxxhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/layout_activity_main.xml.flat",
-        "source": "com.example.iKonseptual.app-main-33:/layout/activity_main.xml"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\mipmap-xxhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/mipmap-xxxhdpi_pidsus.webp.flat",
-        "source": "com.example.iKonseptual.app-main-33:/mipmap-xxxhdpi/pidsus.webp"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "com.example.iKonseptual.app-main-33:/mipmap-xhdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\drawable_penyelidikan.png.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\drawable\\penyelidikan.png"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/layout_activity_signup.xml.flat",
-        "source": "com.example.iKonseptual.app-main-33:/layout/activity_signup.xml"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\mipmap-hdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/mipmap-hdpi_pidsus.webp.flat",
-        "source": "com.example.iKonseptual.app-main-33:/mipmap-hdpi/pidsus.webp"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\mipmap-xxxhdpi_pidsus.webp.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\mipmap-xxxhdpi\\pidsus.webp"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/drawable_choice_box.xml.flat",
-        "source": "com.example.iKonseptual.app-main-33:/drawable/choice_box.xml"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\mipmap-anydpi_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\mipmap-anydpi\\ic_launcher_round.xml"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/font_inter_semibold.ttf.flat",
-        "source": "com.example.iKonseptual.app-main-33:/font/inter_semibold.ttf"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\drawable_button_box.xml.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\drawable\\button_box.xml"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/drawable_bookmark.png.flat",
-        "source": "com.example.iKonseptual.app-main-33:/drawable/bookmark.png"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\mipmap-xhdpi_pidsus.webp.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\mipmap-xhdpi\\pidsus.webp"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/xml_backup_rules.xml.flat",
-        "source": "com.example.iKonseptual.app-main-33:/xml/backup_rules.xml"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\font_inter.ttf.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\font\\inter.ttf"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/mipmap-xxxhdpi_pidsus_foreground.webp.flat",
-        "source": "com.example.iKonseptual.app-main-33:/mipmap-xxxhdpi/pidsus_foreground.webp"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\layout_item_jadwal.xml.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\layout\\item_jadwal.xml"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/drawable_button_box.xml.flat",
-        "source": "com.example.iKonseptual.app-main-33:/drawable/button_box.xml"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\mipmap-xxxhdpi_pidsus_foreground.webp.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\mipmap-xxxhdpi\\pidsus_foreground.webp"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/drawable_card.xml.flat",
-        "source": "com.example.iKonseptual.app-main-33:/drawable/card.xml"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\mipmap-xxhdpi_pidsus_foreground.webp.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\mipmap-xxhdpi\\pidsus_foreground.webp"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/drawable_more.png.flat",
-        "source": "com.example.iKonseptual.app-main-33:/drawable/more.png"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\layout_activity_ujpp.xml.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\layout\\activity_ujpp.xml"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "com.example.iKonseptual.app-main-33:/mipmap-mdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\mipmap-hdpi_pidsus_foreground.webp.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\mipmap-hdpi\\pidsus_foreground.webp"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/xml_data_extraction_rules.xml.flat",
-        "source": "com.example.iKonseptual.app-main-33:/xml/data_extraction_rules.xml"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\drawable_logo_background.xml.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\drawable\\logo_background.xml"
     },
     {
-        "merged": "com.example.iKonseptual.app-debug-31:/drawable_delete.png.flat",
-        "source": "com.example.iKonseptual.app-main-33:/drawable/delete.png"
-    },
-    {
-        "merged": "com.example.iKonseptual.app-debug-31:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.iKonseptual.app-main-33:/mipmap-xxxhdpi/ic_launcher_round.webp"
-    },
-    {
-        "merged": "com.example.iKonseptual.app-debug-31:/drawable_ic_launcher_foreground.xml.flat",
-        "source": "com.example.iKonseptual.app-main-33:/drawable/ic_launcher_foreground.xml"
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\mipmap-mdpi_pidsus_round.webp.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\mipmap-mdpi\\pidsus_round.webp"
     }
 ]

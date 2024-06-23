@@ -1,6 +1,7 @@
 package com.example.iKonseptual
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
@@ -44,7 +45,6 @@ class JadwalActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         val id = intent.getIntExtra("id", 0).toString()
-
         label.text = intent.getStringExtra("title")
 
         if (id == "1"){
@@ -58,10 +58,24 @@ class JadwalActivity : AppCompatActivity() {
         }
         else if (id == "0"){
             icon.visibility = View.VISIBLE
+            val titleCrt = intent.getStringExtra("title_c")
+
             if(label.text == "Jadwal Penyidikan"){
+                icon.setOnClickListener{
+                    val intent = Intent(this, CrtjadwalActivity::class.java).apply {
+                        putExtra("title_c", titleCrt)
+                    }
+                    startActivity(intent)
+                }
                 getAllDataPenyidikanAdmin()
             }
             else if(label.text == "Jadwal Penyelidikan"){
+                icon.setOnClickListener{
+                    val intent = Intent(this, CrtjadwalActivity::class.java).apply {
+                        putExtra("title_c", titleCrt)
+                    }
+                    startActivity(intent)
+                }
                 getAllDataPenyelidikanAdmin()
             }
         }
