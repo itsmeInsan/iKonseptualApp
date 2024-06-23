@@ -3178,6 +3178,8 @@ int id bounce 0x7f0a0068
 int id bounceBoth 0x7f0a0069
 int id bounceEnd 0x7f0a006a
 int id bounceStart 0x7f0a006b
+int id btnDate 0x7f0a023e
+int id btnEditDate 0x7f0a0240
 int id buttonPanel 0x7f0a006c
 int id button_changePass 0x7f0a006d
 int id button_edit_perkara_penting 0x7f0a006e
@@ -3279,7 +3281,6 @@ int id editText_Kasus_Posisi 0x7f0a00cd
 int id editText_Pasal 0x7f0a00ce
 int id editText_Penahanan 0x7f0a00cf
 int id editText_Tersangka 0x7f0a00d0
-int id editWaktu 0x7f0a00d1
 int id edit_pekating 0x7f0a00d2
 int id edit_query 0x7f0a00d3
 int id elastic 0x7f0a00d4
@@ -3344,7 +3345,6 @@ int id inputKeperluan 0x7f0a010e
 int id inputNama 0x7f0a010f
 int id inputPerkara 0x7f0a0110
 int id inputTempat 0x7f0a0111
-int id inputWaktu 0x7f0a0112
 int id invisible 0x7f0a0113
 int id inward 0x7f0a0114
 int id italic 0x7f0a0115
@@ -3588,6 +3588,7 @@ int id textSpacerNoTitle 0x7f0a0202
 int id textStart 0x7f0a0203
 int id textTop 0x7f0a0204
 int id textView 0x7f0a0205
+int id textViewDate 0x7f0a023f
 int id text_Judul 0x7f0a0206
 int id text_Kasus_Posisi 0x7f0a0207
 int id text_Pasal 0x7f0a0208
@@ -3620,6 +3621,7 @@ int id transition_position 0x7f0a0222
 int id transition_scene_layoutid_cache 0x7f0a0223
 int id transition_transform 0x7f0a0224
 int id triangle 0x7f0a0225
+int id tvDate 0x7f0a0241
 int id unchecked 0x7f0a0226
 int id uniform 0x7f0a0227
 int id unlabeled 0x7f0a0228

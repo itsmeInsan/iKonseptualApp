@@ -1,6 +1,9 @@
 package com.example.iKonseptual
 
+import android.annotation.SuppressLint
+import android.app.DatePickerDialog
 import android.content.Intent
+import android.icu.util.Calendar
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -13,17 +16,22 @@ import androidx.core.view.WindowInsetsCompat
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 class CrtjadwalActivity : AppCompatActivity() {
     private lateinit var label: TextView
     private lateinit var inputNama: EditText
     private lateinit var inputPerkara: EditText
-    private lateinit var inputWaktu: EditText
     private lateinit var inputTempat: EditText
     private lateinit var inputJaksa: EditText
     private lateinit var inputKeperluan: EditText
     private lateinit var btnPost: Button
-
+    private lateinit var btnDatePicker: Button
+    private lateinit var tvDate: TextView
+    private val calendar = Calendar.getInstance()
+    private var formattedDate: String? = null
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -36,16 +44,22 @@ class CrtjadwalActivity : AppCompatActivity() {
         label = findViewById(R.id.label_create)
         inputNama = findViewById(R.id.inputNama)
         inputPerkara = findViewById(R.id.inputPerkara)
-        inputWaktu = findViewById(R.id.inputWaktu)
+        btnDatePicker = findViewById(R.id.btnDate)
         inputTempat = findViewById(R.id.inputTempat)
         inputJaksa = findViewById(R.id.inputJaksa)
         inputKeperluan = findViewById(R.id.inputKeperluan)
         btnPost = findViewById(R.id.button_post_jadwal)
+        tvDate = findViewById(R.id.textViewDate)
         label.text = intent.getStringExtra("title_c")
+        btnDatePicker.setOnClickListener{
+            showDatePicker()
+        }
         btnPost.setOnClickListener {
             val nama = inputNama.text.toString().trim()
             val perkara = inputPerkara.text.toString().trim()
-            val waktu = inputWaktu.text.toString().trim()
+//            val calendar = Calendar.getInstance()
+//            calendar.set(inputWaktu.year,inputWaktu.month,inputWaktu.dayOfMonth)
+            val waktu = formattedDate?: ""
             val tempat = inputTempat.text.toString().trim()
             val jaksa = inputJaksa.text.toString().trim()
             val keperluan = inputKeperluan.text.toString().trim()
@@ -95,4 +109,26 @@ class CrtjadwalActivity : AppCompatActivity() {
         })
     }
 
+    private fun showDatePicker() {
+        // Create a DatePickerDialog
+        val datePickerDialog = DatePickerDialog(
+            this, {DatePicker, year: Int, monthOfYear: Int, dayOfMonth: Int ->
+                // Create a new Calendar instance to hold the selected date
+                val selectedDate = Calendar.getInstance()
+                // Set the selected date using the values received from the DatePicker dialog
+                selectedDate.set(year, monthOfYear, dayOfMonth)
+                // Create a SimpleDateFormat to format the date as "dd/MM/yyyy"
+                val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+                // Format the selected date into a string
+                formattedDate = dateFormat.format(selectedDate.time)
+                // Update the TextView to display the selected date with the "Selected Date: " prefix
+                tvDate.text = "Selected Date: $formattedDate"
+            },
+            calendar.get(Calendar.YEAR),
+            calendar.get(Calendar.MONTH),
+            calendar.get(Calendar.DAY_OF_MONTH)
+        )
+        // Show the DatePicker dialog
+        datePickerDialog.show()
+    }
 }

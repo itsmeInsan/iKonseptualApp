@@ -48,12 +48,12 @@
         "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\drawable\\penyidikan.png"
     },
     {
-        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\layout_activity_rincian.xml.flat",
-        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\layout\\activity_rincian.xml"
-    },
-    {
         "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\xml_backup_rules.xml.flat",
         "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\xml\\backup_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\layout_activity_rincian.xml.flat",
+        "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\layout\\activity_rincian.xml"
     },
     {
         "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
@@ -62,6 +62,10 @@
     {
         "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\mipmap-xhdpi_pidsus_round.webp.flat",
         "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\mipmap-xhdpi\\pidsus_round.webp"
+    },
+    {
+        "merged": "com.example.iKonseptual.app-debug-31:/layout_activity_edtjadwal.xml.flat",
+        "source": "com.example.iKonseptual.app-main-33:/layout/activity_edtjadwal.xml"
     },
     {
         "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\drawable_ic_launcher_foreground.xml.flat",
@@ -186,10 +190,6 @@
     {
         "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\drawable_choice_box.xml.flat",
         "source": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-main-33:\\drawable\\choice_box.xml"
-    },
-    {
-        "merged": "com.example.iKonseptual.app-debug-31:/layout_activity_jadwal.xml.flat",
-        "source": "com.example.iKonseptual.app-main-33:/layout/activity_jadwal.xml"
     },
     {
         "merged": "C:\\Users\\fqbay\\.gradle\\daemon\\8.7\\com.example.iKonseptual.app-debug-31:\\font_inter_semibold.ttf.flat",

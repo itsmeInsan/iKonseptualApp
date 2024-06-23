@@ -36,6 +36,8 @@ id TextView_LupaSandi
 id TextView_PENYELIDIKAN
 id TextView_PENYIDIKAN
 id TextView_Perkara_Penting
+id btnDate
+id btnEditDate
 id button_changePass
 id button_edit_perkara_penting
 id button_login
@@ -64,7 +66,6 @@ id editText_Kasus_Posisi
 id editText_Pasal
 id editText_Penahanan
 id editText_Tersangka
-id editWaktu
 id edit_pekating
 id identitasTersangkaTextView
 id imageView
@@ -78,7 +79,6 @@ id inputKeperluan
 id inputNama
 id inputPerkara
 id inputTempat
-id inputWaktu
 id jaksa_textView
 id jaksatextView
 id judulPerkaraTextView
@@ -98,6 +98,7 @@ id recyclerView
 id tambah_jadwal
 id tempat_textView
 id textView
+id textViewDate
 id text_Judul
 id text_Kasus_Posisi
 id text_Pasal
@@ -105,6 +106,7 @@ id text_Penahanan
 id text_Tersangka
 id text_title_jadwal
 id top_layout
+id tvDate
 id waktu_textView
 layout activity_acpp
 layout activity_adpp

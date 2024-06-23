@@ -3179,6 +3179,8 @@ id bounce
 id bounceBoth
 id bounceEnd
 id bounceStart
+id btnDate
+id btnEditDate
 id buttonPanel
 id button_changePass
 id button_edit_perkara_penting
@@ -3280,7 +3282,6 @@ id editText_Kasus_Posisi
 id editText_Pasal
 id editText_Penahanan
 id editText_Tersangka
-id editWaktu
 id edit_pekating
 id edit_query
 id elastic
@@ -3345,7 +3346,6 @@ id inputKeperluan
 id inputNama
 id inputPerkara
 id inputTempat
-id inputWaktu
 id invisible
 id inward
 id italic
@@ -3589,6 +3589,7 @@ id textSpacerNoTitle
 id textStart
 id textTop
 id textView
+id textViewDate
 id text_Judul
 id text_Kasus_Posisi
 id text_Pasal
@@ -3621,6 +3622,7 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id tvDate
 id unchecked
 id uniform
 id unlabeled

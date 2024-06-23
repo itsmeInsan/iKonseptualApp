@@ -1,6 +1,9 @@
 package com.example.iKonseptual
 
+import android.annotation.SuppressLint
+import android.app.DatePickerDialog
 import android.content.Intent
+import android.icu.util.Calendar
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -14,18 +17,23 @@ import androidx.core.view.WindowInsetsCompat
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 class EdtjadwalActivity : AppCompatActivity() {
 
     lateinit var label: TextView
     private lateinit var editNama: EditText
     private lateinit var editPerkara: EditText
-    private lateinit var editWaktu: EditText
     private lateinit var editTempat: EditText
     private lateinit var editJaksa: EditText
     private lateinit var editKeperluan: EditText
     private lateinit var btnEdit: Button
-
+    private lateinit var tvDate: TextView
+    private lateinit var btnEditDate: Button
+    private val calendar = Calendar.getInstance()
+    private var formattedDate: String? = null
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -39,11 +47,13 @@ class EdtjadwalActivity : AppCompatActivity() {
         label = findViewById(R.id.label_edit)
         editNama = findViewById(R.id.editNama)
         editPerkara = findViewById(R.id.editPerkara)
-        editWaktu = findViewById(R.id.editWaktu)
         editTempat = findViewById(R.id.editTempat)
         editJaksa = findViewById(R.id.editJaksa)
         editKeperluan = findViewById(R.id.editKeperluan)
         btnEdit = findViewById(R.id.buttonedtJadwal)
+        tvDate = findViewById(R.id.tvDate)
+        btnEditDate = findViewById(R.id.btnEditDate)
+
         val intent = intent
         val id = intent.getIntExtra("Id", 0)
         val inputNama = intent.getStringExtra("Nama")
@@ -56,15 +66,17 @@ class EdtjadwalActivity : AppCompatActivity() {
         label.text = labelEdit
         editNama.setText(inputNama)
         editPerkara.setText(inputPerkara)
-        editWaktu.setText(inputWaktu)
+        tvDate.setText(inputWaktu)
         editTempat.setText(inputTempat)
         editJaksa.setText(inputJaksa)
         editKeperluan.setText(inputKeperluan)
-
+        btnEditDate.setOnClickListener{
+            showDatePicker()
+        }
         btnEdit.setOnClickListener {
             val nama = editNama.text.toString().trim()
             val perkara = editPerkara.text.toString().trim()
-            val waktu = editWaktu.text.toString().trim()
+            val waktu = formattedDate?: ""
             val tempat = editTempat.text.toString().trim()
             val jaksa = editJaksa.text.toString().trim()
             val keperluan = editKeperluan.text.toString().trim()
@@ -138,6 +150,29 @@ class EdtjadwalActivity : AppCompatActivity() {
                 Toast.makeText(this@EdtjadwalActivity, "Gagal edit jadwal: ${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
+    }
+
+    private fun showDatePicker() {
+        // Create a DatePickerDialog
+        val datePickerDialog = DatePickerDialog(
+            this, {DatePicker, year: Int, monthOfYear: Int, dayOfMonth: Int ->
+                // Create a new Calendar instance to hold the selected date
+                val selectedDate = Calendar.getInstance()
+                // Set the selected date using the values received from the DatePicker dialog
+                selectedDate.set(year, monthOfYear, dayOfMonth)
+                // Create a SimpleDateFormat to format the date as "dd/MM/yyyy"
+                val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+                // Format the selected date into a string
+                formattedDate = dateFormat.format(selectedDate.time)
+                // Update the TextView to display the selected date with the "Selected Date: " prefix
+                tvDate.text = "Selected Date: $formattedDate"
+            },
+            calendar.get(Calendar.YEAR),
+            calendar.get(Calendar.MONTH),
+            calendar.get(Calendar.DAY_OF_MONTH)
+        )
+        // Show the DatePicker dialog
+        datePickerDialog.show()
     }
 
 }

@@ -144,8 +144,6 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-
-
     private fun loginUser(user: Login) {
         AuthClient.instance.login(user).enqueue(object : Callback<LoginResponse> {
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
