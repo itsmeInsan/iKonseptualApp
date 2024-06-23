@@ -6,10 +6,14 @@ import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class RincianActivity : AppCompatActivity() {
 
@@ -65,7 +69,7 @@ class RincianActivity : AppCompatActivity() {
 
         Log.d("Rincianactivity","role: $role")
         Log.d("Rincianactivity","role: $intent")
-
+        Log.d("Rincianactivity","idItem: $id")
         if (role == 1){
             icon_del.visibility = View.GONE
             icon_edt.visibility = View.GONE
@@ -87,6 +91,99 @@ class RincianActivity : AppCompatActivity() {
                 startActivity(nextSession)
                 finish()
             }
+            Log.d("Rincian", "LabelEdit: $labelEdit")
+            if(labelEdit == "Edit Rincian Penyelidikan"){
+                icon_del.setOnClickListener{
+                    val nama = nama.text.toString().trim()
+                    val perkara = perkara.text.toString().trim()
+                    val waktu = waktu.text.toString().trim()
+                    val tempat = tempat.text.toString().trim()
+                    val jaksa = jaksa.text.toString().trim()
+                    val keperluan = keperluan.text.toString().trim()
+                    val body = PenyelidikanPenyidikan(
+                        Nama = nama,
+                        Perkara = perkara,
+                        Waktu_Pelaksanaan = waktu,
+                        Tempat_Pelaksanaan = tempat,
+                        Jaksa_yang_melaksanakan = jaksa,
+                        Keperluan = keperluan
+                    )
+                    Log.d("RincianActivity","idItem: $id")
+                    Log.d("RincianActivity","body: $body")
+                    deletePenyelidikan(body,id)
+                }
+            } else if(labelEdit == "Edit Rincian Penyidikan"){
+                icon_del.setOnClickListener{
+                    val nama = nama.text.toString().trim()
+                    val perkara = perkara.text.toString().trim()
+                    val waktu = waktu.text.toString().trim()
+                    val tempat = tempat.text.toString().trim()
+                    val jaksa = jaksa.text.toString().trim()
+                    val keperluan = keperluan.text.toString().trim()
+                    val body = PenyelidikanPenyidikan(
+                        Nama = nama,
+                        Perkara = perkara,
+                        Waktu_Pelaksanaan = waktu,
+                        Tempat_Pelaksanaan = tempat,
+                        Jaksa_yang_melaksanakan = jaksa,
+                        Keperluan = keperluan
+                    )
+                    Log.d("RincianActivity","idItem: $id")
+                    Log.d("RincianActivity","body: $body")
+                    deletePenyidikan(body,id)
+                }
+            }
         }
+    }
+    private fun deletePenyelidikan(penyelidikan: PenyelidikanPenyidikan,id:Int){
+        PenyelidikanPenyidikanClient.penyelidikanInstance.delete("deletePenyelidikan",id,penyelidikan).enqueue(object :
+            Callback<PenyelidikanPenyidikanResponse> {
+            override fun onResponse(
+                call: Call<PenyelidikanPenyidikanResponse>,
+                response: Response<PenyelidikanPenyidikanResponse>
+            ) {
+                if(response.isSuccessful && response.body() != null){
+                    Log.d("RincianActivity","idItem: $id")
+                    Log.d("RincianActivity","body: $penyelidikan")
+                    Log.d("DeleteActivity","response: ${response.body()}")
+                    Toast.makeText(this@RincianActivity,"Sukses hapus data", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this@RincianActivity, MainActivity2::class.java)
+                    startActivity(intent)
+                } else{
+                    Toast.makeText(this@RincianActivity,"Gagal hapus data: ${response.message()}",
+                        Toast.LENGTH_SHORT).show()
+                }
+            }
+            override fun onFailure(call: Call<PenyelidikanPenyidikanResponse>, t: Throwable) {
+                t.printStackTrace()
+                Toast.makeText(this@RincianActivity, "Gagal hapus jadwal: ${t.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
+    private fun deletePenyidikan(penyidikan: PenyelidikanPenyidikan,id:Int){
+        PenyelidikanPenyidikanClient.penyidikanInstance.delete("deletePenyidikan",id,penyidikan).enqueue(object :
+            Callback<PenyelidikanPenyidikanResponse> {
+            override fun onResponse(
+                call: Call<PenyelidikanPenyidikanResponse>,
+                response: Response<PenyelidikanPenyidikanResponse>
+            ) {
+                if(response.isSuccessful && response.body() != null){
+                    Log.d("RincianActivity","idItem: $id")
+                    Log.d("RincianActivity","body: $penyidikan")
+                    Log.d("DeleteActivity","response: ${response.body()}")
+                    Toast.makeText(this@RincianActivity,"Sukses hapus data", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this@RincianActivity, MainActivity2::class.java)
+                    startActivity(intent)
+                } else{
+                    Toast.makeText(this@RincianActivity,"Gagal hapus data: ${response.message()}",
+                        Toast.LENGTH_SHORT).show()
+                }
+            }
+            override fun onFailure(call: Call<PenyelidikanPenyidikanResponse>, t: Throwable) {
+                t.printStackTrace()
+                Toast.makeText(this@RincianActivity, "Gagal hapus jadwal: ${t.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 }

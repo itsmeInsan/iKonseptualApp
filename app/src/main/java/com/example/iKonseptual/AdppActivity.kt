@@ -2,12 +2,17 @@ package com.example.iKonseptual
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class AdppActivity : AppCompatActivity() {
 
@@ -68,5 +73,44 @@ class AdppActivity : AppCompatActivity() {
             startActivity(nextSession)
             finish()
         }
+        btnDelete.setOnClickListener(){
+            val judul = textJudul.text.toString().trim()
+            val tersangka = textTersangka.text.toString().trim()
+            val penahanan = textPenahanan.text.toString().trim()
+            val pasal = textPasal.text.toString().trim()
+            val kasus = textkasus.text.toString().trim()
+            val body = PerkaraPenting(
+                Judul_Perkara = judul,
+                Identitas_tersangka = tersangka,
+                Penahanan = penahanan,
+                Pasal = pasal,
+                Kasus_Posisi = kasus
+            )
+            Log.d("AdppActivity","idItem: $id")
+            deletePerkaraPenting(body,id)
+        }
+    }
+
+    private fun deletePerkaraPenting(perkaraPenting: PerkaraPenting,id:Int){
+        PerkaraPentingClient.instance.delete("delete",id,perkaraPenting).enqueue(object : Callback<PerkaraPentingResponse>{
+            override fun onResponse(
+                call: Call<PerkaraPentingResponse>,
+                response: Response<PerkaraPentingResponse>
+            ) {
+                if(response.isSuccessful && response.body() != null){
+                    Log.d("AdppActivity","response: ${response.body()}")
+                    Toast.makeText(this@AdppActivity,"Sukses hapus data", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this@AdppActivity, AjppActivity::class.java)
+                    startActivity(intent)
+                } else{
+                    Toast.makeText(this@AdppActivity,"Gagal hapus data: ${response.message()}",Toast.LENGTH_SHORT).show()
+                }
+            }
+            override fun onFailure(call: Call<PerkaraPentingResponse>, t: Throwable) {
+                t.printStackTrace()
+                Toast.makeText(this@AdppActivity, "Gagal hapus jadwal: ${t.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
+
     }
 }

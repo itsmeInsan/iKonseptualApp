@@ -117,7 +117,7 @@ class EdtjadwalActivity : AppCompatActivity() {
     }
 
     private fun editPenyidikan(penyidikan: PenyelidikanPenyidikan,id:Int) {
-        PenyelidikanPenyidikanClient.penyelidikanInstance.update("updatePenyidikan",id, penyidikan).enqueue(object : Callback<PenyelidikanPenyidikanResponse> {
+        PenyelidikanPenyidikanClient.penyidikanInstance.update("updatePenyidikan",id, penyidikan).enqueue(object : Callback<PenyelidikanPenyidikanResponse> {
             override fun onResponse(
                 call: Call<PenyelidikanPenyidikanResponse>,
                 response: Response<PenyelidikanPenyidikanResponse>

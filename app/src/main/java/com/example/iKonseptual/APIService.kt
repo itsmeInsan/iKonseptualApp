@@ -112,7 +112,7 @@ interface APIPenyidikan{
     @POST("exec")
     fun delete(@Query("action") action: String,
                @Query("id") id: Int,
-               @Body penyelidikan: PenyelidikanPenyidikan): Call<PenyelidikanPenyidikanResponse>
+               @Body penyidikan: PenyelidikanPenyidikan): Call<PenyelidikanPenyidikanResponse>
 }
 
 interface APIPerkaraPenting{
