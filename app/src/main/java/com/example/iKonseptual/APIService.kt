@@ -5,10 +5,16 @@ import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 data class User(val namaDepan: String, val namaBelakang: String, val email: String, val sandi: String, val role: Int)
 data class Login(val email: String, val sandi: String)
 data class ForgetPass(val sandi: String)
+data class ChangePassResponse(
+    val success: Boolean,
+    val message: String,
+    val data: ForgetPass?
+)
 data class LoginResponse(
     val success: Boolean,
     val message: String,
@@ -59,8 +65,12 @@ interface APIAuth {
     @POST("exec?action=login")
     fun login(@Body user: Login): Call<LoginResponse>
 
-    @POST("exec?action=updatePassword&id={id}")
-    fun forgetPassword(@Path("id") id: Int, @Body user: ForgetPass): Call<ForgetPass>
+    @POST("exec")
+    fun forgetPassword(
+        @Query("action") action: String,
+        @Query("id") id: Int,
+        @Body user: ForgetPass
+    ): Call<ChangePassResponse>
 }
 
 interface APIPenyelidikan{
@@ -73,11 +83,15 @@ interface APIPenyelidikan{
     @POST("exec?action=postPenyelidikan")
     fun post(@Body penyelidikan:PenyelidikanPenyidikan): Call<PenyelidikanPenyidikan>
 
-    @POST("exec?action=updatePenyelidikan&id={id}")
-    fun update(@Path("id") id: Int,@Body penyelidikan: PenyelidikanPenyidikan): Call<PenyelidikanPenyidikanResponse>
+    @POST("exec")
+    fun update(@Query("action") action: String,
+               @Query("id") id: Int,
+               @Body penyelidikan: PenyelidikanPenyidikan): Call<PenyelidikanPenyidikanResponse>
 
-    @POST("exec?action=deletePenyelidikan&id={id}")
-    fun delete(@Path("id") id:Int): Call<PenyelidikanPenyidikanResponse>
+    @POST("exec")
+    fun delete(@Query("action") action: String,
+               @Query("id") id: Int,
+               @Body penyelidikan: PenyelidikanPenyidikan): Call<PenyelidikanPenyidikanResponse>
 }
 
 interface APIPenyidikan{
@@ -90,11 +104,15 @@ interface APIPenyidikan{
     @POST("exec?action=postPenyidikan")
     fun post(@Body penyidikan:PenyelidikanPenyidikan): Call<PenyelidikanPenyidikan>
 
-    @POST("exec?action=updatePenyidikan&id={id}")
-    fun update(@Path("id") id: Int,@Body penyelidikan: PenyelidikanPenyidikan): Call<PenyelidikanPenyidikanResponse>
+    @POST("exec")
+    fun update(@Query("action") action: String,
+               @Query("id") id: Int,
+               @Body penyelidikan: PenyelidikanPenyidikan): Call<PenyelidikanPenyidikanResponse>
 
-    @POST("exec?action=deletePenyidikan&id={id}")
-    fun delete(@Path("id") id:Int): Call<PenyelidikanPenyidikanResponse>
+    @POST("exec")
+    fun delete(@Query("action") action: String,
+               @Query("id") id: Int,
+               @Body penyelidikan: PenyelidikanPenyidikan): Call<PenyelidikanPenyidikanResponse>
 }
 
 interface APIPerkaraPenting{
@@ -107,10 +125,14 @@ interface APIPerkaraPenting{
     @POST("exec?action=insert")
     fun post(@Body paketing:PerkaraPenting): Call<PerkaraPenting>
 
-    @POST("exec?action=update&id={id}")
-    fun update(@Path("id") id: Int,@Body paketing: PerkaraPenting): Call<PerkaraPenting>
+    @POST("exec")
+    fun update(@Query("action") action: String,
+               @Query("id") id: Int,
+               @Body paketing: PerkaraPenting): Call<PerkaraPentingResponse>
 
-    @POST("exec?action=delete&id={id}")
-    fun delete(@Path("id") id:Int, @Body paketing: PerkaraPenting): Call<PerkaraPenting>
+    @POST("exec")
+    fun delete(@Query("action") action: String,
+               @Query("id") id: Int,
+               @Body paketing: PerkaraPenting): Call<PerkaraPentingResponse>
 }
 

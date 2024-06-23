@@ -42,7 +42,7 @@ class AdppActivity : AppCompatActivity() {
 
 
         val intent = intent
-        val id = intent.getStringExtra("Id_Perkara")
+        val id = intent.getIntExtra("Id_Perkara",0)
         val judulPerkara = intent.getStringExtra("Judul_Perkara")
         val identitasTersangka = intent.getStringExtra("Identitas_tersangka")
         val penahanan = intent.getStringExtra("Penahanan")

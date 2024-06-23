@@ -1,8 +1,10 @@
 package com.example.iKonseptual
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.text.Editable
+import android.util.Log
+import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -19,7 +21,8 @@ class AeppActivity : AppCompatActivity() {
     lateinit var editPenahanan : EditText
     lateinit var editPasal : EditText
     lateinit var editKasus : EditText
-    lateinit var btnedit : EditText
+    lateinit var btnedit : Button
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -34,18 +37,19 @@ class AeppActivity : AppCompatActivity() {
         editPenahanan = findViewById(R.id.editText_Penahanan)
         editPasal = findViewById(R.id.editText_Pasal)
         editKasus = findViewById(R.id.editText_Kasus_Posisi)
+        btnedit = findViewById(R.id.button_edit_perkara_penting)
         val intent = intent
-        val id = intent.getStringExtra("id")?.toInt()
-        val judulPerkara = intent.getStringExtra("judul")
-        val tersangka = intent.getStringExtra("tersangka")
-        val penahanan = intent.getStringExtra("penahanan")
-        val pasal = intent.getStringExtra("pasal")
-        val kasus = intent.getStringExtra("kasusPosisi")
-        editJudul.text = (judulPerkara) as Editable?
-        editTersangka.text = (tersangka) as Editable?
-        editPenahanan.text = (penahanan) as Editable?
-        editPasal.text = (pasal) as Editable?
-        editKasus.text = (kasus) as Editable?
+        val id = intent.getIntExtra("id", 0)
+        val inputjudulPerkara = intent.getStringExtra("judul")
+        val inputtersangka = intent.getStringExtra("tersangka")
+        val inputpenahanan = intent.getStringExtra("penahanan")
+        val inputpasal = intent.getStringExtra("pasal")
+        val inputkasus = intent.getStringExtra("kasusPosisi")
+        editJudul.setText(inputjudulPerkara)
+        editTersangka.setText(inputtersangka)
+        editPenahanan.setText(inputpenahanan)
+        editPasal.setText(inputpasal)
+        editKasus.setText(inputkasus)
         btnedit.setOnClickListener{
             val judul = editJudul.text.toString().trim()
             val tersangka = editTersangka.text.toString().trim()
@@ -63,28 +67,28 @@ class AeppActivity : AppCompatActivity() {
                     Pasal = pasal,
                     Penahanan = penahanan
                 )
-                if (id != null) {
-                    editPerkara(editPerkaraPenting,id)
-                }
+                Log.d("editPerkaraActivity", "Request ID: $id")
+                Log.d("editPerkaraActivity", "Request Body: $editPerkaraPenting")
+                editPerkara(editPerkaraPenting,id)
             }
         }
     }
     private fun editPerkara(perkaraPenting: PerkaraPenting,id:Int){
-        PerkaraPentingClient.instance.update(id,perkaraPenting).enqueue(object : Callback<PerkaraPenting>{
+        PerkaraPentingClient.instance.update("update",id,perkaraPenting).enqueue(object : Callback<PerkaraPentingResponse>{
             override fun onResponse(
-                call: Call<PerkaraPenting>,
-                response: Response<PerkaraPenting>
+                call: Call<PerkaraPentingResponse>,
+                response: Response<PerkaraPentingResponse>
             ) {
                 if(response.isSuccessful && response.body() != null){
+                    Log.d("responseEditPerkara", "Response: ${response.body()}")
                     Toast.makeText(this@AeppActivity,"Sukses edit data", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this@AeppActivity, AjppActivity::class.java)
                     startActivity(intent)
-                    finish()
                 } else{
                     Toast.makeText(this@AeppActivity,"Gagal edit jadwal: ${response.message()}",Toast.LENGTH_SHORT).show()
                 }
             }
-            override fun onFailure(call: Call<PerkaraPenting>, t: Throwable) {
+            override fun onFailure(call: Call<PerkaraPentingResponse>, t: Throwable) {
                 t.printStackTrace()
                 Toast.makeText(this@AeppActivity, "Gagal edit jadwal: ${t.message}", Toast.LENGTH_SHORT).show()
             }

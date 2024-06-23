@@ -1,5 +1,6 @@
 package com.example.iKonseptual
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -32,9 +33,7 @@ class RincianActivity : AppCompatActivity() {
             insets
         }
 
-//        val userpref = getSharedPreferences("user_pref",Context.MODE_PRIVATE)
-//        val role = userpref.getInt("role",1)
-        val role = intent.getIntExtra("id", 0)
+        val role = intent.getIntExtra("role", 0)
 
         icon_del = findViewById(R.id.imageView_delete_jadwal)
         icon_edt = findViewById(R.id.imageView_edit_jadwal)
@@ -50,12 +49,13 @@ class RincianActivity : AppCompatActivity() {
         keperluan = findViewById(R.id.keperluantextView)
         val intent = intent
         val Nama = intent.getStringExtra("Nama")
+        val id = intent.getIntExtra("Id",0)
         val Perkara = intent.getStringExtra("Perkara")
         val Waktu_Pelaksanaan = intent.getStringExtra("Waktu_Pelaksanaan")
         val Tempat = intent.getStringExtra("Tempat")
         val Jaksa_yang_melaksanakan = intent.getStringExtra("Jaksa_yang_melaksanakan")
         val Keperluan = intent.getStringExtra("Keperluan")
-
+        val labelEdit = intent.getStringExtra("title_e")
         nama.text = Nama ?: "N/A"
         perkara.text = Perkara ?: "N/A"
         waktu.text = Waktu_Pelaksanaan ?: "N/A"
@@ -73,6 +73,20 @@ class RincianActivity : AppCompatActivity() {
         else{
             icon_del.visibility = View.VISIBLE
             icon_edt.visibility = View.VISIBLE
+            icon_edt.setOnClickListener{
+                val nextSession = Intent(this, EdtjadwalActivity::class.java).apply {
+                    putExtra("Id", id)
+                    putExtra("Nama", Nama)
+                    putExtra("Perkara", Perkara)
+                    putExtra("Waktu_Pelaksanaan", Waktu_Pelaksanaan)
+                    putExtra("Tempat", Tempat)
+                    putExtra("Jaksa_yang_melaksanakan", Jaksa_yang_melaksanakan)
+                    putExtra("Keperluan", Keperluan)
+                    putExtra("title_e",labelEdit)
+                }
+                startActivity(nextSession)
+                finish()
+            }
         }
     }
 }

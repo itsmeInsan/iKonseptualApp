@@ -36,16 +36,18 @@ class PenyidikanAdapterAdmin (
         holder.card.setOnClickListener {
             onClickListener?.onClick(position, dataPenyidikan)
             val labelDetail = "Detail Jadwal Penyidikan"
+            val labelEdit = "Edit Rincian Penyidikan"
             val role = 0
             val intent = Intent(context, RincianActivity::class.java).apply {
                 putExtra("Nama", dataPenyidikan.Nama)
                 putExtra("Perkara", dataPenyidikan.Perkara)
-                putExtra("Id_Perkara", dataPenyidikan.no)
+                putExtra("Id", dataPenyidikan.no)
                 putExtra("Waktu_Pelaksanaan", dataPenyidikan.Waktu_Pelaksanaan)
                 putExtra("Tempat", dataPenyidikan.Tempat_Pelaksanaan)
                 putExtra("Jaksa_yang_melaksanakan", dataPenyidikan.Jaksa_yang_melaksanakan)
                 putExtra("Keperluan", dataPenyidikan.Keperluan)
                 putExtra("title_d", labelDetail)
+                putExtra("title_e", labelEdit)
                 putExtra("id", role)
             }
             context.startActivity(intent)

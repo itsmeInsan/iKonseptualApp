@@ -44,24 +44,26 @@
 
                 <ImageView
                     android:id="@+id/delete_pekating"
-                    android:layout_width="48dp"
+                    android:layout_width="36dp"
                     android:layout_height="48dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="12dp"
                     android:clickable="true"
                     android:visibility="visible"
-                    app:srcCompat="@drawable/delete" />
+                    app:srcCompat="@drawable/delete"
+                    tools:visibility="visible" />
 
                 <ImageView
                     android:id="@+id/edit_pekating"
-                    android:layout_width="48dp"
+                    android:layout_width="36dp"
                     android:layout_height="48dp"
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="10dp"
                     android:clickable="true"
                     android:focusable="true"
                     android:visibility="visible"
-                    app:srcCompat="@drawable/edit" />
+                    app:srcCompat="@drawable/edit"
+                    tools:visibility="visible" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

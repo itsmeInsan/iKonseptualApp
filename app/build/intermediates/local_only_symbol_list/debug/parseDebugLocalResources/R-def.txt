@@ -37,6 +37,7 @@ id TextView_PENYELIDIKAN
 id TextView_PENYIDIKAN
 id TextView_Perkara_Penting
 id button_changePass
+id button_edit_perkara_penting
 id button_login
 id button_post_jadwal
 id button_signup

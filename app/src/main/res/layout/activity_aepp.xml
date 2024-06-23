@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".AeppActivity">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,7 +31,7 @@
                 android:textStyle="bold" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button_signup"
+                android:id="@+id/button_edit_perkara_penting"
                 android:layout_width="100dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="32dp"
@@ -43,10 +42,9 @@
                 android:fontFamily="@font/inter_medium"
                 android:text="Masukkan"
                 android:textColor="@color/white"
-                android:textSize="14sp"/>
-
-
+                android:textSize="14sp" />
         </LinearLayout>
+
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -68,6 +66,7 @@
                     android:text="Judul:"
                     android:textSize="14sp"
                     android:textStyle="bold" />
+
                 <EditText
                     android:id="@+id/editText_Judul"
                     android:layout_width="match_parent"
@@ -92,6 +91,7 @@
                     android:text="Identitas Tersangka:"
                     android:textSize="14sp"
                     android:textStyle="bold" />
+
                 <EditText
                     android:id="@+id/editText_Tersangka"
                     android:layout_width="match_parent"
@@ -116,6 +116,7 @@
                     android:text="Penahanan:"
                     android:textSize="14sp"
                     android:textStyle="bold" />
+
                 <EditText
                     android:id="@+id/editText_Penahanan"
                     android:layout_width="match_parent"
@@ -140,6 +141,7 @@
                     android:text="Pasal:"
                     android:textSize="14sp"
                     android:textStyle="bold" />
+
                 <EditText
                     android:id="@+id/editText_Pasal"
                     android:layout_width="match_parent"
@@ -164,6 +166,7 @@
                     android:text="Kasus Posisi:"
                     android:textSize="14sp"
                     android:textStyle="bold" />
+
                 <EditText
                     android:id="@+id/editText_Kasus_Posisi"
                     android:layout_width="match_parent"
@@ -176,12 +179,7 @@
                     android:ems="10"
                     android:inputType="text"
                     android:textAlignment="center" />
-
             </LinearLayout>
-
         </androidx.core.widget.NestedScrollView>
-
-
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

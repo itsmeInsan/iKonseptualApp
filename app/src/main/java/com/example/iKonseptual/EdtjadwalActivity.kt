@@ -1,8 +1,8 @@
 package com.example.iKonseptual
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -17,7 +17,7 @@ import retrofit2.Response
 
 class EdtjadwalActivity : AppCompatActivity() {
 
-    private lateinit var label: TextView
+    lateinit var label: TextView
     private lateinit var editNama: EditText
     private lateinit var editPerkara: EditText
     private lateinit var editWaktu: EditText
@@ -31,6 +31,11 @@ class EdtjadwalActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_edtjadwal)
 
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
         label = findViewById(R.id.label_edit)
         editNama = findViewById(R.id.editNama)
         editPerkara = findViewById(R.id.editPerkara)
@@ -39,16 +44,22 @@ class EdtjadwalActivity : AppCompatActivity() {
         editJaksa = findViewById(R.id.editJaksa)
         editKeperluan = findViewById(R.id.editKeperluan)
         btnEdit = findViewById(R.id.buttonedtJadwal)
-
-        getDataPenyelidikan()
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
-
-        label.text = intent.getStringExtra("title_e")
+        val intent = intent
+        val id = intent.getIntExtra("Id", 0)
+        val inputNama = intent.getStringExtra("Nama")
+        val inputPerkara = intent.getStringExtra("Perkara")
+        val inputWaktu = intent.getStringExtra("Waktu_Pelaksanaan")
+        val inputTempat = intent.getStringExtra("Tempat")
+        val inputJaksa = intent.getStringExtra("Jaksa_yang_melaksanakan")
+        val inputKeperluan = intent.getStringExtra("Keperluan")
+        val labelEdit = intent.getStringExtra("title_e")
+        label.text = labelEdit
+        editNama.setText(inputNama)
+        editPerkara.setText(inputPerkara)
+        editWaktu.setText(inputWaktu)
+        editTempat.setText(inputTempat)
+        editJaksa.setText(inputJaksa)
+        editKeperluan.setText(inputKeperluan)
 
         btnEdit.setOnClickListener {
             val nama = editNama.text.toString().trim()
@@ -69,54 +80,52 @@ class EdtjadwalActivity : AppCompatActivity() {
                     Jaksa_yang_melaksanakan = jaksa,
                     Keperluan = keperluan
                 )
-                editPenyelidikan(editJadwal)
+                Log.d("Edit_JadwalActivity", "idItem: $id")
+                Log.d("Edit_JadwalActivity", "body: $editJadwal")
+                if(labelEdit == "Edit Rincian Penyelidikan"){
+                    editPenyelidikan(editJadwal,id)
+                }  else if(labelEdit == "Edit Rincian Penyidikan"){
+                    editPenyidikan(editJadwal,id)
+                }
             }
         }
     }
 
-    private fun getDataPenyelidikan() {
-        val sharedPreferences = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
-        val iduser = sharedPreferences.getInt("id", -1)
 
-        PenyelidikanPenyidikanClient.penyelidikanInstance.getById(id = iduser).enqueue(object : Callback<DataPenyelidikanPenyidikan> {
-            override fun onResponse(
-                call: Call<DataPenyelidikanPenyidikan>,
-                response: Response<DataPenyelidikanPenyidikan>
-            ) {
-                if (response.isSuccessful) {
-                    val data = response.body()
-                    if (data != null) {
-                        editNama.setText(data.Nama)
-                        editPerkara.setText(data.Perkara)
-                        editWaktu.setText(data.Waktu_Pelaksanaan)
-                        editTempat.setText(data.Tempat_Pelaksanaan)
-                        editJaksa.setText(data.Jaksa_yang_melaksanakan)
-                        editKeperluan.setText(data.Keperluan)
-                    }
-                } else {
-                    Toast.makeText(this@EdtjadwalActivity, "Gagal ambil data: ${response.message()}", Toast.LENGTH_SHORT).show()
-                }
-            }
-
-            override fun onFailure(call: Call<DataPenyelidikanPenyidikan>, t: Throwable) {
-                t.printStackTrace()
-                Toast.makeText(this@EdtjadwalActivity, "Gagal ambil data: ${t.message}", Toast.LENGTH_SHORT).show()
-            }
-        })
-    }
-
-    private fun editPenyelidikan(jadwal: PenyelidikanPenyidikan) {
-        val sharedPreferences = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
-        val iduser = sharedPreferences.getInt("id", -1)
-
-        PenyelidikanPenyidikanClient.penyelidikanInstance.update(id = iduser, jadwal).enqueue(object : Callback<PenyelidikanPenyidikanResponse> {
+    private fun editPenyelidikan(penyelidikan: PenyelidikanPenyidikan,id:Int) {
+        PenyelidikanPenyidikanClient.penyelidikanInstance.update("updatePenyelidikan",id, penyelidikan).enqueue(object : Callback<PenyelidikanPenyidikanResponse> {
             override fun onResponse(
                 call: Call<PenyelidikanPenyidikanResponse>,
                 response: Response<PenyelidikanPenyidikanResponse>
             ) {
                 if (response.isSuccessful && response.body() != null) {
+                    Log.d("EditJadwalActivity", "responsePenyelidikan: ${response.body()}")
                     Toast.makeText(this@EdtjadwalActivity, "Sukses edit data", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this@EdtjadwalActivity, JadwalActivity::class.java)
+                    val intent = Intent(this@EdtjadwalActivity, MainActivity2::class.java)
+                    startActivity(intent)
+                    finish()
+                } else {
+                    Toast.makeText(this@EdtjadwalActivity, "Gagal edit jadwal: ${response.message()}", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<PenyelidikanPenyidikanResponse>, t: Throwable) {
+                t.printStackTrace()
+                Toast.makeText(this@EdtjadwalActivity, "Gagal edit jadwal: ${t.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
+    private fun editPenyidikan(penyidikan: PenyelidikanPenyidikan,id:Int) {
+        PenyelidikanPenyidikanClient.penyelidikanInstance.update("updatePenyidikan",id, penyidikan).enqueue(object : Callback<PenyelidikanPenyidikanResponse> {
+            override fun onResponse(
+                call: Call<PenyelidikanPenyidikanResponse>,
+                response: Response<PenyelidikanPenyidikanResponse>
+            ) {
+                if (response.isSuccessful && response.body() != null) {
+                    Log.d("EditJadwalActivity", "responsePenyidikan: ${response.body()}")
+                    Toast.makeText(this@EdtjadwalActivity, "Sukses edit data", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this@EdtjadwalActivity, MainActivity2::class.java)
                     startActivity(intent)
                     finish()
                 } else {

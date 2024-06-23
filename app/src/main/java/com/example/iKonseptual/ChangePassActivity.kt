@@ -3,6 +3,7 @@ package com.example.iKonseptual
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -46,19 +47,22 @@ class ChangePassActivity : AppCompatActivity() {
     private fun changePass(user:ForgetPass){
         val sharedPreferences = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
         val id = sharedPreferences.getInt("id", 0)
-        AuthClient.instance.forgetPassword(id,user).enqueue(object: Callback<ForgetPass>{
-            override fun onResponse(call: Call<ForgetPass>, response: Response<ForgetPass>) {
+
+        Log.d("ChangePassActivity", "Request ID: $id")
+        Log.d("ChangePassActivity", "Request Body: $user")
+
+        AuthClient.instance.forgetPassword("updatePassword",id,user).enqueue(object: Callback<ChangePassResponse>{
+            override fun onResponse(call: Call<ChangePassResponse>, response: Response<ChangePassResponse>) {
                 if(response.isSuccessful && response.body() != null){
                     Toast.makeText(this@ChangePassActivity,"Sukses ubah sandi", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this@ChangePassActivity, LoginActivity::class.java)
                     startActivity(intent)
-                    finish()
                 } else{
                     val errorBody = response.errorBody()?.string() ?: "Unknown error"
                     Toast.makeText(this@ChangePassActivity, "Gagal ubah sandi: ${response.code()} - $errorBody}", Toast.LENGTH_SHORT).show()
                 }
             }
-            override fun onFailure(call: Call<ForgetPass>, t: Throwable) {
+            override fun onFailure(call: Call<ChangePassResponse>, t: Throwable) {
                 t.printStackTrace()
                 Toast.makeText(this@ChangePassActivity, "Gagal ubah sandi: ${t.message}", Toast.LENGTH_SHORT).show()
             }
