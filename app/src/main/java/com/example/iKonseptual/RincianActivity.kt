@@ -1,7 +1,9 @@
 package com.example.iKonseptual
 
 import android.os.Bundle
-import android.widget.Button
+import android.util.Log
+import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -11,8 +13,8 @@ import androidx.core.view.WindowInsetsCompat
 class RincianActivity : AppCompatActivity() {
 
     lateinit var label_d : TextView
-    lateinit var icon_del : Button
-    lateinit var icon_edt : Button
+    lateinit var icon_del : ImageView
+    lateinit var icon_edt : ImageView
     lateinit var nama : TextView
     lateinit var perkara: TextView
     lateinit var waktu: TextView
@@ -29,6 +31,13 @@ class RincianActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+//        val userpref = getSharedPreferences("user_pref",Context.MODE_PRIVATE)
+//        val role = userpref.getInt("role",1)
+        val role = intent.getIntExtra("id", 0)
+
+        icon_del = findViewById(R.id.imageView_delete_jadwal)
+        icon_edt = findViewById(R.id.imageView_edit_jadwal)
 
         label_d = findViewById(R.id.label_detail)
         label_d.text = intent.getStringExtra("title_d")
@@ -54,36 +63,16 @@ class RincianActivity : AppCompatActivity() {
         jaksa.text = Jaksa_yang_melaksanakan ?: "N/A"
         keperluan.text = Keperluan ?: "N/A"
 
-//        val id = intent.getIntExtra("id",0).toString()
+        Log.d("Rincianactivity","role: $role")
+        Log.d("Rincianactivity","role: $intent")
 
-        icon_del = findViewById(R.id.imageView_delete_jadwal)
-        icon_edt = findViewById(R.id.imageView_edit_jadwal)
-//        val sharedPreferences = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
-//        val rolepref = sharedPreferences.getInt("role", -1)
-
-//        if (rolepref == 1){
-//            icon_del.visibility = View.GONE
-//            icon_edt.visibility = View.GONE
-//        }
-//        else{
-//            icon_del.visibility = View.VISIBLE
-//            icon_edt.visibility = View.VISIBLE
-//
-//            val labelEdit = intent.getStringExtra("title_e")
-////            getDataById()
-//            icon_edt.setOnClickListener{
-//                val intent = Intent(
-//                    this,
-//                    EdtjadwalActivity::class.java
-//                ).apply { putExtra("title_e",labelEdit)}
-//                startActivity(intent)
-//            }
-//            icon_del.setOnClickListener{
-////                deleteDataPenyelidikan()
-//            }
-//        }
-//
-//    }
-//
+        if (role == 1){
+            icon_del.visibility = View.GONE
+            icon_edt.visibility = View.GONE
+        }
+        else{
+            icon_del.visibility = View.VISIBLE
+            icon_edt.visibility = View.VISIBLE
+        }
     }
 }

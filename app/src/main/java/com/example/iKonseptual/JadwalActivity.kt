@@ -2,6 +2,7 @@ package com.example.iKonseptual
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -42,40 +43,32 @@ class JadwalActivity : AppCompatActivity() {
         recyclerView = findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-//        val id = intent.getIntExtra("id", 0).toString()
+        val id = intent.getIntExtra("id", 0).toString()
 
         label.text = intent.getStringExtra("title")
 
-//        val labelDetail = intent.getStringExtra("title_d")
-//        val labelCreate = intent.getStringExtra("title_c")
-//        val labelEdit = intent.getStringExtra("title_e")
-//
-//        if (id == "1"){
-//            icon.visibility = View.GONE
-//            val role = 1
-//        }
-//        else{
-//            icon.visibility = View.VISIBLE
-//            icon.setOnClickListener {
-//                val intent = Intent(
-//                    this,
-//                    CrtjadwalActivity::class.java
-//                ).apply {putExtra("title_c",labelCreate);}
-//                startActivity(intent)
-//            }
-//        }
-
-
-        if(label.text == "Jadwal Penyidikan"){
-            getAllDataPenyidikan()
+        if (id == "1"){
+            icon.visibility = View.GONE
+            if(label.text == "Jadwal Penyidikan"){
+                getAllDataPenyidikanUser()
+            }
+            else if(label.text == "Jadwal Penyelidikan"){
+                getAllDataPenyelidikanUser()
+            }
         }
-        else if(label.text == "Jadwal Penyelidikan"){
-            getAllDataPenyelidikan()
+        else if (id == "0"){
+            icon.visibility = View.VISIBLE
+            if(label.text == "Jadwal Penyidikan"){
+                getAllDataPenyidikanAdmin()
+            }
+            else if(label.text == "Jadwal Penyelidikan"){
+                getAllDataPenyelidikanAdmin()
+            }
         }
 
     }
 
-    private fun getAllDataPenyelidikan() {
+    private fun getAllDataPenyelidikanUser() {
         PenyelidikanPenyidikanClient.penyelidikanInstance.getAll().enqueue(object : Callback<PenyelidikanPenyidikanResponse> {
             override fun onResponse(
                 call: Call<PenyelidikanPenyidikanResponse>,
@@ -84,7 +77,7 @@ class JadwalActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     val data = response.body()?.data
                     if (data != null && data.isNotEmpty()) {
-                        recyclerView.adapter = PenyelidikanPenyidikanAdapter(this@JadwalActivity,data)
+                        recyclerView.adapter = PenyelidikanAdapterUser(this@JadwalActivity,data)
                         Toast.makeText(this@JadwalActivity, "Sukses ambil data", Toast.LENGTH_SHORT).show()
                     } else {
                         Toast.makeText(this@JadwalActivity, "Data tidak tersedia", Toast.LENGTH_SHORT).show()
@@ -102,7 +95,7 @@ class JadwalActivity : AppCompatActivity() {
         })
     }
 
-    private fun getAllDataPenyidikan() {
+    private fun getAllDataPenyidikanUser() {
         PenyelidikanPenyidikanClient.penyidikanInstance.getAll().enqueue(object : Callback<PenyelidikanPenyidikanResponse> {
             override fun onResponse(
                 call: Call<PenyelidikanPenyidikanResponse>,
@@ -111,7 +104,60 @@ class JadwalActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     val data = response.body()?.data
                     if (data != null && data.isNotEmpty()) {
-                        recyclerView.adapter = PenyelidikanPenyidikanAdapter(this@JadwalActivity,data)
+                        recyclerView.adapter = PenyidikanAdapterUser(this@JadwalActivity,data)
+                        Toast.makeText(this@JadwalActivity, "Sukses ambil data", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(this@JadwalActivity, "Data tidak tersedia", Toast.LENGTH_SHORT).show()
+                    }
+                } else {
+                    val errorBody = response.errorBody()?.string() ?: "Galat"
+                    Toast.makeText(this@JadwalActivity, "Gagal ambil data: ${response.code()} - $errorBody", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<PenyelidikanPenyidikanResponse>, t: Throwable) {
+                t.printStackTrace()
+                Toast.makeText(this@JadwalActivity, "Failed get data: ${t.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+    private fun getAllDataPenyelidikanAdmin() {
+        PenyelidikanPenyidikanClient.penyelidikanInstance.getAll().enqueue(object : Callback<PenyelidikanPenyidikanResponse> {
+            override fun onResponse(
+                call: Call<PenyelidikanPenyidikanResponse>,
+                response: Response<PenyelidikanPenyidikanResponse>
+            ) {
+                if (response.isSuccessful) {
+                    val data = response.body()?.data
+                    if (data != null && data.isNotEmpty()) {
+                        recyclerView.adapter = PenyelidikanAdapterAdmin(this@JadwalActivity,data)
+                        Toast.makeText(this@JadwalActivity, "Sukses ambil data", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(this@JadwalActivity, "Data tidak tersedia", Toast.LENGTH_SHORT).show()
+                    }
+                } else {
+                    val errorBody = response.errorBody()?.string() ?: "Galat"
+                    Toast.makeText(this@JadwalActivity, "Gagal ambil data: ${response.code()} - $errorBody", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<PenyelidikanPenyidikanResponse>, t: Throwable) {
+                t.printStackTrace()
+                Toast.makeText(this@JadwalActivity, "Failed get data: ${t.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
+    private fun getAllDataPenyidikanAdmin() {
+        PenyelidikanPenyidikanClient.penyidikanInstance.getAll().enqueue(object : Callback<PenyelidikanPenyidikanResponse> {
+            override fun onResponse(
+                call: Call<PenyelidikanPenyidikanResponse>,
+                response: Response<PenyelidikanPenyidikanResponse>
+            ) {
+                if (response.isSuccessful) {
+                    val data = response.body()?.data
+                    if (data != null && data.isNotEmpty()) {
+                        recyclerView.adapter = PenyidikanAdapterAdmin(this@JadwalActivity,data)
                         Toast.makeText(this@JadwalActivity, "Sukses ambil data", Toast.LENGTH_SHORT).show()
                     } else {
                         Toast.makeText(this@JadwalActivity, "Data tidak tersedia", Toast.LENGTH_SHORT).show()

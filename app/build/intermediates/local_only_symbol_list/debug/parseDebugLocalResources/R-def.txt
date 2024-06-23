@@ -30,7 +30,6 @@ id CardView_Jadwal_Pemeriksaan
 id CardView_PENYELIDIKAN
 id CardView_PENYIDIKAN
 id CardView_Perkara_Penting
-id CardView_torincian
 id TextView_DAFTAR
 id TextView_Jadwal_Pemeriksaan
 id TextView_LupaSandi
@@ -42,6 +41,7 @@ id button_login
 id button_post_jadwal
 id button_signup
 id buttonedtJadwal
+id card_Jadwal
 id card_Perkara_Penting
 id date_textView
 id delete_pekating

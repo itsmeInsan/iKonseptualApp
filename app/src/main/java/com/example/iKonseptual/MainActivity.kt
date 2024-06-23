@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         perkating = findViewById(R.id.CardView_Perkara_Penting)
         japem = findViewById(R.id.CardView_Jadwal_Pemeriksaan)
         val sharedPreferences = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
-        val rolepref = sharedPreferences.getInt("role", -1)
+        val rolepref = sharedPreferences.getInt("role", 1)
 
         if (rolepref == 1){
             val role = 1

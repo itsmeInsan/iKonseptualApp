@@ -3079,7 +3079,6 @@ id CardView_Jadwal_Pemeriksaan
 id CardView_PENYELIDIKAN
 id CardView_PENYIDIKAN
 id CardView_Perkara_Penting
-id CardView_torincian
 id FUNCTION
 id META
 id NO_DEBUG
@@ -3189,6 +3188,7 @@ id buttonedtJadwal
 id cache_measures
 id callMeasure
 id cancel_button
+id card_Jadwal
 id card_Perkara_Penting
 id carryVelocity
 id center
