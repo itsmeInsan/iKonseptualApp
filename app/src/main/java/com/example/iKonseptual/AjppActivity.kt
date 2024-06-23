@@ -41,7 +41,13 @@ class AjppActivity : AppCompatActivity() {
             )
             startActivity(intent)
         }
-        getAllDataPerkara()
+        if (DataRepository.perkaraPentingData != null) {
+            setupRecyclerView(DataRepository.perkaraPentingData!!)
+            Toast.makeText(this, "Data loaded from repository", Toast.LENGTH_SHORT).show()
+        } else {
+            // Fetch Data
+            getAllDataPerkara()
+        }
     }
     private fun getAllDataPerkara() {
         PerkaraPentingClient.instance.getAll().enqueue(object : Callback<PerkaraPentingResponse> {
@@ -52,7 +58,8 @@ class AjppActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     val data = response.body()?.data
                     if (data != null && data.isNotEmpty()) {
-                        recyclerView.adapter = PerkaraPentingAdapterAdmin(this@AjppActivity,data)
+                        DataRepository.perkaraPentingData = data
+                        setupRecyclerView(data)
                         Toast.makeText(this@AjppActivity, "Sukses ambil data", Toast.LENGTH_SHORT).show()
                     } else {
                         Toast.makeText(this@AjppActivity, "Data tidak tersedia", Toast.LENGTH_SHORT).show()
@@ -68,5 +75,8 @@ class AjppActivity : AppCompatActivity() {
                 Toast.makeText(this@AjppActivity, "Failed get data: ${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
+    }
+    private fun setupRecyclerView(data: List<DataPerkaraPenting>) {
+        recyclerView.adapter = PerkaraPentingAdapterUser(this, data)
     }
 }

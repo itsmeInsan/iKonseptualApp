@@ -162,11 +162,12 @@ class LoginActivity : AppCompatActivity() {
                             Log.d(TAG, "email: ${data.email}")
                             Log.d(TAG, "role: ${data.role}")
                         }
-                        Log.d(TAG, "data: $data")
-                        Toast.makeText(this@LoginActivity, "Login berhasil", Toast.LENGTH_SHORT).show()
-                        val intent = Intent(this@LoginActivity, MainActivity::class.java)
-                        startActivity(intent)
-                        finish()
+                        loadDataInBackground()
+//                        Log.d(TAG, "data: $data")
+//                        Toast.makeText(this@LoginActivity, "Login berhasil", Toast.LENGTH_SHORT).show()
+//                        val intent = Intent(this@LoginActivity, MainActivity::class.java)
+//                        startActivity(intent)
+//                        finish()
                     } else {
                         Toast.makeText(this@LoginActivity, "Login gagal: ${loginResponse.message}", Toast.LENGTH_SHORT).show()
                     }
@@ -182,4 +183,68 @@ class LoginActivity : AppCompatActivity() {
             }
         })
     }
+    private fun loadDataInBackground(){
+        loadJadwalPenyelidikan()
+        loadJadwalPenyidikan()
+        loadJadwalPerkara()
+    }
+    private fun loadJadwalPenyelidikan(){
+        PenyelidikanPenyidikanClient.penyelidikanInstance.getAll().enqueue(object :Callback<PenyelidikanPenyidikanResponse>{
+            override fun onResponse(
+                call: Call<PenyelidikanPenyidikanResponse>,
+                response: Response<PenyelidikanPenyidikanResponse>
+            ) {
+                if(response.isSuccessful){
+                    DataRepository.penyelidikanData = response.body()?.data
+                    checkIfAllDataLoaded()
+                }
+            }
+            override fun onFailure(call: Call<PenyelidikanPenyidikanResponse>, t: Throwable) {
+                t.printStackTrace()
+            }
+        })
+    }
+    private fun loadJadwalPenyidikan(){
+        PenyelidikanPenyidikanClient.penyidikanInstance.getAll().enqueue(object : Callback<PenyelidikanPenyidikanResponse>{
+            override fun onResponse(
+                call: Call<PenyelidikanPenyidikanResponse>,
+                response: Response<PenyelidikanPenyidikanResponse>
+            ) {
+                if(response.isSuccessful){
+                    DataRepository.penyidikanData = response.body()?.data
+                    checkIfAllDataLoaded()
+                }
+            }
+            override fun onFailure(call: Call<PenyelidikanPenyidikanResponse>, t: Throwable) {
+                t.printStackTrace()
+            }
+        })
+    }
+    private fun loadJadwalPerkara(){
+        PerkaraPentingClient.instance.getAll().enqueue(object : Callback<PerkaraPentingResponse>{
+            override fun onResponse(
+                call: Call<PerkaraPentingResponse>,
+                response: Response<PerkaraPentingResponse>
+            ) {
+                if(response.isSuccessful){
+                    DataRepository.perkaraPentingData = response.body()?.data
+                    checkIfAllDataLoaded()
+                }
+            }
+            override fun onFailure(call: Call<PerkaraPentingResponse>, t: Throwable) {
+                t.printStackTrace()
+            }
+        })
+    }
+    private fun checkIfAllDataLoaded() {
+        if (DataRepository.penyelidikanData != null &&
+            DataRepository.penyidikanData != null &&
+            DataRepository.perkaraPentingData != null) {
+            Toast.makeText(this, "Login berhasil", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+    }
+
 }

@@ -67,6 +67,13 @@ data class CountResponse(
     val message: String,
     val data: List<CountDays>
 )
+
+object DataRepository {
+    var penyelidikanData: List<DataPenyelidikanPenyidikan>? = null
+    var penyidikanData: List<DataPenyelidikanPenyidikan>? = null
+    var perkaraPentingData: List<DataPerkaraPenting>? = null
+}
+
 interface APIAuth {
     @POST("exec?action=register")
     fun register(@Body user: User): Call<User>

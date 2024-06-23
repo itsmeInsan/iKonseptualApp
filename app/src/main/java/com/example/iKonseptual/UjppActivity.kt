@@ -23,8 +23,8 @@ class UjppActivity : AppCompatActivity() {
         setContentView(R.layout.activity_ujpp)
 
         // Initialize Views
-       recyclerView = findViewById(R.id.recyclerView)
-       recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView = findViewById(R.id.recyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(this)
 
         // Handle Window Insets
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -32,12 +32,19 @@ class UjppActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        // Fetch Data
-        getAllDataPerkara()
+
+        // Check if data is already loaded
+        if (DataRepository.perkaraPentingData != null) {
+            setupRecyclerView(DataRepository.perkaraPentingData!!)
+            Toast.makeText(this, "Data loaded from repository", Toast.LENGTH_SHORT).show()
+        } else {
+            // Fetch Data
+            getAllDataPerkara()
+        }
     }
 
     private fun getAllDataPerkara() {
-        PerkaraPentingClient.instance.getAll().enqueue(object : Callback<PerkaraPentingResponse> {
+        PerkaraPentingClient.instance.getAll().enqueue(object :Callback<PerkaraPentingResponse>{
             override fun onResponse(
                 call: Call<PerkaraPentingResponse>,
                 response: Response<PerkaraPentingResponse>
@@ -45,7 +52,8 @@ class UjppActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     val data = response.body()?.data
                     if (data != null && data.isNotEmpty()) {
-                        recyclerView.adapter = PerkaraPentingAdapterUser(this@UjppActivity,data)
+                        DataRepository.perkaraPentingData = data
+                        setupRecyclerView(data)
                         Toast.makeText(this@UjppActivity, "Sukses ambil data", Toast.LENGTH_SHORT).show()
                     } else {
                         Toast.makeText(this@UjppActivity, "Data tidak tersedia", Toast.LENGTH_SHORT).show()
@@ -61,5 +69,9 @@ class UjppActivity : AppCompatActivity() {
                 Toast.makeText(this@UjppActivity, "Failed get data: ${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
+    }
+
+    private fun setupRecyclerView(data: List<DataPerkaraPenting>) {
+        recyclerView.adapter = PerkaraPentingAdapterUser(this, data)
     }
 }

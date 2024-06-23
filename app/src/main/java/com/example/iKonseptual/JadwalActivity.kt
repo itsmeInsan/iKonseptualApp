@@ -50,10 +50,22 @@ class JadwalActivity : AppCompatActivity() {
         if (id == "1"){
             icon.visibility = View.GONE
             if(label.text == "Jadwal Penyidikan"){
-                getAllDataPenyidikanUser()
+                if (DataRepository.penyidikanData != null) {
+                    setupRecyclerViewPenyidikanUser(DataRepository.penyidikanData!!)
+                    Toast.makeText(this, "Data loaded from repository", Toast.LENGTH_SHORT).show()
+                } else {
+                    // Fetch Data
+                    getAllDataPenyidikanUser()
+                }
             }
             else if(label.text == "Jadwal Penyelidikan"){
-                getAllDataPenyelidikanUser()
+                if (DataRepository.penyelidikanData != null) {
+                    setupRecyclerViewPenyelidikanUser(DataRepository.penyelidikanData!!)
+                    Toast.makeText(this, "Data loaded from repository", Toast.LENGTH_SHORT).show()
+                } else {
+                    // Fetch Data
+                    getAllDataPenyelidikanUser()
+                }
             }
         }
         else if (id == "0"){
@@ -67,7 +79,14 @@ class JadwalActivity : AppCompatActivity() {
                     }
                     startActivity(intent)
                 }
-                getAllDataPenyidikanAdmin()
+
+                if (DataRepository.penyidikanData != null) {
+                    setupRecyclerViewPenyidikanAdmin(DataRepository.penyidikanData!!)
+                    Toast.makeText(this, "Data loaded from repository", Toast.LENGTH_SHORT).show()
+                } else {
+                    // Fetch Data
+                    getAllDataPenyidikanAdmin()
+                }
             }
             else if(label.text == "Jadwal Penyelidikan"){
                 icon.setOnClickListener{
@@ -76,7 +95,14 @@ class JadwalActivity : AppCompatActivity() {
                     }
                     startActivity(intent)
                 }
-                getAllDataPenyelidikanAdmin()
+
+                if (DataRepository.penyelidikanData != null) {
+                    setupRecyclerViewPenyidikanAdmin(DataRepository.penyelidikanData!!)
+                    Toast.makeText(this, "Data loaded from repository", Toast.LENGTH_SHORT).show()
+                } else {
+                    // Fetch Data
+                    getAllDataPenyelidikanAdmin()
+                }
             }
         }
 
@@ -91,7 +117,9 @@ class JadwalActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     val data = response.body()?.data
                     if (data != null && data.isNotEmpty()) {
-                        recyclerView.adapter = PenyelidikanAdapterUser(this@JadwalActivity,data)
+                        DataRepository.penyelidikanData = data
+                        setupRecyclerViewPenyelidikanUser(data)
+//                        recyclerView.adapter = PenyelidikanAdapterUser(this@JadwalActivity,data)
                         Toast.makeText(this@JadwalActivity, "Sukses ambil data", Toast.LENGTH_SHORT).show()
                     } else {
                         Toast.makeText(this@JadwalActivity, "Data tidak tersedia", Toast.LENGTH_SHORT).show()
@@ -118,7 +146,9 @@ class JadwalActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     val data = response.body()?.data
                     if (data != null && data.isNotEmpty()) {
-                        recyclerView.adapter = PenyidikanAdapterUser(this@JadwalActivity,data)
+                        DataRepository.penyidikanData = data
+                        setupRecyclerViewPenyidikanUser(data)
+//                        recyclerView.adapter = PenyidikanAdapterUser(this@JadwalActivity,data)
                         Toast.makeText(this@JadwalActivity, "Sukses ambil data", Toast.LENGTH_SHORT).show()
                     } else {
                         Toast.makeText(this@JadwalActivity, "Data tidak tersedia", Toast.LENGTH_SHORT).show()
@@ -144,7 +174,9 @@ class JadwalActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     val data = response.body()?.data
                     if (data != null && data.isNotEmpty()) {
-                        recyclerView.adapter = PenyelidikanAdapterAdmin(this@JadwalActivity,data)
+                        DataRepository.penyelidikanData = data
+                        setupRecyclerViewPenyelidikanAdmin(data)
+//                        recyclerView.adapter = PenyelidikanAdapterAdmin(this@JadwalActivity,data)
                         Toast.makeText(this@JadwalActivity, "Sukses ambil data", Toast.LENGTH_SHORT).show()
                     } else {
                         Toast.makeText(this@JadwalActivity, "Data tidak tersedia", Toast.LENGTH_SHORT).show()
@@ -171,7 +203,9 @@ class JadwalActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     val data = response.body()?.data
                     if (data != null && data.isNotEmpty()) {
-                        recyclerView.adapter = PenyidikanAdapterAdmin(this@JadwalActivity,data)
+                        DataRepository.penyidikanData = data
+                        setupRecyclerViewPenyidikanAdmin(data)
+//                        recyclerView.adapter = PenyidikanAdapterAdmin(this@JadwalActivity,data)
                         Toast.makeText(this@JadwalActivity, "Sukses ambil data", Toast.LENGTH_SHORT).show()
                     } else {
                         Toast.makeText(this@JadwalActivity, "Data tidak tersedia", Toast.LENGTH_SHORT).show()
@@ -187,5 +221,17 @@ class JadwalActivity : AppCompatActivity() {
                 Toast.makeText(this@JadwalActivity, "Failed get data: ${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
+    }
+    private fun setupRecyclerViewPenyelidikanUser(data: List<DataPenyelidikanPenyidikan>){
+        recyclerView.adapter = PenyelidikanAdapterUser(this,data)
+    }
+    private fun setupRecyclerViewPenyidikanUser(data: List<DataPenyelidikanPenyidikan>){
+        recyclerView.adapter = PenyidikanAdapterUser(this,data)
+    }
+    private fun setupRecyclerViewPenyelidikanAdmin(data: List<DataPenyelidikanPenyidikan>){
+        recyclerView.adapter = PenyelidikanAdapterUser(this,data)
+    }
+    private fun setupRecyclerViewPenyidikanAdmin(data: List<DataPenyelidikanPenyidikan>){
+        recyclerView.adapter = PenyidikanAdapterAdmin(this,data)
     }
 }
