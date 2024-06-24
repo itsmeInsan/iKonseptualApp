@@ -29,33 +29,21 @@ class MainActivity2 : AppCompatActivity() {
         penyidikan = findViewById(R.id.CardView_PENYIDIKAN)
         penyelidikan = findViewById(R.id.CardView_PENYELIDIKAN)
 
-        val id = intent.getIntExtra("id", 0).toString()
-
-        if (id == "1") {
-            val role = 1
-            penyidikan.setOnClickListener {
-              loadDataPenyidikan(role)
-            }
-            penyelidikan.setOnClickListener {
-                loadDataPenyelidikan(role)
-            }
-        } else {
-            val role = 0
-            penyidikan.setOnClickListener {
-               loadDataPenyidikan(role)
-            }
-            penyelidikan.setOnClickListener {
-                loadDataPenyelidikan(role)
-            }
+        penyidikan.setOnClickListener{
+           loadDataPenyidikan()
         }
+        penyelidikan.setOnClickListener{
+            loadDataPenyelidikan()
+        }
+
     }
-    private fun loadDataPenyelidikan(role:Int){
-        loadJadwalPenyelidikan(role)
+    private fun loadDataPenyelidikan(){
+        loadJadwalPenyelidikan()
     }
-    private fun loadDataPenyidikan(role:Int){
-        loadJadwalPenyidikan(role)
+    private fun loadDataPenyidikan(){
+        loadJadwalPenyidikan()
     }
-    private fun loadJadwalPenyelidikan(role:Int){
+    private fun loadJadwalPenyelidikan(){
         PenyelidikanPenyidikanClient.penyelidikanInstance.getAll().enqueue(object :
             Callback<PenyelidikanPenyidikanResponse> {
             override fun onResponse(
@@ -64,7 +52,7 @@ class MainActivity2 : AppCompatActivity() {
             ) {
                 if(response.isSuccessful){
                     DataRepository.penyelidikanData = response.body()?.data
-                    checkIfAllDataLoadedPenyelidikan(role)
+                    checkIfAllDataLoadedPenyelidikan()
                 }
             }
             override fun onFailure(call: Call<PenyelidikanPenyidikanResponse>, t: Throwable) {
@@ -72,7 +60,7 @@ class MainActivity2 : AppCompatActivity() {
             }
         })
     }
-    private fun loadJadwalPenyidikan(role: Int){
+    private fun loadJadwalPenyidikan(){
         PenyelidikanPenyidikanClient.penyidikanInstance.getAll().enqueue(object :
             Callback<PenyelidikanPenyidikanResponse> {
             override fun onResponse(
@@ -81,7 +69,7 @@ class MainActivity2 : AppCompatActivity() {
             ) {
                 if(response.isSuccessful){
                     DataRepository.penyidikanData = response.body()?.data
-                    checkIfAllDataLoadedPenyidikan(role)
+                    checkIfAllDataLoadedPenyidikan()
                 }
             }
             override fun onFailure(call: Call<PenyelidikanPenyidikanResponse>, t: Throwable) {
@@ -89,13 +77,15 @@ class MainActivity2 : AppCompatActivity() {
             }
         })
     }
-    private fun checkIfAllDataLoadedPenyidikan(role:Int){
+    private fun checkIfAllDataLoadedPenyidikan(){
+        val role = intent.getIntExtra("id", 1).toString()
         val labelJadwal = "Jadwal Penyidikan"
         val labelDetail = "Detail Jadwal Penyidikan"
         val labelCreate = "Buat Jadwal Penyidikan"
         val labelEdit = "Ubah Jadwal Penyidikan"
         if(DataRepository.penyidikanData!=null){
-            if(role == 1){
+            if(role == "1"){
+                val role = 1
                 val intent = Intent(this, JadwalActivity::class.java).apply {
                     putExtra("title", labelJadwal)
                     putExtra("title_d", labelDetail)
@@ -115,19 +105,21 @@ class MainActivity2 : AppCompatActivity() {
             }
         }
     }
-    private fun checkIfAllDataLoadedPenyelidikan(role: Int) {
+    private fun checkIfAllDataLoadedPenyelidikan() {
+        val role = intent.getIntExtra("id", 1).toString()
         val labelJadwal = "Jadwal Penyelidikan"
         val labelDetail = "Detail Jadwal Penyelidikan"
         val labelCreate = "Buat Jadwal Penyelidikan"
         val labelEdit = "Ubah Jadwal Penyelidikan"
         if (DataRepository.penyelidikanData != null) {
-            if(role == 1){
+            if(role == "1"){
+                val roleuser = 1
                 val intent = Intent(this, JadwalActivity::class.java).apply {
                     putExtra("title", labelJadwal)
                     putExtra("title_d", labelDetail)
                     putExtra("title_c", labelCreate)
                     putExtra("title_e", labelEdit)
-                    putExtra("id", role)
+                    putExtra("id", roleuser)
                 }
                 startActivity(intent)
                 finish()

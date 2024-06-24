@@ -37,7 +37,7 @@ class RincianActivity : AppCompatActivity() {
             insets
         }
 
-        val role = intent.getIntExtra("role", 0)
+        val role = intent.getIntExtra("role", 1).toString()
 
         icon_del = findViewById(R.id.imageView_delete_jadwal)
         icon_edt = findViewById(R.id.imageView_edit_jadwal)
@@ -70,7 +70,7 @@ class RincianActivity : AppCompatActivity() {
         Log.d("Rincianactivity","role: $role")
         Log.d("Rincianactivity","role: $intent")
         Log.d("Rincianactivity","idItem: $id")
-        if (role == 1){
+        if (role == "1"){
             icon_del.visibility = View.GONE
             icon_edt.visibility = View.GONE
         }

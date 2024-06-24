@@ -44,7 +44,7 @@ class JadwalActivity : AppCompatActivity() {
         recyclerView = findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        val id = intent.getIntExtra("id", 0).toString()
+        val id = intent.getIntExtra("id", 1).toString()
         label.text = intent.getStringExtra("title")
 
         if (id == "1"){
