@@ -37,7 +37,7 @@ class RincianActivity : AppCompatActivity() {
             insets
         }
 
-        val role = intent.getIntExtra("role", 1).toString()
+        val role = intent.getIntExtra("role", 0).toString()
 
         icon_del = findViewById(R.id.imageView_delete_jadwal)
         icon_edt = findViewById(R.id.imageView_edit_jadwal)

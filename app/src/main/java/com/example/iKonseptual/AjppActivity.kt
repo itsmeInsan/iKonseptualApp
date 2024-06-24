@@ -77,6 +77,6 @@ class AjppActivity : AppCompatActivity() {
         })
     }
     private fun setupRecyclerView(data: List<DataPerkaraPenting>) {
-        recyclerView.adapter = PerkaraPentingAdapterUser(this, data)
+        recyclerView.adapter = PerkaraPentingAdapterAdmin(this, data)
     }
 }

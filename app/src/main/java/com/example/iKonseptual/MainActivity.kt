@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         }
         japem = findViewById(R.id.CardView_Jadwal_Pemeriksaan)
         val sharedPreferences = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
-        val rolepref = sharedPreferences.getInt("role", 1)
+        val rolepref = sharedPreferences.getInt("role", 0)
         if (rolepref == 1){
             val role = 1
             japem.setOnClickListener{
@@ -73,11 +73,12 @@ class MainActivity : AppCompatActivity() {
     }
     private fun checkIfAllDataLoadedPerkara() {
         val sharedPreferences = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
-        val role = sharedPreferences.getInt("role", 1)
+        val role = sharedPreferences.getInt("role", 0)
         if (DataRepository.perkaraPentingData != null) {
             if (role == 1) {
+                val roleuser = 1
                 val intent = Intent(this, UjppActivity::class.java).apply {
-                    putExtra("id",role)
+                    putExtra("id",roleuser)
                 }
                 startActivity(intent)
             } else {

@@ -78,7 +78,7 @@ class MainActivity2 : AppCompatActivity() {
         })
     }
     private fun checkIfAllDataLoadedPenyidikan(){
-        val role = intent.getIntExtra("id", 1).toString()
+        val role = intent.getIntExtra("id", 0).toString()
         val labelJadwal = "Jadwal Penyidikan"
         val labelDetail = "Detail Jadwal Penyidikan"
         val labelCreate = "Buat Jadwal Penyidikan"
@@ -106,7 +106,7 @@ class MainActivity2 : AppCompatActivity() {
         }
     }
     private fun checkIfAllDataLoadedPenyelidikan() {
-        val role = intent.getIntExtra("id", 1).toString()
+        val role = intent.getIntExtra("id", 0).toString()
         val labelJadwal = "Jadwal Penyelidikan"
         val labelDetail = "Detail Jadwal Penyelidikan"
         val labelCreate = "Buat Jadwal Penyelidikan"

@@ -46,7 +46,7 @@ class PenyelidikanAdapterUser(
                 putExtra("Jaksa_yang_melaksanakan", dataPenyelidikanPenyidikan.Jaksa_yang_melaksanakan)
                 putExtra("Keperluan", dataPenyelidikanPenyidikan.Keperluan)
                 putExtra("title_d", labelDetail)
-                putExtra("id", role)
+                putExtra("role", role)
             }
             context.startActivity(intent)
         }

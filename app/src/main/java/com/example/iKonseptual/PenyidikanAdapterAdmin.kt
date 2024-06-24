@@ -48,7 +48,7 @@ class PenyidikanAdapterAdmin (
                 putExtra("Keperluan", dataPenyidikan.Keperluan)
                 putExtra("title_d", labelDetail)
                 putExtra("title_e", labelEdit)
-                putExtra("id", role)
+                putExtra("role", role)
             }
             context.startActivity(intent)
         }

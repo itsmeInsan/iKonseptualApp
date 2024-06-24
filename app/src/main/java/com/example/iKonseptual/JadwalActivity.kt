@@ -44,7 +44,7 @@ class JadwalActivity : AppCompatActivity() {
         recyclerView = findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        val id = intent.getIntExtra("id", 1).toString()
+        val id = intent.getIntExtra("id", 0).toString()
         label.text = intent.getStringExtra("title")
 
         if (id == "1"){
@@ -229,7 +229,7 @@ class JadwalActivity : AppCompatActivity() {
         recyclerView.adapter = PenyidikanAdapterUser(this,data)
     }
     private fun setupRecyclerViewPenyelidikanAdmin(data: List<DataPenyelidikanPenyidikan>){
-        recyclerView.adapter = PenyelidikanAdapterUser(this,data)
+        recyclerView.adapter = PenyelidikanAdapterAdmin(this,data)
     }
     private fun setupRecyclerViewPenyidikanAdmin(data: List<DataPenyelidikanPenyidikan>){
         recyclerView.adapter = PenyidikanAdapterAdmin(this,data)
