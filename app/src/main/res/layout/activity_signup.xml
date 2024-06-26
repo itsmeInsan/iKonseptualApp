@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".signupActivity">
+    tools:context=".SignupActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -21,7 +21,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="227dp"
                 android:layout_marginTop="32dp"
-                app:srcCompat="@mipmap/pidsus_foreground" />
+                app:srcCompat="@mipmap/icon_law" />
 
             <TextView
                 android:layout_width="wrap_content"
