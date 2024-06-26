@@ -50,14 +50,14 @@ class AdppActivity : AppCompatActivity() {
         val id = intent.getIntExtra("Id_Perkara",0)
         val judulPerkara = intent.getStringExtra("Judul_Perkara")
         val identitasTersangka = intent.getStringExtra("Identitas_tersangka")
-        val penahanan = intent.getStringExtra("Penahanan")
-        val pasal = intent.getStringExtra("Pasal")
+        val penahananExtras = intent.getStringExtra("Penahanan")
+        val pasalExtras = intent.getStringExtra("Pasal")
         val kasusPosisi = intent.getStringExtra("Kasus_Posisi")
 
         textJudul.text = judulPerkara ?: "N/A"
         textTersangka.text = identitasTersangka ?: "N/A"
-        textPenahanan.text = penahanan ?: "N/A"
-        textPasal.text = pasal ?: "N/A"
+        textPenahanan.text = penahananExtras ?: "N/A"
+        textPasal.text = pasalExtras ?: "N/A"
         textkasus.text = kasusPosisi ?: "N/A"
 
 
@@ -66,8 +66,8 @@ class AdppActivity : AppCompatActivity() {
                 putExtra("id", id)
                 putExtra("judul", judulPerkara)
                 putExtra("tersangka", identitasTersangka)
-                putExtra("penahanan", penahanan)
-                putExtra("pasal", pasal)
+                putExtra("penahanan", penahananExtras)
+                putExtra("pasal", pasalExtras)
                 putExtra("kasusPosisi", kasusPosisi)
             }
             startActivity(nextSession)

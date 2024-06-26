@@ -1,3 +1,0 @@
-com.example.iKonseptual.test
-style WhiteBackgroundDialogTheme
-style WhiteBackgroundTheme

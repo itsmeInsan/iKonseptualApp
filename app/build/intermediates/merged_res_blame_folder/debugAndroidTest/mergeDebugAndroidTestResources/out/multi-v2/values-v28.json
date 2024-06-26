@@ -4,7 +4,7 @@
             "outputFile": "com.example.iKonseptual.test.app-mergeDebugAndroidTestResources-3:/values-v28/values-v28.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\fqbay\\.gradle\\caches\\transforms-4\\dc21bc0e77fce3b1ac93e8c2128c507b\\transformed\\core-1.5.0\\res\\values-v28\\values.xml",
+                    "source": "C:\\Users\\fqbay\\.gradle\\caches\\transforms-4\\8c3fdc0e46ef12adbbbd1759b6ad1f76\\transformed\\core-1.5.0\\res\\values-v28\\values.xml",
                     "from": {
                         "startLines": "4,13",
                         "startColumns": "0,0",
