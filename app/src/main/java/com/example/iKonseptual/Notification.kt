@@ -25,7 +25,7 @@ class Notification : BroadcastReceiver()
         val contentText = count.joinToString(separator = "\n") { "${it.Keterangan}: ${it.Value}" }
 
         val notification = NotificationCompat.Builder(context, channelID)
-            .setSmallIcon(R.drawable.ic_launcher_foreground)
+            .setSmallIcon(R.drawable.ic_stat_name)
             .setContentTitle("i-Konseptual")
             .setStyle(NotificationCompat.BigTextStyle().bigText(contentText))
             .setPriority(NotificationCompat.PRIORITY_HIGH) // High priority for heads-up notification
