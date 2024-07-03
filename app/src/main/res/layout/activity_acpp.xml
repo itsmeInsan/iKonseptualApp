@@ -71,7 +71,7 @@
                 <EditText
                     android:id="@+id/editText_Judul"
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="1dp"
                     android:layout_marginEnd="24dp"
@@ -99,7 +99,7 @@
                 <EditText
                     android:id="@+id/editText_Tersangka"
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="1dp"
                     android:layout_marginBottom="8dp"
                     android:layout_marginStart="24dp"
@@ -127,7 +127,7 @@
                 <EditText
                     android:id="@+id/editText_Penahanan"
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="1dp"
                     android:layout_marginBottom="8dp"
                     android:layout_marginStart="24dp"
@@ -155,7 +155,7 @@
                 <EditText
                     android:id="@+id/editText_Pasal"
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="1dp"
                     android:layout_marginBottom="8dp"
                     android:layout_marginStart="24dp"
@@ -183,7 +183,7 @@
                 <EditText
                     android:id="@+id/editText_Kasus_Posisi"
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="1dp"
                     android:layout_marginBottom="8dp"
                     android:layout_marginStart="24dp"
