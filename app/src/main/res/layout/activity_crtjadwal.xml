@@ -69,15 +69,19 @@
                 <EditText
                     android:id="@+id/inputNama"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="100dp"
                     android:layout_marginTop="1dp"
                     android:layout_marginBottom="8dp"
                     android:layout_marginStart="24dp"
                     android:layout_marginEnd="24dp"
                     android:background="@drawable/card"
                     android:ems="10"
-                    android:inputType="text"
-                    android:textAlignment="center" />
+                    android:inputType="textMultiLine"
+                    android:gravity="top"
+                    android:minHeight="50dp"
+                    android:padding="10dp"
+                    android:textAlignment="viewStart"
+                    tools:ignore="RtlCompat" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -93,15 +97,19 @@
                 <EditText
                     android:id="@+id/inputPerkara"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="150dp"
                     android:layout_marginTop="1dp"
                     android:layout_marginBottom="8dp"
                     android:layout_marginStart="24dp"
                     android:layout_marginEnd="24dp"
                     android:background="@drawable/card"
                     android:ems="10"
-                    android:inputType="text"
-                    android:textAlignment="center" />
+                    android:inputType="textMultiLine"
+                    android:gravity="top"
+                    android:minHeight="50dp"
+                    android:padding="10dp"
+                    android:textAlignment="viewStart"
+                    tools:ignore="RtlCompat" />
 
                 <TextView
                     android:id="@+id/textViewDate"
@@ -138,15 +146,19 @@
                 <EditText
                     android:id="@+id/inputTempat"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="150dp"
                     android:layout_marginTop="1dp"
                     android:layout_marginBottom="8dp"
                     android:layout_marginStart="24dp"
                     android:layout_marginEnd="24dp"
                     android:background="@drawable/card"
                     android:ems="10"
-                    android:inputType="text"
-                    android:textAlignment="center" />
+                    android:inputType="textMultiLine"
+                    android:gravity="top"
+                    android:minHeight="50dp"
+                    android:padding="10dp"
+                    android:textAlignment="viewStart"
+                    tools:ignore="RtlCompat" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -162,15 +174,19 @@
                 <EditText
                     android:id="@+id/inputJaksa"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="150dp"
                     android:layout_marginTop="1dp"
                     android:layout_marginBottom="8dp"
                     android:layout_marginStart="24dp"
                     android:layout_marginEnd="24dp"
                     android:background="@drawable/card"
                     android:ems="10"
-                    android:inputType="text"
-                    android:textAlignment="center" />
+                    android:inputType="textMultiLine"
+                    android:gravity="top"
+                    android:minHeight="50dp"
+                    android:padding="10dp"
+                    android:textAlignment="viewStart"
+                    tools:ignore="RtlCompat" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -186,15 +202,19 @@
                 <EditText
                     android:id="@+id/inputKeperluan"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="150dp"
                     android:layout_marginTop="1dp"
                     android:layout_marginBottom="8dp"
                     android:layout_marginStart="24dp"
                     android:layout_marginEnd="24dp"
                     android:background="@drawable/card"
                     android:ems="10"
-                    android:inputType="text"
-                    android:textAlignment="center" />
+                    android:inputType="textMultiLine"
+                    android:gravity="top"
+                    android:minHeight="50dp"
+                    android:padding="10dp"
+                    android:textAlignment="viewStart"
+                    tools:ignore="RtlCompat" />
 
             </LinearLayout>
 

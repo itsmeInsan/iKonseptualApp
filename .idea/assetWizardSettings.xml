@@ -24,7 +24,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="/private/var/folders/t0/8g57d9j16rg2vghnr5l403wd811wmx/T/ic_android_black_24dp.xml" />
+                                                <entry key="imagePath" value="C:\Users\fqbay\AppData\Local\Temp\ic_android_black_24dp.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -67,7 +67,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="imagePath" value="/private/var/folders/t0/8g57d9j16rg2vghnr5l403wd811wmx/T/ic_android_black_24dp.xml" />
+                                                <entry key="imagePath" value="C:\Users\fqbay\AppData\Local\Temp\ic_android_black_24dp.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -79,8 +79,8 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="$USER_HOME$/Downloads/logo.png" />
-                                                <entry key="scalingPercent" value="112" />
+                                                <entry key="imagePath" value="C:\Users\fqbay\Downloads\pidsus.webp" />
+                                                <entry key="scalingPercent" value="53" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -114,7 +114,7 @@
                                     <map>
                                       <entry key="backgroundAssetType" value="COLOR" />
                                       <entry key="backgroundColor" value="ffffff" />
-                                      <entry key="outputName" value="pidsus" />
+                                      <entry key="previewDensity" value="xxxhdpi" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -131,7 +131,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="/private/var/folders/t0/8g57d9j16rg2vghnr5l403wd811wmx/T/ic_android_black_24dp.xml" />
+                                                <entry key="imagePath" value="C:\Users\fqbay\AppData\Local\Temp\ic_android_black_24dp.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -175,7 +175,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="/private/var/folders/t0/8g57d9j16rg2vghnr5l403wd811wmx/T/ic_android_black_24dp.xml" />
+                                                <entry key="imagePath" value="C:\Users\fqbay\AppData\Local\Temp\ic_android_black_24dp.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -239,7 +239,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="imagePath" value="/private/var/folders/t0/8g57d9j16rg2vghnr5l403wd811wmx/T/ic_android_black_24dp.xml" />
+                                                <entry key="imagePath" value="C:\Users\fqbay\AppData\Local\Temp\ic_android_black_24dp.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -278,6 +278,11 @@
                                           </PersistentState>
                                         </value>
                                       </entry>
+                                    </map>
+                                  </option>
+                                  <option name="values">
+                                    <map>
+                                      <entry key="previewDensity" value="xxxhdpi" />
                                     </map>
                                   </option>
                                 </PersistentState>

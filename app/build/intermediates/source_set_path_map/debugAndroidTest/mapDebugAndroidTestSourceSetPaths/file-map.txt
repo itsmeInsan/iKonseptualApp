@@ -1,6 +1,0 @@
-com.example.iKonseptual.test.app-annotation-experimental-1.3.0-0 C:\Users\fqbay\.gradle\caches\transforms-4\bf1311d1490ffe2ced1bba924551d8ce\transformed\annotation-experimental-1.3.0\res
-com.example.iKonseptual.test.app-core-1.5.0-1 C:\Users\fqbay\.gradle\caches\transforms-4\dc21bc0e77fce3b1ac93e8c2128c507b\transformed\core-1.5.0\res
-com.example.iKonseptual.test.app-androidTest-2 C:\Users\fqbay\ikonseptualApp\i-Konseptual\app\build\generated\res\resValues\androidTest\debug
-com.example.iKonseptual.test.app-mergeDebugAndroidTestResources-3 C:\Users\fqbay\ikonseptualApp\i-Konseptual\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
-com.example.iKonseptual.test.app-mergeDebugAndroidTestResources-4 C:\Users\fqbay\ikonseptualApp\i-Konseptual\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
-com.example.iKonseptual.test.app-debugAndroidTest-5 C:\Users\fqbay\ikonseptualApp\i-Konseptual\app\build\intermediates\merged_res\debugAndroidTest\mergeDebugAndroidTestResources

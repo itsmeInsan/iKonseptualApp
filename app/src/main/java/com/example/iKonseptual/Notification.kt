@@ -27,7 +27,7 @@ class Notification : BroadcastReceiver()
         val notification = NotificationCompat.Builder(context, channelID)
             .setSmallIcon(R.drawable.ic_launcher_foreground)
             .setContentTitle("i-Konseptual")
-            .setContentText(contentText)
+            .setStyle(NotificationCompat.BigTextStyle().bigText(contentText))
             .setPriority(NotificationCompat.PRIORITY_HIGH) // High priority for heads-up notification
             .setDefaults(NotificationCompat.DEFAULT_ALL) // Default sound, vibration, and lights
             .setContentIntent(pendingIntent)
